@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import os
-import shutil
 import subprocess
 from pathlib import Path, PurePosixPath
 
@@ -64,6 +63,14 @@ def should_include(top_level_dir: str, mode: str) -> bool:
     raise SystemExit(f"Unsupported mode: {mode}")
 
 
+def include_patterns(mode: str) -> list[str]:
+    dirs = sorted(dir_name for dir_name in SUPPORTED_DIRS if should_include(dir_name, mode))
+    patterns: list[str] = []
+    for dir_name in dirs:
+        patterns.extend([f"{dir_name}/*", f"{dir_name}/**"])
+    return patterns
+
+
 def list_repo_files(repo: str, revision: str, token: str | None, mode: str) -> list[str]:
     api = HfApi(token=token or None)
     selected: list[str] = []
@@ -80,34 +87,27 @@ def list_repo_files(repo: str, revision: str, token: str | None, mode: str) -> l
     return selected
 
 
-def download_file(repo: str, revision: str, token: str | None, source_path: str, target_path: Path, force: bool) -> None:
-    if target_path.exists() and not force:
-        print(f"skip: {target_path}")
-        return
-
-    target_path.parent.mkdir(parents=True, exist_ok=True)
+def sync_repo_subset(repo: str, revision: str, token: str | None, model_root: Path, mode: str, force: bool) -> None:
+    model_root.mkdir(parents=True, exist_ok=True)
     cmd = [
         "hf",
         "download",
         repo,
-        source_path,
         "--repo-type",
         "model",
         "--revision",
         revision,
+        "--local-dir",
+        str(model_root),
     ]
     if token:
         cmd.extend(["--token", token])
     if force:
         cmd.append("--force-download")
+    for pattern in include_patterns(mode):
+        cmd.extend(["--include", pattern])
 
-    result = subprocess.run(cmd, check=True, capture_output=True, text=True)
-    downloaded_path = Path(result.stdout.strip().splitlines()[-1])
-    if not downloaded_path.exists():
-        raise SystemExit(f"hf download did not return a valid path: {downloaded_path}")
-
-    shutil.copy2(downloaded_path, target_path)
-    print(f"saved: {target_path}")
+    subprocess.run(cmd, check=True)
 
 
 def main() -> int:
@@ -128,9 +128,8 @@ def main() -> int:
     print(f"Repo: {repo}@{revision}")
     print(f"Mode: {args.mode}")
     print(f"Found {len(files)} files")
-    for source_path in files:
-        target_path = Path(args.model_root) / Path(PurePosixPath(source_path))
-        download_file(repo, revision, token, source_path, target_path, args.force)
+    print(f"Syncing into: {args.model_root}")
+    sync_repo_subset(repo, revision, token, Path(args.model_root), args.mode, args.force)
 
     return 0
 
