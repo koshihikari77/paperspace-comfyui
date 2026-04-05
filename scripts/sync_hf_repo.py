@@ -28,8 +28,14 @@ SUPPORTED_DIRS = {
 
 
 def load_repo_config(config_path: Path) -> tuple[str, str]:
-    with config_path.open("r", encoding="utf-8") as fh:
-        config = yaml.safe_load(fh) or {}
+    try:
+        with config_path.open("r", encoding="utf-8") as fh:
+            config = yaml.safe_load(fh) or {}
+    except FileNotFoundError as exc:
+        raise SystemExit(
+            f"Config file not found: {config_path}\n"
+            "Create it in the cloned repo, or update HF_REPO_CONFIG in the notebook."
+        ) from exc
 
     if config.get("version") != 1:
         raise SystemExit("Config version must be 1")

@@ -58,7 +58,7 @@ chmod +x docker/build-and-push.sh
 2. Notebook 上でこのリポジトリを clone する
 3. `HF_HOME=/storage/.cache/huggingface` を使って一度だけ `hf auth login` する
 4. 永続ストレージ上に `ComfyUI` を `/storage/ComfyUI` で置く
-5. [`hf-repo.example.yaml`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/hf-repo.example.yaml) を参考に `/storage/ComfyUI/hf-repo.yaml` を作る
+5. clone した repo 内の [`hf-repo.yaml`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/hf-repo.yaml) を必要なら編集する
 6. clone した repo 内の [`start.ipynb`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/start.ipynb) を開く
 7. 先頭セルの `MODEL_MODE` を `image` か `video` に変更して順番に実行する
 8. ComfyUI へのアクセスは `https://tensorboard-$PAPERSPACE_FQDN` を使う
@@ -74,12 +74,12 @@ Notebook は repo 直下の `scripts/` を参照して次を行います。
 
 ## Repo Config
 
-標準パスは `/storage/ComfyUI/hf-repo.yaml` です。  
-ここには Hugging Face private repo の識別子だけを書き、取得対象は repo のトップレベル構成から決めます。
+標準パスは clone した repo 内の [`hf-repo.yaml`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/hf-repo.yaml) です。  
+既定では `korokoro77/paperspace_models` を参照します。別 repo を使うならこのファイルだけ直します。
 
 ```yaml
 version: 1
-repo: your-org/private-models
+repo: korokoro77/paperspace_models
 revision: main
 ```
 
