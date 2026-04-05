@@ -64,22 +64,18 @@ def should_include(top_level_dir: str, mode: str) -> bool:
     raise SystemExit(f"Unsupported mode: {mode}")
 
 
-def list_repo_files(repo: str, revision: str, token: str | None, mode: str) -> list[tuple[str, str]]:
+def list_repo_files(repo: str, revision: str, token: str | None, mode: str) -> list[str]:
     api = HfApi(token=token or None)
-    selected: list[tuple[str, str]] = []
+    selected: list[str] = []
 
-    for entry in api.list_repo_tree(repo_id=repo, repo_type="model", revision=revision, recursive=True):
-        path = getattr(entry, "path", "")
-        if not path or path.endswith("/"):
-            continue
-
+    for path in api.list_repo_files(repo_id=repo, repo_type="model", revision=revision):
         parts = PurePosixPath(path).parts
         if len(parts) < 2:
             continue
 
         top_level_dir = parts[0]
         if should_include(top_level_dir, mode):
-            selected.append((top_level_dir, path))
+            selected.append(path)
 
     return selected
 
@@ -132,8 +128,8 @@ def main() -> int:
     print(f"Repo: {repo}@{revision}")
     print(f"Mode: {args.mode}")
     print(f"Found {len(files)} files")
-    for top_level_dir, source_path in files:
-        target_path = Path(args.model_root) / top_level_dir / PurePosixPath(source_path).name
+    for source_path in files:
+        target_path = Path(args.model_root) / Path(PurePosixPath(source_path))
         download_file(repo, revision, token, source_path, target_path, args.force)
 
     return 0
