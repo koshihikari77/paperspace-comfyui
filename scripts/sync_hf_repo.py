@@ -27,6 +27,13 @@ SUPPORTED_DIRS = {
 }
 
 
+def normalize_token(value: str | None) -> str | None:
+    if value is None:
+        return None
+    token = value.strip()
+    return token or None
+
+
 def load_repo_config(config_path: Path) -> tuple[str, str]:
     try:
         with config_path.open("r", encoding="utf-8") as fh:
@@ -57,8 +64,8 @@ def should_include(top_level_dir: str, mode: str) -> bool:
     raise SystemExit(f"Unsupported mode: {mode}")
 
 
-def list_repo_files(repo: str, revision: str, token: str, mode: str) -> list[tuple[str, str]]:
-    api = HfApi(token=token)
+def list_repo_files(repo: str, revision: str, token: str | None, mode: str) -> list[tuple[str, str]]:
+    api = HfApi(token=token or None)
     selected: list[tuple[str, str]] = []
 
     for entry in api.list_repo_tree(repo_id=repo, repo_type="model", revision=revision, recursive=True):
@@ -77,7 +84,7 @@ def list_repo_files(repo: str, revision: str, token: str, mode: str) -> list[tup
     return selected
 
 
-def download_file(repo: str, revision: str, token: str, source_path: str, target_path: Path, force: bool) -> None:
+def download_file(repo: str, revision: str, token: str | None, source_path: str, target_path: Path, force: bool) -> None:
     if target_path.exists() and not force:
         print(f"skip: {target_path}")
         return
@@ -115,7 +122,7 @@ def main() -> int:
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
 
-    token = os.environ.get("HF_TOKEN", "")
+    token = normalize_token(os.environ.get("HF_TOKEN"))
 
     repo, revision = load_repo_config(Path(args.config))
     files = list_repo_files(repo, revision, token, args.mode)
