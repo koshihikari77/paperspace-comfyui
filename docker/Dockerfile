@@ -31,13 +31,6 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1 &
         notebook \
         pyyaml
 
-COPY scripts /app/bootstrap/scripts
-COPY start.ipynb /app/bootstrap/start.ipynb
-COPY hf-repo.example.yaml /app/bootstrap/hf-repo.example.yaml
-COPY docker/start-jupyter.sh /app/bootstrap/start-jupyter.sh
-
-RUN chmod +x /app/bootstrap/scripts/*.py /app/bootstrap/start-jupyter.sh
-
 RUN mkdir -p /app/models /app/.cache/huggingface /notebooks
 
 WORKDIR /notebooks
@@ -45,4 +38,4 @@ WORKDIR /notebooks
 EXPOSE 8188 8888
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
-CMD ["/app/bootstrap/start-jupyter.sh"]
+CMD ["bash", "-lc", "jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --ServerApp.token='' --ServerApp.password=''"]
