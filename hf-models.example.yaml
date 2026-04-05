@@ -1,0 +1,19 @@
+version: 1
+categories:
+  image:
+    - repo: your-org/private-models
+      source_path: checkpoints/sd_xl_base_1.0.safetensors
+      target_subdir: checkpoints
+      revision: main
+    - repo: your-org/private-models
+      source_path: loras/portrait-style.safetensors
+      target_subdir: loras
+      filename: portrait-style.safetensors
+  video:
+    - repo: your-org/private-models
+      source_path: diffusion_models/video-model.safetensors
+      target_subdir: diffusion_models
+      revision: main
+    - repo: your-org/private-models
+      source_path: vae/video-vae.safetensors
+      target_subdir: vae
