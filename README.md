@@ -55,9 +55,9 @@ chmod +x docker/build-and-push.sh
 ## Paperspace での使い方
 
 1. Paperspace Notebook のカスタムコンテナにこのイメージを指定する
-2. `HF_TOKEN` を Paperspace Secrets か環境変数で渡す
-3. 永続ストレージ上に `ComfyUI` を `/storage/ComfyUI` で置く
-4. このリポジトリを Notebook 上に clone する
+2. Notebook 上でこのリポジトリを clone する
+3. `HF_HOME=/storage/.cache/huggingface` を使って一度だけ `hf auth login` する
+4. 永続ストレージ上に `ComfyUI` を `/storage/ComfyUI` で置く
 5. [`hf-repo.example.yaml`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/hf-repo.example.yaml) を参考に `/storage/ComfyUI/hf-repo.yaml` を作る
 6. clone した repo 内の [`start.ipynb`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/start.ipynb) を開く
 7. 先頭セルの `MODEL_MODE` を `image` か `video` に変更して順番に実行する
@@ -65,7 +65,7 @@ chmod +x docker/build-and-push.sh
 
 Notebook は repo 直下の `scripts/` を参照して次を行います。
 
-- `hf` と `HF_TOKEN` の確認
+- `hf` と Hugging Face ログイン状態の確認
 - repo 設定の読み込み
 - Hugging Face repo 構成を見て必要なディレクトリだけ `/app/models` へ同期
 - `/storage/ComfyUI/extra_model_paths.yaml` をバックアップして再生成
@@ -113,6 +113,14 @@ Notebook の先頭セルで次を変更できます。
 - `COMFYUI_PORT`
 - `COMFYUI_ARGS`
 - `COMFYUI_PYTHON`
+- `HF_HOME`
+
+初回だけ次を実行して Hugging Face のログイン情報を永続化します。
+
+```bash
+export HF_HOME=/storage/.cache/huggingface
+hf auth login
+```
 
 `COMFYUI_PYTHON` を空のままにした場合は、次の順で探索します。
 

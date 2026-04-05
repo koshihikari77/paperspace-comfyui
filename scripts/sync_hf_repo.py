@@ -86,9 +86,9 @@ def download_file(repo: str, revision: str, token: str, source_path: str, target
         "model",
         "--revision",
         revision,
-        "--token",
-        token,
     ]
+    if token:
+        cmd.extend(["--token", token])
     if force:
         cmd.append("--force-download")
 
@@ -109,9 +109,7 @@ def main() -> int:
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
 
-    token = os.environ.get("HF_TOKEN")
-    if not token:
-        raise SystemExit("HF_TOKEN is not set. Configure it in Paperspace Secrets or environment variables.")
+    token = os.environ.get("HF_TOKEN", "")
 
     repo, revision = load_repo_config(Path(args.config))
     files = list_repo_files(repo, revision, token, args.mode)
