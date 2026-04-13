@@ -10,14 +10,20 @@ RUN apt-get update && apt-get install -y \
     bash \
     ca-certificates \
     curl \
+    ffmpeg \
     git \
     git-lfs \
+    iproute2 \
     libgl1 \
     libglib2.0-0 \
+    less \
+    procps \
     python3.10 \
     python3-pip \
     python3.10-venv \
     tini \
+    unzip \
+    vim-tiny \
     wget \
     && rm -rf /var/lib/apt/lists/*
 
