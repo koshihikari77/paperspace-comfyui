@@ -1,0 +1,1391 @@
+catalog_version: 1
+generated_from: workspace/lora_catalog/civitai_loras.raw_versions.yaml
+source:
+  type: civitai_collection
+  collection_id: 15946059
+  base_url: https://civitai.red
+selection_policy:
+  same_lora_versions: keep latest version
+  different_loras_in_same_model: keep each distinct LoRA concept
+  base_model_variants: prefer Illustrious-compatible versions
+item_count: 22
+items:
+- key: doublejobxlnai
+  name: '[concept]double pussy job / W素股 Illustrious & Pony'
+  model_id: 1459141
+  model_version_id: 1650040
+  version_name: Illustrious
+  version_index: 0
+  version_created_at: '2025-04-11T19:51:16.844Z'
+  version_published_at: '2025-04-11T20:05:15.395Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: doublejobXLNAI.safetensors
+  file_id: 1550665
+  file_size_kb: 56081.98828125
+  hashes:
+    SHA256: 5AD4C977D2EE8A50BAFE3FC231CF5A86F0287285E3C0D8622A72BECC329582D0
+    AutoV2: 5AD4C977D2
+    AutoV1: 86262D7D
+    CRC32: 1A1A8DEF
+    BLAKE3: 13772806502597DF565A120647CCCF38904492860B36701045AFB77D822F4340
+  download_url: https://civitai.com/api/download/models/1650040
+  page_url: https://civitai.com/models/1459141
+  creator:
+    username: mikuhatsune
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/5fe39454-5b96-4533-b559-92c1f0a0419e/width=96/mikuhatsune.jpeg
+  trigger_words:
+  - double-pussy job,1boy,2girls,penis,threesome,tribadism,on back,multiple girls,
+  tags:
+  - concept
+  - butt
+  - sex
+  - multiple girls
+  - pussyjob
+  nsfw: false
+  poi: false
+  stats:
+    download_count: 3466
+    favorite_count: null
+    rating: null
+    version_download_count: 2982
+  description: "requested lora.\nRecommend to use square or \nlandscape rectangle\n size, \ntrigger:\ndouble-pussy job,1boy,2girls,penis,threesome,tribadism,on\
+    \ back,multiple girls,"
+  version_description: ''
+  collection:
+    item_id: 183184902
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: selected latest Illustrious-compatible version among base-model/version variants
+- key: ffm_fellatio_-_anilingus_ilxl_v1
+  name: '[Illustrious] FFM Fellatio & Anilingus / Concept'
+  model_id: 1087174
+  model_version_id: 1220887
+  version_name: v1.0
+  version_index: 0
+  version_created_at: '2024-12-30T16:59:49.015Z'
+  version_published_at: '2024-12-30T21:41:29.161Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: ffm_fellatio_&_anilingus_ilxl_v1.safetensors
+  file_id: 1126988
+  file_size_kb: 111750.12109375
+  hashes:
+    SHA256: BCBD736BDCF4E67DE625BC9477341604F52E15D10ADCEF4A3E2473EDC6EF55E8
+    AutoV2: BCBD736BDC
+    AutoV1: 5CBC9B71
+    CRC32: 919F1439
+    BLAKE3: 2D78ED4CD70806150A5BEA2C7A50EA28FDEC5ACF64617F9A0961A2F4C4F7DE48
+  download_url: https://civitai.com/api/download/models/1220887
+  page_url: https://civitai.com/models/1087174
+  creator:
+    username: h_madoka
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/a783f294-845b-41c9-bb19-e1950bb68234/width=96/h_madoka.jpeg
+  trigger_words:
+  - 2girls, multiple girls, 1boy, ffm threesome, uncensored, penis, pubic hair, fellatio, deepthroat, (face in ass:1.2), anilingus,
+    from side
+  tags:
+  - concept
+  - fellatio
+  - threesome
+  - nsfw
+  - lora
+  - anilingus
+  nsfw: false
+  poi: false
+  stats:
+    download_count: 4499
+    favorite_count: null
+    rating: null
+    version_download_count: 4499
+  description: "weight \n1\n is best. \n(Base model is Noob-Illustrious SDXL)\nThis LoRA only works with the Illustrious XL\
+    \ series checkpoints.\nmain prompt \n2girls, multiple girls, 1boy, ffm threesome, uncensored, penis, pubic hair, fellatio,\
+    \ deepthroat, (face in ass:1.2), anilingus, from side\nsub prompt\nx-ray\n \nPossible prompt swap\nupper body\n ↔ \nkneeling\n\
+    \ ↔ \nsquatting\nMost images in this model dataset are landscape resolution. When using this model, it is recommended\
+    \ to create images in landscape resolution(or square resolution). It is not recommended to create images in portrait resolution.\n\
+    このモデルのデータセット画像の多くは横解像度です。 画像を生成するときは、横解像度(または正方形の解像度)の画像で生成することをおすすめします。 縦は成功率が低いです。\n학습 이미지의 대부분이 가로 해상도였기 때문에 이미지 생성할\
+    \ 땐 가로 위주(또는 정사각형 사이즈)의 이미지로 생성하는 것을 추천함. 세로도 되긴 되는데 성공률이 낮음.\nIn the sample images, used hires.fix and the extension\
+    \ Adetailer."
+  version_description: ''
+  collection:
+    item_id: 183185078
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: midis_sexualcoaching_v1-lr-il
+  name: '[Modifier] Sexual Coaching - NAI VPRED | ILLUSTRIOUS'
+  model_id: 1056564
+  model_version_id: 1364913
+  version_name: v1.0-LR Illustrious
+  version_index: 2
+  version_created_at: '2025-02-03T02:28:27.820Z'
+  version_published_at: '2025-02-03T02:44:29.245Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: midis_SexualCoaching_V1-LR[IL].safetensors
+  file_id: 1268251
+  file_size_kb: 7372.08203125
+  hashes:
+    SHA256: 42B49DEDA06023D40A385928B779240DC9134F2757DC5028500CB6D189D0F709
+    AutoV2: 42B49DEDA0
+    AutoV1: A7CA60FA
+    CRC32: 7C2A5915
+    BLAKE3: 157BAA33F96A421975AD603834985FF3AB7DBC8DF72DEBF428147A163CAD58D4
+  download_url: https://civitai.com/api/download/models/1364913
+  page_url: https://civitai.com/models/1056564
+  creator:
+    username: Midori2667
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/88770c0b-207f-49dc-a227-2c2923533c84/width=96/Midori2667.jpeg
+  trigger_words:
+  - sexual coaching
+  - fellatio
+  - guiding hand
+  - cowgirl position
+  - missionary
+  tags:
+  - anime
+  - concept
+  - missionary
+  - fellatio
+  - midi
+  - midis
+  - sexual coaching
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 10504
+    favorite_count: null
+    rating: null
+    version_download_count: 2701
+  description: "VPRED model has now been added, use it with noobAi VPred, VPRED needs special settings go check \nnoobais\n\
+    \ page for details\nLow rank Model added: -LR. Low rank models will not costs extra charges on the site generators. \n\
+    Sexual Coaching\n is the activation tag \nThere are a few options you need to add one of the following with the activation\
+    \ tag: \nFellatio\nMissionary\nCowgirl position\nPaizuri\nSee examples:\nThis release is part of my cadence improvement\
+    \ strategy. I’m uploading functional LoRAs that don’t yet meet my full standards but still perform well. These versions\
+    \ are will be marked as experimental. Expect a steady flow of updates on my account, with continuous refinements to reach\
+    \ final release quality."
+  version_description: ''
+  collection:
+    item_id: 183185008
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: selected latest Illustrious-compatible version among base-model/version variants
+- key: ass_contest_v1
+  name: Ass Contest
+  model_id: 360097
+  model_version_id: 1232306
+  version_name: v1.0 Illustrious
+  version_index: 0
+  version_created_at: '2025-01-02T18:20:50.933Z'
+  version_published_at: '2025-01-02T18:22:22.803Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: Ass_Contest_v1.safetensors
+  file_id: 1137767
+  file_size_kb: 223149.41015625
+  hashes:
+    SHA256: 2F1DCD77E28A68EAADD91FB31EF18F8384E6C296C8C08934A21F828336D9BF7F
+    AutoV2: 2F1DCD77E2
+    AutoV1: F2798603
+    CRC32: 293944BE
+    BLAKE3: 31B039FB8462C6BE8B24616622E7365E8CD1C362AA52DDA2108185079D6B8F3D
+  download_url: https://civitai.com/api/download/models/1232306
+  page_url: https://civitai.com/models/360097
+  creator:
+    username: reggiemccorthy1457
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/04dcd1cb-82c3-4d62-9c5c-f5459113d82a/width=96/reggiemccorthy1457.jpeg
+  trigger_words:
+  - ass-to-ass
+  - ass
+  - huge ass
+  - gigantic ass
+  - one cheek press
+  tags:
+  - anime
+  - concept
+  - butt
+  - huge ass
+  - woman
+  - huge butt
+  - ass contest
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 9796
+    favorite_count: null
+    rating: null
+    version_download_count: 3868
+  description: "This model is the counterpart to my breast contest model.\nV1.0\nChanged the base model to Illustrious and\
+    \ expanded the dataset by a few images.\nV0.2\nExpanded the dataset to be large enough that all tags are generating consistently.\
+    \ Also added the distinction between butt size that are very similar tot he tagging for breast sizes and a tag for when\
+    \ only on butt cheek is pressed: \none cheek press\nTo do:\n- Support more angles\n- Support more sizes\n- Increase generation\
+    \ consistency"
+  version_description: Changed base model to Illustrious
+  collection:
+    item_id: 183185044
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: selected latest Illustrious-compatible version among base-model/version variants
+- key: ass_worship_v0.3-illu_done
+  name: Ass worship
+  model_id: 82926
+  model_version_id: 1515384
+  version_name: v0.3-illu
+  version_index: 0
+  version_created_at: '2025-03-10T13:57:17.794Z'
+  version_published_at: '2025-03-10T14:14:50.574Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: ass_worship_v0.3-illu_done.safetensors
+  file_id: 1415686
+  file_size_kb: 56074.9619140625
+  hashes:
+    SHA256: B60FA681DE8D655D1C0ECEC81BD67F5E1C1A4A999656A309EF1265F08FE63BAF
+    AutoV2: B60FA681DE
+    AutoV1: 16B19531
+    CRC32: E1A4D17A
+    BLAKE3: 1D95CFFC4FFECE668B11ECEDD2CD2D85A3453DA7ABC84F16F2403F4A36A671E3
+  download_url: https://civitai.com/api/download/models/1515384
+  page_url: https://civitai.com/models/82926
+  creator:
+    username: psoft
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/74193c3d-adee-4edb-ea18-4cfe4e864300/width=96/psoft.jpeg
+  trigger_words:
+  - worship
+  tags:
+  - sexy
+  - meme
+  - poses
+  - ass
+  - girls
+  - pose
+  - ass grab
+  - worship
+  - ass worship
+  nsfw: false
+  poi: false
+  stats:
+    download_count: 43898
+    favorite_count: null
+    rating: null
+    version_download_count: 12010
+  description: "Support my work and get exclusive NSFW models at \nDeviantArt\n \nor \nBooth.pm\n. Please rate and leave a\
+    \ like if you enjoyed it, and follow for new content.\nIt works for \"ass\" and other body parts.\nTags\n: \nworship (\n\
+    e.g. \nass worship; thigh worship; leg worship; breast worship)\nOther useful tags\n:\n looking back, from behind, looking\
+    \ at viewer, ass grab, etc.\nThe training was tailored for Illustrious anime models (e.g. \nWAI-NSFW\n, \nHassaku XL\n\
+    , \nPrefect illustrious XL\n). I recommend using at least the quality tag \"\nmasterpiece\n\" in your prompt. Recommended\
+    \ parameters: Euler a, 20-30 steps, CFG 4-7."
+  version_description: "It works for \"ass\" and other body parts.\nTags\n: \nworship\nE.g. \nass worship; thigh worship;\
+    \ leg worship; breast worship\nOther useful tags\n:\n looking back, from behind, looking at viewer, ass grab, etc."
+  collection:
+    item_id: 183184918
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: selected latest Illustrious-compatible version among base-model/version variants
+- key: blowjobsandwich
+  name: Blowjob Sandwich Illustrious
+  model_id: 1159235
+  model_version_id: 1303897
+  version_name: v1.0
+  version_index: 0
+  version_created_at: '2025-01-19T14:43:54.339Z'
+  version_published_at: '2025-01-19T14:46:30.841Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: BlowjobSandwich.safetensors
+  file_id: 1208128
+  file_size_kb: 56110.94921875
+  hashes:
+    SHA256: B59199E23654FE561B228E6369C8B6540AA8AD9216243F807EF7FA67ABBC0559
+    AutoV2: B59199E236
+    AutoV1: 8B7AC1F3
+    CRC32: 30E82956
+    BLAKE3: 43DA052A8B799BC7B691347E00B3E893CF07DFF973BAAD24246A8A210D67CA0F
+  download_url: https://civitai.com/api/download/models/1303897
+  page_url: https://civitai.com/models/1159235
+  creator:
+    username: ImagineBreaker
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/d92e85d1-4477-49e9-9cd1-52462c247207/width=96/ImagineBreaker.jpeg
+  trigger_words:
+  - pov, blowjobsandwich, penis between mouths, cooperative fellatio, 2girls, from above
+  - blowjobsandwichfront, penis between girls, cooperative fellatio, 2girls, from front,
+  tags:
+  - concept
+  - oral
+  - fellatio
+  - threesome
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 7886
+    favorite_count: null
+    rating: null
+    version_download_count: 7886
+  description: 'Blowjob sandwich concept for Illustrious. Able to generate both pov from above, and from the front. It''s
+    also able to do full body and the male''s face, but it''s less reliable and might take a few generations.
+
+    From above: pov, blowjobsandwich, penis between mouths, cooperative fellatio, 2girls, from above
+
+    From Front: blowjobsandwichfront, penis between girls, cooperative fellatio, 2girls, from front,
+
+    As always Enjoy and have fun! And feel free to comment, review, and post your generated images.'
+  version_description: Initial Version
+  collection:
+    item_id: 183185069
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: alternate_double_paizuri-000012
+  name: Duo Paizuri Pack IL | Shrekman Hentai Loras
+  model_id: 1328924
+  model_version_id: 2624280
+  version_name: Alternate doublePaizuriV1
+  version_index: 2
+  version_created_at: '2026-01-24T01:00:49.991Z'
+  version_published_at: '2026-02-08T01:04:05.254Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: Alternate_double_paizuri-000012.safetensors
+  file_id: 2511856
+  file_size_kb: 223100.91796875
+  hashes:
+    SHA256: 9DEB72AE9A7E851B2B3D74353DB7EB846C578223C42B1491E02528FBDC204B03
+    AutoV2: 9DEB72AE9A
+    AutoV1: F78D5E3F
+    CRC32: D2EB0EF3
+    BLAKE3: 35237BB78A6C4B171A004ECD983CC33F69462FE9C4C94CA3A941D7FC3B657BB0
+  download_url: https://civitai.com/api/download/models/2624280
+  page_url: https://civitai.com/models/1328924
+  creator:
+    username: Shrekman17
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/19c475c5-8c5a-4633-89fd-68fdc8150397/width=96/Shrekman17.jpeg
+  trigger_words:
+  - ADPV1, double paizuri, alternate double paizuri, paizuri, 2girls, ffm threesome, group sex, 1boy,
+  tags:
+  - concept
+  - paizuri
+  - threesome
+  - woman
+  - cum
+  - group sex
+  - 3some
+  - assisted paizuri
+  - teamwork (sexual)
+  - cum god
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 4772
+    favorite_count: null
+    rating: null
+    version_download_count: 491
+  description: "Real Description: The rest of the pack belongs here:\nSolo Paizuri Variations\nThe best way to support me\
+    \ is to subscribe or write some comment on my\nYouTube - Where i shitpost almost everyday\nMy socials\n:\nDISCORD SERVER\n\
+    If You want to contact me Discord/Civit are best options since i check those everyday!\nMy loras are available from my\
+    \ official accounts on:\nTensor Art: \nhttps://tensor.art/u/836328663648595213\nCivitAI: \nhttps://civitai.com/user/Shrekman17\n\
+    Seeart: \nhttps://www.seaart.ai/user/ab14b528c289f390e228b8c5d6f497f1?u_code=DAS7ETB"
+  version_description: ''
+  collection:
+    item_id: 183186567
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: distinct LoRA concept stored as a model version; keep latest/Illustrious variant
+- key: assistedpaizuriv2-000012
+  name: Duo Paizuri Pack IL | Shrekman Hentai Loras
+  model_id: 1328924
+  model_version_id: 2624239
+  version_name: AssistedPaizuriV2IL
+  version_index: 5
+  version_created_at: '2026-01-24T00:40:37.832Z'
+  version_published_at: '2026-02-02T00:43:03.754Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: AssistedPaizuriV2-000012.safetensors
+  file_id: 2511816
+  file_size_kb: 223102.55078125
+  hashes:
+    SHA256: 5B71736D51D4B7C1043BC97FAE4A11FF6A63E5227E6F475912936D6FF1E1B004
+    AutoV2: 5B71736D51
+    AutoV1: 5483D463
+    CRC32: 0833D15D
+    BLAKE3: E48ED3523706AD609A34A4C9EF304A23A760D2D165AFDB8E16D6BD3673C4FC11
+  download_url: https://civitai.com/api/download/models/2624239
+  page_url: https://civitai.com/models/1328924
+  creator:
+    username: Shrekman17
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/19c475c5-8c5a-4633-89fd-68fdc8150397/width=96/Shrekman17.jpeg
+  trigger_words:
+  - APV2, assisted paizuri, paizuri, threesome, group sex, ffm threesome, hands on another's breasts,
+  tags:
+  - concept
+  - paizuri
+  - threesome
+  - woman
+  - cum
+  - group sex
+  - 3some
+  - assisted paizuri
+  - teamwork (sexual)
+  - cum god
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 4772
+    favorite_count: null
+    rating: null
+    version_download_count: 477
+  description: "Real Description: The rest of the pack belongs here:\nSolo Paizuri Variations\nThe best way to support me\
+    \ is to subscribe or write some comment on my\nYouTube - Where i shitpost almost everyday\nMy socials\n:\nDISCORD SERVER\n\
+    If You want to contact me Discord/Civit are best options since i check those everyday!\nMy loras are available from my\
+    \ official accounts on:\nTensor Art: \nhttps://tensor.art/u/836328663648595213\nCivitAI: \nhttps://civitai.com/user/Shrekman17\n\
+    Seeart: \nhttps://www.seaart.ai/user/ab14b528c289f390e228b8c5d6f497f1?u_code=DAS7ETB"
+  version_description: ''
+  collection:
+    item_id: 183186567
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: distinct LoRA concept stored as a model version; keep latest/Illustrious variant
+- key: buttjob-x-paizuriv1-000010
+  name: Duo Paizuri Pack IL | Shrekman Hentai Loras
+  model_id: 1328924
+  model_version_id: 2659333
+  version_name: ButtJob-X-PaizuriV1
+  version_index: 1
+  version_created_at: '2026-02-04T11:57:05.705Z'
+  version_published_at: '2026-02-16T12:00:16.191Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: ButtJob-X-PaizuriV1-000010.safetensors
+  file_id: 2546215
+  file_size_kb: 223116.25390625
+  hashes:
+    SHA256: 1D762D8383FFD52EB70802477BDD88C30DBD965194A0E542466C84C69FFD06E1
+    AutoV2: 1D762D8383
+    AutoV1: 69411B73
+    CRC32: 0F3E23D7
+    BLAKE3: 330E2606B6D8345241C56C68ED8C3C3C4582428A44C4075810B2860D8D7C459C
+  download_url: https://civitai.com/api/download/models/2659333
+  page_url: https://civitai.com/models/1328924
+  creator:
+    username: Shrekman17
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/19c475c5-8c5a-4633-89fd-68fdc8150397/width=96/Shrekman17.jpeg
+  trigger_words:
+  - BXPV1, buttjob, teamwork_(sexual), paizuri, 2girls,
+  tags:
+  - concept
+  - paizuri
+  - threesome
+  - woman
+  - cum
+  - group sex
+  - 3some
+  - assisted paizuri
+  - teamwork (sexual)
+  - cum god
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 4772
+    favorite_count: null
+    rating: null
+    version_download_count: 525
+  description: "Real Description: The rest of the pack belongs here:\nSolo Paizuri Variations\nThe best way to support me\
+    \ is to subscribe or write some comment on my\nYouTube - Where i shitpost almost everyday\nMy socials\n:\nDISCORD SERVER\n\
+    If You want to contact me Discord/Civit are best options since i check those everyday!\nMy loras are available from my\
+    \ official accounts on:\nTensor Art: \nhttps://tensor.art/u/836328663648595213\nCivitAI: \nhttps://civitai.com/user/Shrekman17\n\
+    Seeart: \nhttps://www.seaart.ai/user/ab14b528c289f390e228b8c5d6f497f1?u_code=DAS7ETB"
+  version_description: ''
+  collection:
+    item_id: 183186567
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: distinct LoRA concept stored as a model version; keep latest/Illustrious variant
+- key: cooperative_paizuriv2-000011
+  name: Duo Paizuri Pack IL | Shrekman Hentai Loras
+  model_id: 1328924
+  model_version_id: 2624248
+  version_name: CooperativePaizuriV2
+  version_index: 3
+  version_created_at: '2026-01-24T00:45:14.925Z'
+  version_published_at: '2026-02-08T00:47:10.264Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: cooperative_paizuriV2-000011.safetensors
+  file_id: 2511824
+  file_size_kb: 223100.65234375
+  hashes:
+    SHA256: 979EB4EFA31131B708608DBB86FE9C09466B2FCF157F86D946F528C5E810736F
+    AutoV2: 979EB4EFA3
+    AutoV1: 70344E5A
+    CRC32: 25E00C8B
+    BLAKE3: 4F1F0978DDF4779B2DAA96CD5E129BE742DD6782EA9199897C98E1A54803CBFD
+  download_url: https://civitai.com/api/download/models/2624248
+  page_url: https://civitai.com/models/1328924
+  creator:
+    username: Shrekman17
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/19c475c5-8c5a-4633-89fd-68fdc8150397/width=96/Shrekman17.jpeg
+  trigger_words:
+  - COOPPV2, cooperative paizuri, paizuri, 2girls, ffm threesome, group sex, 1boy,
+  tags:
+  - concept
+  - paizuri
+  - threesome
+  - woman
+  - cum
+  - group sex
+  - 3some
+  - assisted paizuri
+  - teamwork (sexual)
+  - cum god
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 4772
+    favorite_count: null
+    rating: null
+    version_download_count: 487
+  description: "Real Description: The rest of the pack belongs here:\nSolo Paizuri Variations\nThe best way to support me\
+    \ is to subscribe or write some comment on my\nYouTube - Where i shitpost almost everyday\nMy socials\n:\nDISCORD SERVER\n\
+    If You want to contact me Discord/Civit are best options since i check those everyday!\nMy loras are available from my\
+    \ official accounts on:\nTensor Art: \nhttps://tensor.art/u/836328663648595213\nCivitAI: \nhttps://civitai.com/user/Shrekman17\n\
+    Seeart: \nhttps://www.seaart.ai/user/ab14b528c289f390e228b8c5d6f497f1?u_code=DAS7ETB"
+  version_description: ''
+  collection:
+    item_id: 183186567
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: distinct LoRA concept stored as a model version; keep latest/Illustrious variant
+- key: fellatio_through_anothers_paizuri_v2-000009
+  name: Duo Paizuri Pack IL | Shrekman Hentai Loras
+  model_id: 1328924
+  model_version_id: 2623706
+  version_name: FellatioThroughAnothe'sV2
+  version_index: 4
+  version_created_at: '2026-01-23T20:03:55.527Z'
+  version_published_at: '2026-02-07T20:12:15.091Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: Fellatio_Through_Anothers_Paizuri_V2-000009.safetensors
+  file_id: 2511298
+  file_size_kb: 223101.87109375
+  hashes:
+    SHA256: 1CD3ECA63FDE84D1DF806B9B0E10A011756BBEADEAD32A3F6718B541D82C3E9E
+    AutoV2: 1CD3ECA63F
+    AutoV1: 57B4F3FB
+    CRC32: D118667A
+    BLAKE3: 0C045F581BF5232AAAC631F69E061C4A2158BA0BE84EA6D9FEAD03B94D124597
+  download_url: https://civitai.com/api/download/models/2623706
+  page_url: https://civitai.com/models/1328924
+  creator:
+    username: Shrekman17
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/19c475c5-8c5a-4633-89fd-68fdc8150397/width=96/Shrekman17.jpeg
+  trigger_words:
+  - FTAPV2, fellatio through anothe's paizuri, paizuri, fellatio, threesome, group sex, ffm threesome, 2girls,
+  tags:
+  - concept
+  - paizuri
+  - threesome
+  - woman
+  - cum
+  - group sex
+  - 3some
+  - assisted paizuri
+  - teamwork (sexual)
+  - cum god
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 4772
+    favorite_count: null
+    rating: null
+    version_download_count: 432
+  description: "Real Description: The rest of the pack belongs here:\nSolo Paizuri Variations\nThe best way to support me\
+    \ is to subscribe or write some comment on my\nYouTube - Where i shitpost almost everyday\nMy socials\n:\nDISCORD SERVER\n\
+    If You want to contact me Discord/Civit are best options since i check those everyday!\nMy loras are available from my\
+    \ official accounts on:\nTensor Art: \nhttps://tensor.art/u/836328663648595213\nCivitAI: \nhttps://civitai.com/user/Shrekman17\n\
+    Seeart: \nhttps://www.seaart.ai/user/ab14b528c289f390e228b8c5d6f497f1?u_code=DAS7ETB"
+  version_description: ''
+  collection:
+    item_id: 183186567
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: distinct LoRA concept stored as a model version; keep latest/Illustrious variant
+- key: femaleassistednoobxl_bykonan
+  name: Female Assisted Sex - IllustriousXL - Noob Concept LORA
+  model_id: 1523933
+  model_version_id: 1724215
+  version_name: v1.0
+  version_index: 0
+  version_created_at: '2025-04-29T13:33:23.133Z'
+  version_published_at: '2025-04-29T14:00:00.000Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: FemaleAssistedNoobXL_byKonan.safetensors
+  file_id: 1624767
+  file_size_kb: 56088.13671875
+  hashes:
+    SHA256: 04C3F88F1D7B50DBD6B655815EDF2C6AC58B496DA09A1AA4360FDCFA50BCB762
+    AutoV2: 04C3F88F1D
+    AutoV1: 5446EED1
+    CRC32: C3CCFECA
+    BLAKE3: 0534E0B83D9214A9D02865D4B0995D86EE0B6320316F6EA3C579585F62115BD6
+  download_url: https://civitai.com/api/download/models/1724215
+  page_url: https://civitai.com/models/1523933
+  creator:
+    username: Konan
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/7cd552a1-60fe-4baf-a0e4-f7d5d5381711/width=96/Konan.jpeg
+  trigger_words:
+  - female assisted, rape
+  - assisted felatio, oral, fellatio, penis, hand on another's head, head grab
+  - penis, hetero, threesome, ffm threesome, multiple girls, 2girls, 1boy, sexual coaching, holding another's wrist, group
+    sex, ankle grab
+  tags:
+  - concept
+  - threesome
+  - sex
+  - nsfw
+  - ffm
+  - female assisted
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 3227
+    favorite_count: null
+    rating: null
+    version_download_count: 3227
+  description: "Trained on \nNoobAI0.5\n \nwith \n45 \npictures.\nBest result with weight between : 0.8-1.\nBasic prompts\
+    \ : \nfemale assisted\nFellatio prompts : \nassisted felatio, oral, fellatio, penis, hand on another's head, head grab\n\
+    Other prompts : \npenis, hetero, threesome, ffm threesome, multiple girls, 2girls, 1boy, sexual coaching, holding another's\
+    \ wrist, group sex, ankle grab\nCommissioned on \nkofi\nReviews are really appreciated, i love to see the community use\
+    \ my work, that's why I share it.\nIf you like my work, you can tip me \nhere.\nGot a specific request ? I'm open for\
+    \ commission on my \nkofi\n! If you provide enough data, OCs are accepted\nIf you want to get updates on my projects as\
+    \ they go, you can follow me on \nX"
+  version_description: ''
+  collection:
+    item_id: 183186586
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: ffm_threesome_-_kiss_and_fellatio_illustrious
+  name: FFM threesome - Kiss and Fellatio (Illustrious)
+  model_id: 1768433
+  model_version_id: 2001359
+  version_name: v1.0
+  version_index: 0
+  version_created_at: '2025-07-12T11:59:52.843Z'
+  version_published_at: '2025-07-12T15:59:53.116Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: FFM_threesome_-_Kiss_and_Fellatio_Illustrious.safetensors
+  file_id: 1898604
+  file_size_kb: 223107.02734375
+  hashes:
+    SHA256: 8A5162247C296EDCD8E3B9D90088FFAF29A4FD879F6D523CEFEFF89F342B2841
+    AutoV2: 8A5162247C
+    AutoV1: B2646EFF
+    CRC32: C98A024C
+    BLAKE3: D67808E67A37095CDC0497CE23B36C4740BF7B89F3F382D48ABB046058A275EE
+  download_url: https://civitai.com/api/download/models/2001359
+  page_url: https://civitai.com/models/1768433
+  creator:
+    username: CanvasNSketch
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/358791c8-a5ca-4691-a206-18af563dbc99/width=96/CanvasNSketch.jpeg
+  trigger_words:
+  - ffm_threesome_kiss_and_fellatio
+  tags:
+  - anime
+  - concept
+  - fellatio
+  - bj
+  - threesome
+  - woman
+  - sex
+  - blowjob
+  - hentai
+  - kiss
+  - nsfw
+  - r18
+  - ffm
+  - ffm threesome
+  - kiss and fellatio
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 4425
+    favorite_count: null
+    rating: null
+    version_download_count: 4425
+  description: 'A Lora to give you a threesome with one girl giving head and a second kissing.
+
+    Trigger word ffm_threesome_kiss_and_fellatio
+
+    Trained on 61 images.'
+  version_description: ''
+  collection:
+    item_id: 183184179
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: ffm_threesome_one_girl_on_top_and_bj
+  name: FFM threesome - Straddling and Fellatio (Illustrious)
+  model_id: 1771328
+  model_version_id: 2004729
+  version_name: v1.0
+  version_index: 0
+  version_created_at: '2025-07-13T10:20:15.036Z'
+  version_published_at: '2025-07-13T16:18:27.282Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: FFM_threesome_one_girl_on_top_and_BJ.safetensors
+  file_id: 1902447
+  file_size_kb: 223104.23828125
+  hashes:
+    SHA256: 968438340A6D85CAE62F480BBEA910B60044DE59C37D95F5A44048D7C2C9B71B
+    AutoV2: 968438340A
+    AutoV1: F7C4D83B
+    CRC32: 8CFF0EA1
+    BLAKE3: 3023B9B9B147B79316886DE8403DB349991809605F5568D85CB1FA818D522792
+  download_url: https://civitai.com/api/download/models/2004729
+  page_url: https://civitai.com/models/1771328
+  creator:
+    username: CanvasNSketch
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/358791c8-a5ca-4691-a206-18af563dbc99/width=96/CanvasNSketch.jpeg
+  trigger_words: []
+  tags:
+  - concept
+  - threesome
+  - sex
+  - hentai
+  - group sex
+  - nsfw
+  - r18
+  - cowgirl position
+  - 3p
+  - ffm
+  - straddling
+  - ffm threesome
+  - reverse cowgirl position
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 3631
+    favorite_count: null
+    rating: null
+    version_download_count: 3631
+  description: 'A Lora to give you a threesome with one girl on top and a second below licking penis/vagina/
+
+    Trigger word ffm_threesome_1st_girl_on_top
+
+    Trained on 51 images.'
+  version_description: ''
+  collection:
+    item_id: 183184208
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: ffm_threesome_doggy_style_front_view_illustrious
+  name: FFM Threesome doggy style (front view) (Illustrious)
+  model_id: 1772575
+  model_version_id: 2006158
+  version_name: v1.0
+  version_index: 0
+  version_created_at: '2025-07-13T18:13:48.123Z'
+  version_published_at: '2025-07-14T00:31:48.805Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: FFM_Threesome_doggy_style_front_view_Illustrious.safetensors
+  file_id: 1904161
+  file_size_kb: 223103.01171875
+  hashes:
+    SHA256: 3E5C5310D2B334F7D85D7847B78A3AD0B598E160729973AAF384F103B9BC3633
+    AutoV2: 3E5C5310D2
+    AutoV1: 6E3E483A
+    CRC32: 97D9112C
+    BLAKE3: CB2871BD064F34DA3DEABACE536E20C275564136152EFFA5B09F743136B370CB
+  download_url: https://civitai.com/api/download/models/2006158
+  page_url: https://civitai.com/models/1772575
+  creator:
+    username: CanvasNSketch
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/358791c8-a5ca-4691-a206-18af563dbc99/width=96/CanvasNSketch.jpeg
+  trigger_words:
+  - ffm_threesome_doggy_style_front_view
+  tags:
+  - concept
+  - sex from behind
+  - threesome
+  - all fours
+  - sex
+  - hentai
+  - group sex
+  - nsfw
+  - r18
+  - hetero
+  - doggy style
+  - 3p
+  - ffm
+  - ffm threesome
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 2580
+    favorite_count: null
+    rating: null
+    version_download_count: 2580
+  description: 'A Lora to give you an FFM threesome front view of doggy style with two girls.
+
+    Trigger word ffm_threesome_doggy_style_front_view
+
+    Trained on 25 images.'
+  version_description: ''
+  collection:
+    item_id: 183184495
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: ffm_threesome_girl_sandwichdouble_dip_illustrious
+  name: FFM threesome girl sandwich/double dip (Illustrious)
+  model_id: 1768987
+  model_version_id: 2002029
+  version_name: v1.0
+  version_index: 0
+  version_created_at: '2025-07-12T16:21:37.361Z'
+  version_published_at: '2025-07-12T17:37:13.839Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: FFM_threesome_girl_sandwichdouble_dip_Illustrious.safetensors
+  file_id: 1931081
+  file_size_kb: 223104.23828125
+  hashes:
+    SHA256: DC1B25C02666352CE343D47DA4D6D9176567D0E4A5B8AFBAA5A92D0BDDCDEFDB
+    AutoV2: DC1B25C026
+    AutoV1: 1EBFEF30
+    CRC32: 7C80BC79
+    BLAKE3: D81775EDE34A17903AAF5B99A4944D96217DEB342AE8A7DAEDDA22002B0D3C98
+  download_url: https://civitai.com/api/download/models/2002029
+  page_url: https://civitai.com/models/1768987
+  creator:
+    username: CanvasNSketch
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/358791c8-a5ca-4691-a206-18af563dbc99/width=96/CanvasNSketch.jpeg
+  trigger_words:
+  - ffm_threesome_double_dip
+  tags:
+  - anime
+  - concept
+  - sex from behind
+  - threesome
+  - woman
+  - sex
+  - hentai
+  - group sex
+  - nsfw
+  - ffm
+  - ffm threesome
+  - breast press
+  - breasts together
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 3029
+    favorite_count: null
+    rating: null
+    version_download_count: 3029
+  description: 'A Lora to give you an FFM threesome with one girl on her back and another on top, images used mainly had the
+    guys face out of frame as well.
+
+    Trigger word ffm_threesome_double_dip
+
+    Trained on 47 images.'
+  version_description: ''
+  collection:
+    item_id: 183184451
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: ffm_threesome__kiss__sex_from_behind_front_view
+  name: FFM Threesome – Kiss & Sex From Behind (Front View)
+  model_id: 2073955
+  model_version_id: 2346781
+  version_name: V1
+  version_index: 0
+  version_created_at: '2025-10-25T18:59:44.333Z'
+  version_published_at: '2025-10-25T21:56:06.199Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: FFM_Threesome__Kiss__Sex_From_Behind_Front_View.safetensors
+  file_id: 2237423
+  file_size_kb: 223103.76953125
+  hashes:
+    SHA256: 32A3664C0D9A44A856629BAA089DFFD1B130DCBDB154084EBE9EE1B733CEE8CA
+    AutoV2: 32A3664C0D
+    AutoV1: ADB5E8F2
+    CRC32: AA327E1D
+    BLAKE3: 066184B85CC5AE01AB94F99E0C0DD74C7021CECECF6EE51229F4DB2FAF58E638
+  download_url: https://civitai.com/api/download/models/2346781
+  page_url: https://civitai.com/models/2073955
+  creator:
+    username: CanvasNSketch
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/358791c8-a5ca-4691-a206-18af563dbc99/width=96/CanvasNSketch.jpeg
+  trigger_words:
+  - ffm_frontview_kiss_rear
+  tags:
+  - girl
+  - concept
+  - sex from behind
+  - threesome
+  - woman
+  - sex
+  - girls
+  - hentai
+  - man
+  - kiss
+  - group sex
+  - kissing
+  - nsfw
+  - r18
+  - hetero
+  - doggy style
+  - 3p
+  - ffm
+  - ffm threesome
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 2113
+    favorite_count: null
+    rating: null
+    version_download_count: 2113
+  description: 'A Lora to help get a FFM threesome with a kiss and sex from behind.
+
+    Trigger word ffm_frontview_kiss_rear
+
+    Trained on 56 images.'
+  version_description: ''
+  collection:
+    item_id: 183184537
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: ffm-mf-v1.0-000011
+  name: Missionary + Fingering Threesome/Foursome | Shrekman Hentai Loras
+  model_id: 1428680
+  model_version_id: 1614846
+  version_name: V1
+  version_index: 0
+  version_created_at: '2025-04-03T04:38:36.984Z'
+  version_published_at: '2025-04-15T07:00:09.741Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: FFM-MF-V1.0-000011.safetensors
+  file_id: 1515141
+  file_size_kb: 223101.12109375
+  hashes:
+    SHA256: C7B9ECEFB815F51DD9482E2C9752F26B6BBE4DFDB2D950B005CE04451053C97D
+    AutoV2: C7B9ECEFB8
+    AutoV1: 884F8BC8
+    CRC32: 2D81B4A0
+    BLAKE3: A4F251D8E7DDC375EF86683452E64ECFE182DDDAA81A18EA46C24C5831E2D02A
+  download_url: https://civitai.com/api/download/models/1614846
+  page_url: https://civitai.com/models/1428680
+  creator:
+    username: Shrekman17
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/19c475c5-8c5a-4633-89fd-68fdc8150397/width=96/Shrekman17.jpeg
+  trigger_words:
+  - FFM-M+F-V1.0, FFM threesome, threesome, fingering, missionary, 2girls, multiple girls,
+  tags:
+  - concept
+  - missionary
+  - threesome
+  - handjob
+  - fingering
+  - foursome
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 1972
+    favorite_count: null
+    rating: null
+    version_download_count: 1972
+  description: "Model trained on pics that contained only Threesomes, but IL has tendency of adding 3th female,\nWant to support\
+    \ me or request a model?\nHere is my ko-fi:\nhttps://ko-fi.com/renaissancegremlin\nMy socials:\nFB\nIG\nTwitter\nMy loras\
+    \ are also coming slowly to tensor art: \nhttps://tensor.art/u/836328663648595213"
+  version_description: ''
+  collection:
+    item_id: 183186408
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: pov_ffm_threesome_remake-000010-1
+  name: Pov ffm threesome
+  model_id: 675860
+  model_version_id: 1498966
+  version_name: Illustrious [new]
+  version_index: 0
+  version_created_at: '2025-03-06T11:34:58.670Z'
+  version_published_at: '2025-03-14T05:00:05.099Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: Pov_ffm_threesome_remake-000010 (1).safetensors
+  file_id: 1400608
+  file_size_kb: 56083.23046875
+  hashes:
+    SHA256: 403DB30B8451C26F066CFF7F76152351FDB1EE32398A8C44B877C93FF6CF1CE0
+    AutoV2: 403DB30B84
+    AutoV1: 63E7946B
+    CRC32: 322375D0
+    BLAKE3: 646B06790508FFE342F8A034E523F3C3F33BA8C6A911732EC87BA0CA0D80AA11
+  download_url: https://civitai.com/api/download/models/1498966
+  page_url: https://civitai.com/models/675860
+  creator:
+    username: Oscarc
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/4a13e9c4-c939-42cd-9dbe-d874c2b7506b/width=96/Oscarc.jpeg
+  trigger_words:
+  - Pov ffm threesome, pov, 2girls, 1boy, ffm threesome,
+  - '(pov_facesitting.1.4), pov, (2girls:1.5), 1boy, multiple girls, ffm threesome, (from below:1.3), '
+  - '(pov_pussy_sandwich, take your pick:1.4), breast press, pov, 2girls, multiple girls,1boy, on back, from behind, looking
+    back, hugging, '
+  - top girl,
+  - bottom girl,
+  - Imminent_facesitting,
+  - '(pussy close-up:1.4), sitting on face, pussy on glass, '
+  - from above,
+  - from below,
+  - from behind, butt,
+  - dutch angle,
+  - imminent sex,
+  - sex,
+  - imminent anal sex,
+  - anal sex,
+  - cumming, creampie, ejaculation, trembling, cum overflow,
+  - nipples,
+  - licking man's nipple,
+  - sucking man's nipple,
+  - touching man's nipple,
+  - fully clothed,
+  - open clothes,
+  - completely naked,
+  - cleavage,
+  - underboob,
+  - breast grab,
+  - butt grab,
+  tags:
+  - anime
+  - sexy
+  - porn
+  - pov
+  - cowgirl
+  - vagina
+  - poses
+  - woman
+  - girls
+  - hentai
+  - nsfw
+  - facesitting
+  - ffm threesome
+  - pussy sandwich
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 7285
+    favorite_count: null
+    rating: null
+    version_download_count: 5168
+  description: "Pony remake and Illustrious version released \nThe original version was very half baked and honestly I was\
+    \ a bit disappointed with it at the time, with the release of this remake I wanted to fix that and focus on making the\
+    \ LoRA a lot more customisable. I've also tried making the whole dataset higher res so hopefully that will improve overall\
+    \ quality.\nThis is a ffm threesome LoRA with 3 core prompts and customisation prompts\nCore prompts\nPov ffm threesome,\
+    \ pov, 2girls, 1boy, ffm threesome,\n(pov_facesitting.1.4), pov, (2girls:1.5), 1boy, multiple girls, ffm threesome, (from\
+    \ below:1.3), \n(pov_pussy_sandwich, take your pick:1.4), breast press, pov, 2girls, multiple girls,1boy, on back, from\
+    \ behind, looking back, hugging, \nCustomisation prompts\n(top girl and bottom girl are to use with pussy sandwich it's\
+    \ an attempt to help with which girl the viewer is having sex with. Not sure how well this will work.)\ntop girl,\nbottom\
+    \ girl,\nImminent_facesitting,\n(pussy close-up:1.4), sitting on face, pussy on glass, \nfrom above,\nfrom below,\nfrom\
+    \ behind, butt,\ndutch angle,\nimminent sex,\nsex,\nimminent anal sex,\nanal sex,\ncumming, creampie, ejaculation, trembling,\
+    \ cum overflow,\nnipples,\nlicking man's nipple,\nsucking man's nipple,\ntouching man's nipple,\nfully clothed,\nopen\
+    \ clothes,\ncompletely naked,\ncleavage,\nunderboob,\nbreast grab,\nbutt grab,"
+  version_description: "The original version was very half baked and honestly I was a bit disappointed with it at the time,\
+    \ with the release of this remake I wanted to fix that and focus on making the LoRA a lot more customisable. I've also\
+    \ tried making the whole dataset higher res so hopefully that will improve overall quality.\nThis is a ffm threesome LoRA\
+    \ with 3 core prompts and customisation prompts\nCore prompts\nPov ffm threesome, pov, 2girls, 1boy, ffm threesome,\n\
+    (pov_facesitting.1.4), pov, (2girls:1.5), 1boy, multiple girls, ffm threesome, (from below:1.3), \n(pov_pussy_sandwich,\
+    \ take your pick:1.4), breast press, pov, 2girls, multiple girls,1boy, on back, from behind, looking back, hugging, \n\
+    Customisation prompts\n(top girl and bottom girl are to use with pussy sandwich it's an attempt to help with which girl\
+    \ the viewer is having sex with. Not sure how well this will work.)\ntop girl,\nbottom girl,\nImminent_facesitting,\n\
+    (pussy close-up:1.4), sitting on face, pussy on glass, \nfrom above,\nfrom below,\nfrom behind, butt,\ndutch angle,\n\
+    imminent sex,\nsex,\nimminent anal sex,\nanal sex,\ncumming, creampie, ejaculation, trembling, cum overflow,\nnipples,\n\
+    licking man's nipple,\nsucking man's nipple,\ntouching man's nipple,\nfully clothed,\nopen clothes,\ncompletely naked,\n\
+    cleavage,\nunderboob,\nbreast grab,\nbutt grab,"
+  collection:
+    item_id: 183184938
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: selected latest Illustrious-compatible version among base-model/version variants
+- key: pussy_sandwich_v0.8-illu_done
+  name: Pussy sandwich
+  model_id: 57836
+  model_version_id: 1693313
+  version_name: v0.8-illu
+  version_index: 0
+  version_created_at: '2025-04-22T09:55:26.249Z'
+  version_published_at: '2025-04-22T12:50:10.980Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: pussy_sandwich_v0.8-illu_done.safetensors
+  file_id: 1593880
+  file_size_kb: 56074.9677734375
+  hashes:
+    SHA256: 2720CC8B3AEF05DE6F281F19CC732D47F0F32E4CB0D8570BDFAB80C1136B1A38
+    AutoV2: 2720CC8B3A
+    AutoV1: B542717D
+    CRC32: 33497FF0
+    BLAKE3: 3A05614D0DCE1120A4FCDC36C9F100DBF85F49DE1ECC3B4A9C8D66527DC21CEB
+  download_url: https://civitai.com/api/download/models/1693313
+  page_url: https://civitai.com/models/57836
+  creator:
+    username: psoft
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/74193c3d-adee-4edb-ea18-4cfe4e864300/width=96/psoft.jpeg
+  trigger_words:
+  - lying
+  - ass
+  - tribadism
+  tags:
+  - concept
+  - vagina
+  - girls
+  - hentai
+  - yuri
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 49802
+    favorite_count: null
+    rating: null
+    version_download_count: 13473
+  description: "Share your images here and leave a like if you enjoyed it! Get exclusive NSFW models at \nDeviantArt\n \n\
+    or \nBooth.pm\n. You can also \nfollow me on X\n.\nThe LoRA does not have one single trigger tag. Instead describe what\
+    \ you want using a combination of the tags below. Tweaking them will give different effects.\nMain tags\n: \nass, pussy,\
+    \ tribadism\nPenis\n: \n1boy, out of frame, penis, grinding, cooperative grinding\nOther helpful tags\n: \npussy sandwich,\
+    \ looking back, from behind, ass focus, lying, girl on top\nThe training was tailored for Illustrious anime models (e.g.\
+    \ \nWAI-NSFW\n, \nHassaku XL\n, \nPrefect illustrious XL\n). I recommend using at least the quality tag \"\nmasterpiece\n\
+    \" in your prompt. Recommended parameters: Euler a, 20-30 steps, CFG 4-7."
+  version_description: ''
+  collection:
+    item_id: 183184125
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: selected latest Illustrious-compatible version among base-model/version variants
+- key: threesome_sex_and_rimminganilingus
+  name: Threesome sex and rimming/anilingus
+  model_id: 1776169
+  model_version_id: 2010234
+  version_name: v1.0
+  version_index: 0
+  version_created_at: '2025-07-14T20:31:36.254Z'
+  version_published_at: '2025-07-14T22:29:44.206Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: Threesome_sex_and_rimminganilingus.safetensors
+  file_id: 1907446
+  file_size_kb: 223107.64453125
+  hashes:
+    SHA256: 5D20603CA25F2AD2C5D5FE0197DBC9A568E405ADB55AC17F8A4A4A79762FE558
+    AutoV2: 5D20603CA2
+    AutoV1: A37C6095
+    CRC32: 02486858
+    BLAKE3: C0164B41B872119B6D8A8D440F37EFF518835B7C01B50A662CFB572CC3BEDF0A
+  download_url: https://civitai.com/api/download/models/2010234
+  page_url: https://civitai.com/models/1776169
+  creator:
+    username: CanvasNSketch
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/358791c8-a5ca-4691-a206-18af563dbc99/width=96/CanvasNSketch.jpeg
+  trigger_words:
+  - ffm_sex_and_anilingus
+  tags:
+  - concept
+  - sex from behind
+  - threesome
+  - woman
+  - sex
+  - girls
+  - hentai
+  - nsfw
+  - r18
+  - anilingus
+  - 3p
+  - ffm
+  - ffm threesome
+  - rimming
+  nsfw: true
+  poi: false
+  stats:
+    download_count: 2176
+    favorite_count: null
+    rating: null
+    version_download_count: 2176
+  description: 'A Lora to give you an FFM threesome with rimming/anilingus
+
+    Trigger word ffm_sex_and_anilingus
+
+    Trained on 56 images'
+  version_description: ''
+  collection:
+    item_id: 183186374
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: single version in collection
+- key: cooperative-fellatio_illustrious_v2.0
+  name: フェラチオ(複数)/cooperative fellatio(XL,pony)
+  model_id: 575376
+  model_version_id: 2664625
+  version_name: v2.0 illustrious
+  version_index: 0
+  version_created_at: '2026-02-06T06:05:37.612Z'
+  version_published_at: '2026-02-14T00:00:00.000Z'
+  type: LORA
+  base_model: Illustrious
+  file_name: cooperative fellatio_illustrious_V2.0.safetensors
+  file_id: 2551434
+  file_size_kb: 124728.9453125
+  hashes:
+    SHA256: FA2AA4DB1E697FD57CCC96385DF71DAF7C6195D867338AD07DAB140774F9DEF7
+    AutoV2: FA2AA4DB1E
+    AutoV1: E1DFD937
+    CRC32: 42FABEFE
+    BLAKE3: 4106EAD2FA804F9A73A7277BEFD1CD29AA86D35E94FCB1EE6C9FB87D367D1ACD
+  download_url: https://civitai.com/api/download/models/2664625
+  page_url: https://civitai.com/models/575376
+  creator:
+    username: bolero537
+    image: https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/56256a6b-6b63-4e26-97e9-ecf8f3721001/width=96/bolero537.jpeg
+  trigger_words:
+  - cooperative fellatio, multiple girls, 1boy, penis, group sex,
+  - 3girls
+  - 4girls
+  tags:
+  - concept
+  nsfw: false
+  poi: false
+  stats:
+    download_count: 20524
+    favorite_count: null
+    rating: null
+    version_download_count: 2405
+  description: 'pony:The strength of Lora is recommended to be around 0.5.
+
+    It is also produced without Lora. The shape of the face may be a little better.
+
+    XL:The strength of Lora is recommended to be around 0.8.'
+  version_description: ''
+  collection:
+    item_id: 183184860
+    note: null
+  agent_notes:
+    aliases: []
+    recommended_weight: null
+    usage_notes: ''
+  curation:
+    selected: true
+    reason: selected latest Illustrious-compatible version among base-model/version variants

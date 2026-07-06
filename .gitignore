@@ -1,0 +1,6 @@
+.Trash-0/
+.ipynb_checkpoints/
+docs/.ipynb_checkpoints/
+scripts/.ipynb_checkpoints/
+scripts/__pycache__/
+*.pyc
