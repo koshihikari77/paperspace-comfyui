@@ -4,3 +4,4 @@ docs/.ipynb_checkpoints/
 scripts/.ipynb_checkpoints/
 scripts/__pycache__/
 *.pyc
+env/*.local.sh
