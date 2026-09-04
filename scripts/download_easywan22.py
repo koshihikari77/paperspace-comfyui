@@ -34,6 +34,7 @@ class Asset:
 
 GROUP_DESCRIPTIONS = {
     "floyo-wan22-stable": "Minimal model set for the stable Floyo WanVideoWrapper I2V workflow.",
+    "floyo-wan22-core": "Floyo WanVideoWrapper I2V assets without the selectable motion LoRA pair.",
     "easywan22-default": "Full EasyWan22 Default.bat asset set, including preset LoRAs and detectors.",
     "easywan22-default-no-gguf": "EasyWan22 default asset set without GGUF video models; pair with fp8_scaled or SmoothMIX downloads.",
     "eye-loras": "JujoHotaru eyecollexl eye LoRAs used by the notebook image mode.",
@@ -149,6 +150,7 @@ GROUP_ASSETS: dict[str, list[Asset]] = {
             description="2x upscaler used by the stable Floyo workflow.",
         ),
     ],
+    "floyo-wan22-core": [],
     "workflow-core": [
         Asset(
             name="wan_vae_bf16",
@@ -338,6 +340,47 @@ GROUP_ASSETS: dict[str, list[Asset]] = {
         ),
     ],
 }
+
+# Keep the original stable group as a reproducible all-in-one preset, while the
+# notebook uses the core group plus explicitly selected motion LoRA pairs.
+GROUP_ASSETS["floyo-wan22-core"] = [
+    asset
+    for asset in GROUP_ASSETS["floyo-wan22-stable"]
+    if asset.name not in {"deepthroat_high", "deepthroat_low"}
+]
+
+
+WAN22_LORA_PRESET_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]*$")
+
+
+def add_wan22_lora_preset_group(preset: str) -> str:
+    if not WAN22_LORA_PRESET_RE.fullmatch(preset):
+        raise SystemExit(
+            f"Invalid Wan 2.2 LoRA preset: {preset!r}. "
+            "Use the filename stem before -H/-L, without a directory."
+        )
+
+    group = f"wan22-lora:{preset}"
+    GROUP_DESCRIPTIONS[group] = f"Selected Wan 2.2 High/Low motion LoRA pair: {preset}."
+    GROUP_ASSETS[group] = [
+        Asset(
+            name=f"{preset}_high",
+            relative_path=f"loras/Nsfw/{preset}-H.safetensors",
+            source="hf_file",
+            repo_id=PRIVATE_MIRROR_REPO,
+            repo_path=f"loras/Nsfw/{preset}-H.safetensors",
+            description=f"Selected high-noise Wan 2.2 motion LoRA: {preset}.",
+        ),
+        Asset(
+            name=f"{preset}_low",
+            relative_path=f"loras/Nsfw/{preset}-L.safetensors",
+            source="hf_file",
+            repo_id=PRIVATE_MIRROR_REPO,
+            repo_path=f"loras/Nsfw/{preset}-L.safetensors",
+            description=f"Selected low-noise Wan 2.2 motion LoRA: {preset}.",
+        ),
+    ]
+    return group
 
 GROUP_ASSETS["default-hf"] = (
     GROUP_ASSETS["workflow-core"]
@@ -845,6 +888,15 @@ def main() -> int:
         help="Asset group to download. Repeatable. Use `all` for every defined group.",
     )
     parser.add_argument(
+        "--wan22-lora-preset",
+        action="append",
+        default=[],
+        help=(
+            "Download one Wan 2.2 High/Low motion LoRA pair from loras/Nsfw. "
+            "Pass the filename stem before -H/-L; repeatable."
+        ),
+    )
+    parser.add_argument(
         "--model-root",
         default="/app/models",
         help="Destination model root. Defaults to /app/models.",
@@ -891,7 +943,8 @@ def main() -> int:
         print_group_list()
         return 0
 
-    requested_groups = args.group or ["workflow-core"]
+    preset_groups = [add_wan22_lora_preset_group(preset) for preset in args.wan22_lora_preset]
+    requested_groups = [*(args.group or ["workflow-core"]), *preset_groups]
     groups = resolve_groups(requested_groups)
 
     if args.list_assets or args.dry_run:

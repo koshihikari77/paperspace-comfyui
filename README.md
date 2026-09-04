@@ -60,16 +60,16 @@ chmod +x docker/build-and-push.sh
 4. 永続ストレージ上に `ComfyUI` を `/storage/ComfyUI` で置く
 5. clone した repo 内の [`hf-repo.yaml`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/hf-repo.yaml) を必要なら編集する
 6. clone した repo 内の [`start.ipynb`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/start.ipynb) を開く
-7. 先頭セルの `DOWNLOAD_EYE_LORAS` / `DOWNLOAD_WAN22_MODELS` を用途に合わせて変更し、順番に実行する
+7. 先頭セルのダウンロード設定を用途に合わせて変更し、2セルを順番に実行する
 8. ComfyUI へのアクセスは `https://tensorboard-$PAPERSPACE_FQDN` を使う
 
-Notebook は repo 直下の `scripts/` を参照して次を行います。
+Notebook は設定とURL表示だけを持ち、実処理は `scripts/bootstrap_comfyui.py` が行います。
 
 - `hf` と Hugging Face ログイン状態の確認
 - repo 設定の読み込み
 - 画像用 LoRA と、Floyo 安定版 Wan 2.2 workflow に必要なモデルだけを `/app/models` へ同期
 - `/storage/ComfyUI/extra_model_paths.yaml` をバックアップして再生成
-- `/storage/ComfyUI/main.py` を `6006` で起動
+- `/storage/ComfyUI/main.py` を `6006` でバックグラウンド起動（起動済みなら再利用）
 - Paperspace の `tensorboard-$PAPERSPACE_FQDN` 形式の URL を表示
 
 ## Repo Config
@@ -106,14 +106,17 @@ repo のトップレベルで認識するディレクトリ:
 
 ## Wan 2.2 安定版
 
-動画モデルは `scripts/download_easywan22.py` の `floyo-wan22-stable` グループに固定しています。
+動画の通常起動は `scripts/download_easywan22.py` の `floyo-wan22-core` と、選択した
+High/Low motion LoRAだけを取得します。
 SmoothMIX、GGUF、旧 EasyWan22 一式、Clip Vision、別系統の LightX2V は通常起動では取得しません。
 
 取得するのは Wan 2.2 I2V High/Low FP8 Scaled、BF16 UMT5、WanVideoWrapper VAE、
-rank64 LightX2V、workflow 既定の High/Low LoRA、RealESRGAN x2 だけです。
+rank64 LightX2V、RealESRGAN x2と、`WAN22_LORA_PRESETS` で選んだHigh/Low LoRAだけです。
 配置先はすべて `/app/models` で、`extra_model_paths.yaml` から参照します。
 
 workflow は `workflows/floyo_wanvideowrapper_i2v.json` です。
+起動時には先頭のLoRAプリセットを反映したコピーを
+`/app/workflows/floyo_wanvideowrapper_i2v_active.json` に生成します。
 RIFEだけはカスタムノードの仕様により `/storage/ComfyUI/custom_nodes/comfyui-frame-interpolation/ckpts/rife`
 で管理され、`rife47.pth` が初回使用時に自動取得されます。
 
@@ -127,14 +130,21 @@ Floyo workflow が指定する SageAttention は永続 venv に固定します�
 
 Notebook の先頭セルで次を変更できます。
 
+- `DOWNLOAD_IMAGE_LORAS`: private mirrorの画像LoRA一式（既定は `False`）
+- `DOWNLOAD_EYE_LORAS`: Eye LoRA一式を独立して選択
 - `DOWNLOAD_WAN22_MODELS`
-- `WAN22_MODEL_GROUP`
+- `WAN22_LORA_PRESETS`: `-H` / `-L` より前の名前を列挙。空リストならmotion LoRAなし
 - `WAN22_DOWNLOAD_MAX_WORKERS`
 - `FORCE_DOWNLOAD`
 - `COMFYUI_PORT`
 - `COMFYUI_ARGS`
 - `COMFYUI_PYTHON`
 - `HF_HOME`
+
+例えば `WAN22_LORA_PRESETS = ["DeepthroatBlowjob_v10"]` は、private mirrorの
+`DeepthroatBlowjob_v10-H.safetensors` と `DeepthroatBlowjob_v10-L.safetensors` だけを取得します。
+複数指定した場合は全ペアを取得し、active workflowにはリスト先頭のペアを設定します。
+この指定はHigh/Lowが揃っているプリセット用です。
 
 初回だけ次を実行して Hugging Face のログイン情報を永続化します。
 
@@ -162,9 +172,12 @@ Notebook から呼ぶスクリプトは、このリポジトリの `scripts/` �
 - `sync_hf_repo.py`
 - `write_extra_model_paths.py`
 - `run_comfyui.py`
+- `bootstrap_comfyui.py`
 
 ## 備考
 
 - `/app/models` はコンテナローカルなので、Notebook セッションごとに必要なモデルを再同期します
+- `DOWNLOAD_IMAGE_LORAS=False` ならprivate mirrorの `loras/` 全体は同期せず、Eye LoRAと選択したWan LoRAだけを取得します
 - `extra_model_paths.yaml` が既にある場合は `extra_model_paths.yaml.bak.paperspace-comfyui` に退避してから上書きします
+- 起動結果は `COMFYUI_STATUS`、`COMFYUI_URL`、`COMFYUI_WORKFLOW`、`COMFYUI_LOG` の固定形式で出力します
 - 旧 README にあった GCS 前提の運用はこの構成では使いません
