@@ -180,4 +180,5 @@ Notebook から呼ぶスクリプトは、このリポジトリの `scripts/` �
 - `DOWNLOAD_IMAGE_LORAS=False` ならprivate mirrorの `loras/` 全体は同期せず、Eye LoRAと選択したWan LoRAだけを取得します
 - `extra_model_paths.yaml` が既にある場合は `extra_model_paths.yaml.bak.paperspace-comfyui` に退避してから上書きします
 - 起動結果は `COMFYUI_STATUS`、`COMFYUI_URL`、`COMFYUI_WORKFLOW`、`COMFYUI_LOG` の固定形式で出力します
+- 初回起動はLoRAの索引作成などで時間がかかるため最大300秒待機し、それを超えてもプロセスが生きていれば例外にせず `COMFYUI_STATUS=starting` を返します
 - 旧 README にあった GCS 前提の運用はこの構成では使いません

@@ -70,6 +70,7 @@ def launch_comfyui(
     port: int,
     extra_args: str,
     env: dict[str, str],
+    startup_timeout: int,
 ) -> str:
     if is_ready(port):
         return "already-running"
@@ -99,14 +100,21 @@ def launch_comfyui(
         )
     pid_file.write_text(f"{process.pid}\n", encoding="utf-8")
 
-    deadline = time.monotonic() + 120
+    deadline = time.monotonic() + startup_timeout
     while time.monotonic() < deadline:
         if is_ready(port):
             return "started"
         if process.poll() is not None:
             raise SystemExit(f"ComfyUI exited with status {process.returncode}; see {log_file}")
         time.sleep(2)
-    raise SystemExit(f"ComfyUI did not become ready within 120 seconds; see {log_file}")
+    if process.poll() is None:
+        print(
+            f"ComfyUI is still starting after {startup_timeout} seconds; "
+            f"the detached process will continue. See {log_file}",
+            flush=True,
+        )
+        return "starting"
+    raise SystemExit(f"ComfyUI exited with status {process.returncode}; see {log_file}")
 
 
 def main() -> int:
@@ -123,6 +131,7 @@ def main() -> int:
     parser.add_argument("--max-workers", type=int, default=3)
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--port", type=int, default=6006)
+    parser.add_argument("--startup-timeout", type=int, default=300)
     parser.add_argument("--comfyui-args", default="--preview-method auto")
     parser.add_argument("--comfyui-python")
     parser.add_argument("--paperspace-fqdn", default=os.environ.get("PAPERSPACE_FQDN", ""))
@@ -216,11 +225,18 @@ def main() -> int:
         Path("/app/workflows/floyo_wanvideowrapper_i2v_active.json"),
         args.wan22_lora_preset[0] if args.wan22_lora_preset else None,
     )
-    status = launch_comfyui(comfyui_dir, comfyui_python, args.port, args.comfyui_args, env)
+    status = launch_comfyui(
+        comfyui_dir,
+        comfyui_python,
+        args.port,
+        args.comfyui_args,
+        env,
+        args.startup_timeout,
+    )
 
     local_url = f"http://127.0.0.1:{args.port}"
     public_url = f"https://tensorboard-{args.paperspace_fqdn}" if args.paperspace_fqdn else ""
-    print(f"COMFYUI_STATUS=ready ({status})", flush=True)
+    print(f"COMFYUI_STATUS={'starting' if status == 'starting' else 'ready'} ({status})", flush=True)
     print(f"COMFYUI_LOCAL_URL={local_url}", flush=True)
     print(f"COMFYUI_URL={public_url or 'PAPERSPACE_FQDN is not set'}", flush=True)
     print(f"COMFYUI_WORKFLOW={active_workflow}", flush=True)
