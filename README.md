@@ -60,10 +60,11 @@ chmod +x docker/build-and-push.sh
 4. 永続ストレージ上に `ComfyUI` を `/storage/ComfyUI` で置く
 5. clone した repo 内の [`hf-repo.yaml`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/hf-repo.yaml) を必要なら編集する
 6. clone した repo 内の [`start.ipynb`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/start.ipynb) を開く
-7. 先頭セルのダウンロード設定を用途に合わせて変更し、2セルを順番に実行する
+7. 先頭セルのダウンロード設定を用途に合わせて変更し、3セルを順番に実行する
 8. ComfyUI へのアクセスは `https://tensorboard-$PAPERSPACE_FQDN` を使う
 
-Notebook は設定とURL表示だけを持ち、実処理は `scripts/bootstrap_comfyui.py` が行います。
+Notebook は「設定とURL」「ダウンロード／準備」「ComfyUI起動」の3セルです。
+実処理は `scripts/bootstrap_comfyui.py` が `prepare` / `start` のフェーズ別に行います。
 
 - `hf` と Hugging Face ログイン状態の確認
 - repo 設定の読み込み
@@ -71,6 +72,10 @@ Notebook は設定とURL表示だけを持ち、実処理は `scripts/bootstrap_
 - `/storage/ComfyUI/extra_model_paths.yaml` をバックアップして再生成
 - `/storage/ComfyUI/main.py` を `6006` でバックグラウンド起動（起動済みなら再利用）
 - Paperspace の `tensorboard-$PAPERSPACE_FQDN` 形式の URL を表示
+
+準備セルの表示はフラグ単位の `running` / `complete` / `skipped` / `failed` に限定します。
+Hugging Faceなどの詳細な進捗は `/storage/ComfyUI/user/logs/bootstrap.log` に保存されます。
+そのため、どのダウンロードまで完了したかはNotebook上ですぐ分かり、長い転送ログは通常表示されません。
 
 ## Repo Config
 
@@ -179,6 +184,7 @@ Notebook から呼ぶスクリプトは、このリポジトリの `scripts/` �
 - `/app/models` はコンテナローカルなので、Notebook セッションごとに必要なモデルを再同期します
 - `DOWNLOAD_IMAGE_LORAS=False` ならprivate mirrorの `loras/` 全体は同期せず、Eye LoRAと選択したWan LoRAだけを取得します
 - `extra_model_paths.yaml` が既にある場合は `extra_model_paths.yaml.bak.paperspace-comfyui` に退避してから上書きします
-- 起動結果は `COMFYUI_STATUS`、`COMFYUI_URL`、`COMFYUI_WORKFLOW`、`COMFYUI_LOG` の固定形式で出力します
+- 準備結果は `DOWNLOAD_IMAGE_LORAS`、`DOWNLOAD_EYE_LORAS`、`DOWNLOAD_WAN22_MODELS`、`WAN22_LORA_PRESETS` などの固定形式で出力します
+- 起動結果は `COMFYUI_PROCESS`、`COMFYUI_STATUS`、`COMFYUI_URL`、`COMFYUI_WORKFLOW`、`COMFYUI_LOG` の固定形式で出力します
 - 初回起動はLoRAの索引作成などで時間がかかるため最大300秒待機し、それを超えてもプロセスが生きていれば例外にせず `COMFYUI_STATUS=starting` を返します
 - 旧 README にあった GCS 前提の運用はこの構成では使いません

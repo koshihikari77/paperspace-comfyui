@@ -769,6 +769,10 @@ def copy_snapshot_subdir(snapshot_root: Path, strip_prefix: str, dest_dir: Path,
     return "downloaded" if copied_any else "skipped"
 
 
+def snapshot_completion_marker(destination: Path) -> Path:
+    return destination / ".paperspace-download-complete"
+
+
 def download_hf_file_batch(
     repo_id: str,
     assets: list[Asset],
@@ -842,6 +846,9 @@ def download_asset(
     if asset.source == "hf_snapshot":
         if asset.repo_id is None or asset.repo_path is None or asset.strip_prefix is None:
             raise SystemExit(f"Invalid hf_snapshot asset definition: {asset.name}")
+        marker = snapshot_completion_marker(destination)
+        if marker.exists() and not force:
+            return "skipped"
         with tempfile.TemporaryDirectory(prefix="easywan22-download-") as temp_dir:
             snapshot_root = Path(
                 snapshot_download(
@@ -853,7 +860,9 @@ def download_asset(
                     max_workers=max_workers,
                 )
             )
-            return copy_snapshot_subdir(snapshot_root, asset.strip_prefix, destination, force)
+            status = copy_snapshot_subdir(snapshot_root, asset.strip_prefix, destination, force)
+            marker.touch()
+            return status
 
     raise SystemExit(f"Unsupported source type: {asset.source}")
 
@@ -944,7 +953,8 @@ def main() -> int:
         return 0
 
     preset_groups = [add_wan22_lora_preset_group(preset) for preset in args.wan22_lora_preset]
-    requested_groups = [*(args.group or ["workflow-core"]), *preset_groups]
+    default_groups = [] if preset_groups else ["workflow-core"]
+    requested_groups = [*(args.group or default_groups), *preset_groups]
     groups = resolve_groups(requested_groups)
 
     if args.list_assets or args.dry_run:
