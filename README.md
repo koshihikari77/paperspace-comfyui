@@ -13,7 +13,7 @@ Paperspace の永続ストレージにある `ComfyUI` をそのまま使うた�
 - `ComfyUI` からは `/storage/ComfyUI/extra_model_paths.yaml` で `/app/models` を参照する
 - Hugging Face repo のトップレベル構成をそのまま参照する
 - `image` では `loras` のみ取得する
-- `video` では `loras` 以外の対応ディレクトリを取得する
+- Wan 2.2 動画は Floyo 本番 workflow に必要なモデルだけを取得する
 
 ## 含まれるもの
 
@@ -60,14 +60,14 @@ chmod +x docker/build-and-push.sh
 4. 永続ストレージ上に `ComfyUI` を `/storage/ComfyUI` で置く
 5. clone した repo 内の [`hf-repo.yaml`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/hf-repo.yaml) を必要なら編集する
 6. clone した repo 内の [`start.ipynb`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/start.ipynb) を開く
-7. 先頭セルの `MODEL_MODE` を `image` か `video` に変更して順番に実行する
+7. 先頭セルの `DOWNLOAD_EYE_LORAS` / `DOWNLOAD_WAN22_MODELS` を用途に合わせて変更し、順番に実行する
 8. ComfyUI へのアクセスは `https://tensorboard-$PAPERSPACE_FQDN` を使う
 
 Notebook は repo 直下の `scripts/` を参照して次を行います。
 
 - `hf` と Hugging Face ログイン状態の確認
 - repo 設定の読み込み
-- Hugging Face repo 構成を見て必要なディレクトリだけ `/app/models` へ同期
+- 画像用 LoRA と、Floyo 安定版 Wan 2.2 workflow に必要なモデルだけを `/app/models` へ同期
 - `/storage/ComfyUI/extra_model_paths.yaml` をバックアップして再生成
 - `/storage/ComfyUI/main.py` を `6006` で起動
 - Paperspace の `tensorboard-$PAPERSPACE_FQDN` 形式の URL を表示
@@ -104,11 +104,32 @@ repo のトップレベルで認識するディレクトリ:
 - `video`: `loras` 以外の対応ディレクトリを取得
 - `revision`: 省略時は `main`
 
+## Wan 2.2 安定版
+
+動画モデルは `scripts/download_easywan22.py` の `floyo-wan22-stable` グループに固定しています。
+SmoothMIX、GGUF、旧 EasyWan22 一式、Clip Vision、別系統の LightX2V は通常起動では取得しません。
+
+取得するのは Wan 2.2 I2V High/Low FP8 Scaled、BF16 UMT5、WanVideoWrapper VAE、
+rank64 LightX2V、workflow 既定の High/Low LoRA、RealESRGAN x2 だけです。
+配置先はすべて `/app/models` で、`extra_model_paths.yaml` から参照します。
+
+workflow は `workflows/floyo_wanvideowrapper_i2v.json` です。
+RIFEだけはカスタムノードの仕様により `/storage/ComfyUI/custom_nodes/comfyui-frame-interpolation/ckpts/rife`
+で管理され、`rife47.pth` が初回使用時に自動取得されます。
+
+Floyo workflow が指定する SageAttention は永続 venv に固定します。
+
+```bash
+/storage/ComfyUI/.venv/bin/python -m pip install -r /notebooks/comfyui-requirements.txt
+```
+
 ## Notebook の設定値
 
 Notebook の先頭セルで次を変更できます。
 
-- `MODEL_MODE`
+- `DOWNLOAD_WAN22_MODELS`
+- `WAN22_MODEL_GROUP`
+- `WAN22_DOWNLOAD_MAX_WORKERS`
 - `FORCE_DOWNLOAD`
 - `COMFYUI_PORT`
 - `COMFYUI_ARGS`

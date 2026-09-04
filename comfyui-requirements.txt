@@ -1,0 +1,2 @@
+# Required by workflows/floyo_wanvideowrapper_i2v.json on Ampere GPUs.
+sageattention==1.0.6

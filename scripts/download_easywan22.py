@@ -33,6 +33,7 @@ class Asset:
 
 
 GROUP_DESCRIPTIONS = {
+    "floyo-wan22-stable": "Minimal model set for the stable Floyo WanVideoWrapper I2V workflow.",
     "easywan22-default": "Full EasyWan22 Default.bat asset set, including preset LoRAs and detectors.",
     "easywan22-default-no-gguf": "EasyWan22 default asset set without GGUF video models; pair with fp8_scaled or SmoothMIX downloads.",
     "eye-loras": "JujoHotaru eyecollexl eye LoRAs used by the notebook image mode.",
@@ -82,6 +83,72 @@ JUNCTION_RE = re.compile(
 
 
 GROUP_ASSETS: dict[str, list[Asset]] = {
+    "floyo-wan22-stable": [
+        Asset(
+            name="wan22_i2v_high_fp8_scaled",
+            relative_path="diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+            source="hf_file",
+            repo_id="Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+            repo_path="split_files/diffusion_models/wan2.2_i2v_high_noise_14B_fp8_scaled.safetensors",
+            description="High-noise Wan2.2 I2V model used by the stable Floyo workflow.",
+        ),
+        Asset(
+            name="wan22_i2v_low_fp8_scaled",
+            relative_path="diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+            source="hf_file",
+            repo_id="Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+            repo_path="split_files/diffusion_models/wan2.2_i2v_low_noise_14B_fp8_scaled.safetensors",
+            description="Low-noise Wan2.2 I2V model used by the stable Floyo workflow.",
+        ),
+        Asset(
+            name="umt5_wrapper_bf16",
+            relative_path="text_encoders/umt5-xxl-enc-bf16.safetensors",
+            source="hf_file",
+            repo_id="Kijai/WanVideo_comfy",
+            repo_path="umt5-xxl-enc-bf16.safetensors",
+            description="BF16 T5 encoder used by LoadWanVideoT5TextEncoder.",
+        ),
+        Asset(
+            name="wan_vae_wrapper_bf16",
+            relative_path="vae/Wan2_1_VAE_bf16.safetensors",
+            source="hf_file",
+            repo_id="Kijai/WanVideo_comfy",
+            repo_path="Wan2_1_VAE_bf16.safetensors",
+            description="WanVideoWrapper VAE used by the stable Floyo workflow.",
+        ),
+        Asset(
+            name="lightx2v_i2v_rank64_root",
+            relative_path="loras/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+            source="hf_file",
+            repo_id="Kijai/WanVideo_comfy",
+            repo_path="Lightx2v/lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+            description="Distill LoRA at the root path expected by the stable Floyo workflow.",
+        ),
+        Asset(
+            name="deepthroat_high",
+            relative_path="loras/Nsfw/DeepthroatBlowjob_v10-H.safetensors",
+            source="hf_file",
+            repo_id=PRIVATE_MIRROR_REPO,
+            repo_path="loras/Nsfw/DeepthroatBlowjob_v10-H.safetensors",
+            description="Default high-noise motion LoRA used by the stable Floyo workflow.",
+        ),
+        Asset(
+            name="deepthroat_low",
+            relative_path="loras/Nsfw/DeepthroatBlowjob_v10-L.safetensors",
+            source="hf_file",
+            repo_id=PRIVATE_MIRROR_REPO,
+            repo_path="loras/Nsfw/DeepthroatBlowjob_v10-L.safetensors",
+            description="Default low-noise motion LoRA used by the stable Floyo workflow.",
+        ),
+        Asset(
+            name="realesrgan_x2",
+            relative_path="upscale_models/RealESRGAN_x2.pth",
+            source="hf_file",
+            repo_id="ai-forever/Real-ESRGAN",
+            repo_path="RealESRGAN_x2.pth",
+            description="2x upscaler used by the stable Floyo workflow.",
+        ),
+    ],
     "workflow-core": [
         Asset(
             name="wan_vae_bf16",
@@ -445,7 +512,9 @@ def build_easywan22_default_assets() -> list[Asset]:
     return assets
 
 
-GROUP_ASSETS["easywan22-default"] = build_easywan22_default_assets()
+GROUP_ASSETS["easywan22-default"] = (
+    build_easywan22_default_assets() if DEFAULT_BAT.exists() else []
+)
 GROUP_ASSETS["easywan22-default-no-gguf"] = [
     asset for asset in GROUP_ASSETS["easywan22-default"]
     if not asset.relative_path.endswith(".gguf")
