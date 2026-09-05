@@ -4,8 +4,9 @@
 copied from the `agent-harness` Floyo production reference.
 
 Its required core models are defined by the `floyo-wan22-core` group in
-`scripts/download_easywan22.py`. The notebook adds only the High/Low motion
-LoRA pairs named in `WAN22_LORA_PRESETS`. Standard models are downloaded to
+`scripts/download_easywan22.py`. By default, the notebook also downloads the
+complete private-mirror `loras/Nsfw` bundle; `WAN22_LORA_PRESETS` selects the
+High/Low pair used by the active workflow. Standard models are downloaded to
 `/app/models` for each Paperspace session and exposed through
 `/storage/ComfyUI/extra_model_paths.yaml`.
 

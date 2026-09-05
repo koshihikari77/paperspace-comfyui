@@ -35,6 +35,7 @@ class Asset:
 GROUP_DESCRIPTIONS = {
     "floyo-wan22-stable": "Minimal model set for the stable Floyo WanVideoWrapper I2V workflow.",
     "floyo-wan22-core": "Floyo WanVideoWrapper I2V assets without the selectable motion LoRA pair.",
+    "wan22-nsfw-loras": "All Wan 2.2 NSFW LoRAs from the private Hugging Face mirror.",
     "easywan22-default": "Full EasyWan22 Default.bat asset set, including preset LoRAs and detectors.",
     "easywan22-default-no-gguf": "EasyWan22 default asset set without GGUF video models; pair with fp8_scaled or SmoothMIX downloads.",
     "eye-loras": "JujoHotaru eyecollexl eye LoRAs used by the notebook image mode.",
@@ -55,6 +56,7 @@ DEFAULT_BAT = DOWNLOAD_ROOT / "Default.bat"
 PRIVATE_MIRROR_REPO = os.environ.get("EASYWAN22_PRIVATE_REPO", "korokoro77/paperspace_models_mirror")
 EYE_LORA_REPO = "JujoHotaru/lora"
 EYE_LORA_SUBDIR = "sdxl/eyecollexl"
+WAN22_NSFW_LORA_SUBDIR = "loras/Nsfw"
 
 CALL_RELATIVE_BAT_RE = re.compile(r"^call\s+%~dp0(?P<path>.+?\.bat)\s*$", re.IGNORECASE)
 HF_CALL_RE = re.compile(
@@ -578,6 +580,20 @@ def build_eye_lora_assets() -> list[Asset]:
     ]
 
 
+def build_wan22_nsfw_lora_assets() -> list[Asset]:
+    return [
+        Asset(
+            name="wan22_nsfw_lora_bundle",
+            relative_path=WAN22_NSFW_LORA_SUBDIR,
+            source="hf_snapshot",
+            repo_id=PRIVATE_MIRROR_REPO,
+            repo_path=f"{WAN22_NSFW_LORA_SUBDIR}/**",
+            strip_prefix=WAN22_NSFW_LORA_SUBDIR,
+            description="Complete Wan 2.2 NSFW LoRA bundle from the private mirror.",
+        )
+    ]
+
+
 def remap_civitai_assets_to_private_mirror(repo_id: str) -> None:
     for group_name, assets in list(GROUP_ASSETS.items()):
         remapped: list[Asset] = []
@@ -600,6 +616,7 @@ def remap_civitai_assets_to_private_mirror(repo_id: str) -> None:
 
 
 GROUP_ASSETS["eye-loras"] = build_eye_lora_assets()
+GROUP_ASSETS["wan22-nsfw-loras"] = build_wan22_nsfw_lora_assets()
 remap_civitai_assets_to_private_mirror(PRIVATE_MIRROR_REPO)
 
 

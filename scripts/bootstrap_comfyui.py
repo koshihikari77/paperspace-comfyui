@@ -179,6 +179,7 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
         args.download_image_loras
         or args.download_eye_loras
         or args.download_wan22_models
+        or args.download_wan22_nsfw_loras
         or bool(args.wan22_lora_preset)
     )
     if downloads_enabled:
@@ -223,16 +224,29 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
     else:
         print_status("DOWNLOAD_WAN22_MODELS", "skipped", "disabled")
 
-    if args.wan22_lora_preset:
-        cmd = downloader_base(args, scripts, model_root)
-        for preset in args.wan22_lora_preset:
-            cmd.extend(["--wan22-lora-preset", preset])
+    if args.download_wan22_nsfw_loras:
         run_step(
-            "WAN22_LORA_PRESETS",
-            cmd,
+            "DOWNLOAD_WAN22_NSFW_LORAS",
+            [*downloader_base(args, scripts, model_root), "--group", "wan22-nsfw-loras"],
             env,
             setup_log,
         )
+    else:
+        print_status("DOWNLOAD_WAN22_NSFW_LORAS", "skipped", "disabled")
+
+    if args.wan22_lora_preset:
+        if args.download_wan22_nsfw_loras:
+            print_status("WAN22_LORA_PRESETS", "complete", "workflow selection; full bundle enabled")
+        else:
+            cmd = downloader_base(args, scripts, model_root)
+            for preset in args.wan22_lora_preset:
+                cmd.extend(["--wan22-lora-preset", preset])
+            run_step(
+                "WAN22_LORA_PRESETS",
+                cmd,
+                env,
+                setup_log,
+            )
     else:
         print_status("WAN22_LORA_PRESETS", "skipped", "empty")
 
@@ -305,6 +319,7 @@ def main() -> int:
     parser.add_argument("--download-image-loras", action="store_true")
     parser.add_argument("--download-eye-loras", action="store_true")
     parser.add_argument("--download-wan22-models", action="store_true")
+    parser.add_argument("--download-wan22-nsfw-loras", action="store_true")
     parser.add_argument("--wan22-lora-preset", action="append", default=[])
     parser.add_argument("--max-workers", type=int, default=3)
     parser.add_argument("--force", action="store_true")

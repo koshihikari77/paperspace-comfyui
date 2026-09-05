@@ -111,12 +111,12 @@ repo のトップレベルで認識するディレクトリ:
 
 ## Wan 2.2 安定版
 
-動画の通常起動は `scripts/download_easywan22.py` の `floyo-wan22-core` と、選択した
-High/Low motion LoRAだけを取得します。
+動画の通常起動は `scripts/download_easywan22.py` の `floyo-wan22-core` と、private mirrorの
+`loras/Nsfw/` 一式を取得します。
 SmoothMIX、GGUF、旧 EasyWan22 一式、Clip Vision、別系統の LightX2V は通常起動では取得しません。
 
 取得するのは Wan 2.2 I2V High/Low FP8 Scaled、BF16 UMT5、WanVideoWrapper VAE、
-rank64 LightX2V、RealESRGAN x2と、`WAN22_LORA_PRESETS` で選んだHigh/Low LoRAだけです。
+rank64 LightX2V、RealESRGAN x2と、Wan 2.2 NSFW LoRA一式です。
 配置先はすべて `/app/models` で、`extra_model_paths.yaml` から参照します。
 
 workflow は `workflows/floyo_wanvideowrapper_i2v.json` です。
@@ -138,7 +138,8 @@ Notebook の先頭セルで次を変更できます。
 - `DOWNLOAD_IMAGE_LORAS`: private mirrorの画像LoRA一式（既定は `False`）
 - `DOWNLOAD_EYE_LORAS`: Eye LoRA一式を独立して選択
 - `DOWNLOAD_WAN22_MODELS`
-- `WAN22_LORA_PRESETS`: `-H` / `-L` より前の名前を列挙。空リストならmotion LoRAなし
+- `DOWNLOAD_WAN22_NSFW_LORAS`: private mirrorの `loras/Nsfw/` 一式（既定は `True`）
+- `WAN22_LORA_PRESETS`: active workflowで使うHigh/Lowペア。リスト先頭を使用
 - `WAN22_DOWNLOAD_MAX_WORKERS`
 - `FORCE_DOWNLOAD`
 - `COMFYUI_PORT`
@@ -146,10 +147,8 @@ Notebook の先頭セルで次を変更できます。
 - `COMFYUI_PYTHON`
 - `HF_HOME`
 
-例えば `WAN22_LORA_PRESETS = ["DeepthroatBlowjob_v10"]` は、private mirrorの
-`DeepthroatBlowjob_v10-H.safetensors` と `DeepthroatBlowjob_v10-L.safetensors` だけを取得します。
-複数指定した場合は全ペアを取得し、active workflowにはリスト先頭のペアを設定します。
-この指定はHigh/Lowが揃っているプリセット用です。
+`DOWNLOAD_WAN22_NSFW_LORAS=True` の場合、`WAN22_LORA_PRESETS` はダウンロード対象を絞らず、
+active workflowで使用するペアだけを選びます。全体取得を無効にした場合は、選択したHigh/Lowペアだけを取得します。
 
 初回だけ次を実行して Hugging Face のログイン情報を永続化します。
 
@@ -182,9 +181,9 @@ Notebook から呼ぶスクリプトは、このリポジトリの `scripts/` �
 ## 備考
 
 - `/app/models` はコンテナローカルなので、Notebook セッションごとに必要なモデルを再同期します
-- `DOWNLOAD_IMAGE_LORAS=False` ならprivate mirrorの `loras/` 全体は同期せず、Eye LoRAと選択したWan LoRAだけを取得します
+- `DOWNLOAD_IMAGE_LORAS=False` でも、`DOWNLOAD_WAN22_NSFW_LORAS=True` ならWan 2.2 NSFW LoRA一式は取得します
 - `extra_model_paths.yaml` が既にある場合は `extra_model_paths.yaml.bak.paperspace-comfyui` に退避してから上書きします
-- 準備結果は `DOWNLOAD_IMAGE_LORAS`、`DOWNLOAD_EYE_LORAS`、`DOWNLOAD_WAN22_MODELS`、`WAN22_LORA_PRESETS` などの固定形式で出力します
+- 準備結果は `DOWNLOAD_IMAGE_LORAS`、`DOWNLOAD_EYE_LORAS`、`DOWNLOAD_WAN22_MODELS`、`DOWNLOAD_WAN22_NSFW_LORAS`、`WAN22_LORA_PRESETS` などの固定形式で出力します
 - 起動結果は `COMFYUI_PROCESS`、`COMFYUI_STATUS`、`COMFYUI_URL`、`COMFYUI_WORKFLOW`、`COMFYUI_LOG` の固定形式で出力します
 - 初回起動はLoRAの索引作成などで時間がかかるため最大300秒待機し、それを超えてもプロセスが生きていれば例外にせず `COMFYUI_STATUS=starting` を返します
 - 旧 README にあった GCS 前提の運用はこの構成では使いません
