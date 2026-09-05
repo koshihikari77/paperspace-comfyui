@@ -342,6 +342,11 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
 
 def start(args: argparse.Namespace, env: dict[str, str]) -> None:
     comfyui_dir = Path(args.comfyui_dir)
+    installer = Path(args.custom_nodes_repo).resolve() / "scripts/install_nodes.py"
+    if not installer.is_file():
+        raise SystemExit(f"Custom nodes repo missing; place it at {args.custom_nodes_repo} or set --custom-nodes-repo")
+    subprocess.run([sys.executable, str(installer), "--comfyui-dir", str(comfyui_dir)], check=True, env=env)
+    print_status("CUSTOM_NODES", "complete", "linked; loaded on ComfyUI startup")
     comfyui_python = resolve_comfyui_python(comfyui_dir, args.comfyui_python)
     print_status("COMFYUI_PROCESS", "running")
     status = launch_comfyui(
@@ -367,6 +372,7 @@ def main() -> int:
     parser.add_argument("--phase", choices=["prepare", "start", "all"], default="all")
     parser.add_argument("--repo-root", default="/notebooks")
     parser.add_argument("--comfyui-dir", default="/storage/ComfyUI")
+    parser.add_argument("--custom-nodes-repo", default="/storage/koshi-custom-nodes")
     parser.add_argument("--model-root", default="/app/models")
     parser.add_argument("--hf-home", default="/storage/.cache/huggingface")
     parser.add_argument("--hf-repo-config", default="/notebooks/hf-repo.yaml")
