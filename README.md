@@ -73,7 +73,9 @@ Notebook は「設定とURL」「ダウンロード／準備」「ComfyUI起動�
 - `/storage/ComfyUI/main.py` を `6006` でバックグラウンド起動（起動済みなら再利用）
 - Paperspace の `tensorboard-$PAPERSPACE_FQDN` 形式の URL を表示
 
-準備セルの表示はフラグ単位の `running` / `complete` / `skipped` / `failed` に限定します。
+準備セルの表示はフラグ単位のライブ進捗バー、`running` / `complete` / `skipped` / `failed`、
+および項目ごとの経過・所要時間に限定します。割合を取得できない処理では、誤った％の代わりに
+往復するインジケーターを表示します。
 Hugging Faceなどの詳細な進捗は `/storage/ComfyUI/user/logs/bootstrap.log` に保存されます。
 そのため、どのダウンロードまで完了したかはNotebook上ですぐ分かり、長い転送ログは通常表示されません。
 

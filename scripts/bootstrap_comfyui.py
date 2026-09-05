@@ -15,10 +15,49 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+BAR_WIDTH = 20
 
-def print_status(name: str, state: str, detail: str = "") -> None:
+
+def format_elapsed(seconds: float) -> str:
+    total = max(0, int(seconds))
+    hours, remainder = divmod(total, 3600)
+    minutes, secs = divmod(remainder, 60)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d}"
+
+
+def progress_bar(state: str, tick: int = 0) -> str:
+    if state in {"complete", "already-running", "started"}:
+        return "█" * BAR_WIDTH
+    if state == "failed":
+        return "!" * BAR_WIDTH
+    if state == "skipped":
+        return "─" * BAR_WIDTH
+    span = max(1, (BAR_WIDTH - 1) * 2)
+    position = tick % span
+    if position >= BAR_WIDTH:
+        position = span - position
+    cells = ["·"] * BAR_WIDTH
+    cells[position] = "●"
+    return "".join(cells)
+
+
+def print_status(
+    name: str,
+    state: str,
+    detail: str = "",
+    elapsed: float = 0,
+    tick: int = 0,
+    finish_line: bool = True,
+) -> None:
     suffix = f" ({detail})" if detail else ""
-    print(f"{name}={state}{suffix}", flush=True)
+    line = (
+        f"{name}={state} [{progress_bar(state, tick)}] "
+        f"elapsed={format_elapsed(elapsed)}{suffix}"
+    )
+    if finish_line:
+        print(f"\r{line:<110}", flush=True)
+    else:
+        print(f"\r{line:<110}", end="", flush=True)
 
 
 def run_step(
@@ -27,17 +66,33 @@ def run_step(
     env: dict[str, str],
     log_file: Path,
 ) -> None:
-    print_status(name, "running")
+    started = time.monotonic()
+    print_status(name, "running", finish_line=False)
     log_file.parent.mkdir(parents=True, exist_ok=True)
     with log_file.open("a", encoding="utf-8") as log:
         log.write(f"\n[{datetime.now(timezone.utc).isoformat()}] {name}\n")
         log.write(f"$ {shlex.join(cmd)}\n")
         log.flush()
-        result = subprocess.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT)
-    if result.returncode != 0:
-        print_status(name, "failed", f"see {log_file}")
+        process = subprocess.Popen(cmd, env=env, stdout=log, stderr=subprocess.STDOUT)
+        tick = 0
+        while True:
+            try:
+                process.wait(timeout=1)
+                break
+            except subprocess.TimeoutExpired:
+                tick += 1
+                print_status(
+                    name,
+                    "running",
+                    elapsed=time.monotonic() - started,
+                    tick=tick,
+                    finish_line=False,
+                )
+    elapsed = time.monotonic() - started
+    if process.returncode != 0:
+        print_status(name, "failed", f"see {log_file}", elapsed=elapsed)
         raise SystemExit(f"{name} failed; see {log_file}")
-    print_status(name, "complete")
+    print_status(name, "complete", elapsed=elapsed)
 
 
 def resolve_comfyui_python(comfyui_dir: Path, configured: str | None) -> Path:
