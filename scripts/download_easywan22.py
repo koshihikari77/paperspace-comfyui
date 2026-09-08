@@ -37,6 +37,7 @@ GROUP_DESCRIPTIONS = {
     "floyo-wan22-stable": "Minimal model set for the stable Floyo WanVideoWrapper I2V workflow.",
     "floyo-wan22-core": "Floyo WanVideoWrapper I2V assets without the selectable motion LoRA pair.",
     "wan22-nsfw-loras": "All Wan 2.2 NSFW LoRAs from the private Hugging Face mirror.",
+    "wan22-bubblebutt": "BubbleButt K3NK v1.0 High/Low pair from the private mirror.",
     "easywan22-default": "Full EasyWan22 Default.bat asset set, including preset LoRAs and detectors.",
     "easywan22-default-no-gguf": "EasyWan22 default asset set without GGUF video models; pair with fp8_scaled or SmoothMIX downloads.",
     "eye-loras": "JujoHotaru eyecollexl eye LoRAs used by the notebook image mode.",
@@ -96,6 +97,17 @@ GROUP_ASSETS: dict[str, list[Asset]] = {
             repo_path="test_controlnet2/CN-anytest_v4-marged.safetensors",
             description="SDXL ControlNet AnyTest v4; preserves the existing job's model name.",
         ),
+    ],
+    "wan22-bubblebutt": [
+        Asset(
+            name=f"bubblebutt_{noise}",
+            relative_path=f"loras/Nsfw/BubbleButt_v10-{suffix}.safetensors",
+            source="hf_file",
+            repo_id=PRIVATE_MIRROR_REPO,
+            repo_path=f"loras/Nsfw/BubbleButt_v10-{suffix}.safetensors",
+            description=f"BubbleButt K3NK v1.0 {noise}-noise LoRA (Civitai version {version}).",
+        )
+        for noise, suffix, version in [("high", "H", 2382968), ("low", "L", 2385507)]
     ],
     "floyo-wan22-stable": [
         Asset(

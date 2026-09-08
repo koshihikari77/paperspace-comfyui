@@ -14,6 +14,18 @@ The first selected LoRA pair is also written into the ephemeral workflow
 `/app/workflows/floyo_wanvideowrapper_i2v_active.json`; this checked-in
 reference remains unchanged.
 
+BubbleButt K3NK v1.0 is mirrored as `BubbleButt_v10-H.safetensors` and
+`BubbleButt_v10-L.safetensors` under `loras/Nsfw`. The default full-bundle
+download includes both. To fetch only this pair:
+
+```sh
+python scripts/download_easywan22.py --group wan22-bubblebutt
+```
+
+The existing `--wan22-lora-preset BubbleButt_v10` option also supports this pair.
+Adding the assets does not change the selected workflow preset.
+See [source metadata and hashes](../docs/bubblebutt-model.md).
+
 RIFE is the exception: `comfyui-frame-interpolation` manages its checkpoint in
 its own directory under `/storage/ComfyUI/custom_nodes` and downloads
 `rife47.pth` on first use.
