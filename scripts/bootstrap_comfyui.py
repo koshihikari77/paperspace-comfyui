@@ -242,6 +242,13 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
     else:
         print_status("HF_AUTH", "skipped", "no downloads selected")
 
+    run_step(
+        "DOWNLOAD_CONTROLNET_ANYTEST_V4",
+        [*downloader_base(args, scripts, model_root), "--group", "controlnet-anytest-v4"],
+        env,
+        setup_log,
+    )
+
     if args.download_image_loras:
         cmd = [
             sys.executable,

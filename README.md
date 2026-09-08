@@ -79,6 +79,23 @@ Notebook は「設定とURL」「ダウンロード／準備」「ComfyUI起動�
 Hugging Faceなどの詳細な進捗は `/storage/ComfyUI/user/logs/bootstrap.log` に保存されます。
 そのため、どのダウンロードまで完了したかはNotebook上ですぐ分かり、長い転送ログは通常表示されません。
 
+### ControlNet AnyTest v4
+
+準備フェーズは公開HFの [AnyTest v4](https://huggingface.co/2vXpSwA7/iroiro-lora/blob/main/test_controlnet2/CN-anytest_v4-marged.safetensors)
+を毎回確認し、未配置なら `/app/models/controlnet/SDXL/CN-anytest_v4-marged.safetensors` に取得します。
+既存ファイルは再ダウンロードしません（`--force` 指定時を除く）。
+Notebookの追加フラグは不要で、進捗は `DOWNLOAD_CONTROLNET_ANYTEST_V4` に表示されます。
+公開モデルのため、この取得自体にprivate HFミラーの認証は不要です。
+
+既存の `extra_model_paths.yaml` のcontrolnet設定を使うため、ControlNetLoaderでの名前は
+`SDXL/CN-anytest_v4-marged.safetensors` です。jobの変更は不要です。
+`/app` が初期化されても、次の準備フェーズで復元されます。
+
+単独取得: `python scripts/download_easywan22.py --group controlnet-anytest-v4`
+
+配布サイズ: 2,502,139,104 bytes。
+SHA-256: `807aa29189c10660dff77a5bbfcf5cf39d60f7780199db36db36a9096e11ace7`。
+
 ## Repo Config
 
 標準パスは clone した repo 内の [`hf-repo.yaml`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/hf-repo.yaml) です。  

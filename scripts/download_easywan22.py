@@ -33,6 +33,7 @@ class Asset:
 
 
 GROUP_DESCRIPTIONS = {
+    "controlnet-anytest-v4": "SDXL ControlNet AnyTest v4 from the public Hugging Face source.",
     "floyo-wan22-stable": "Minimal model set for the stable Floyo WanVideoWrapper I2V workflow.",
     "floyo-wan22-core": "Floyo WanVideoWrapper I2V assets without the selectable motion LoRA pair.",
     "wan22-nsfw-loras": "All Wan 2.2 NSFW LoRAs from the private Hugging Face mirror.",
@@ -86,6 +87,16 @@ JUNCTION_RE = re.compile(
 
 
 GROUP_ASSETS: dict[str, list[Asset]] = {
+    "controlnet-anytest-v4": [
+        Asset(
+            name="controlnet_anytest_v4",
+            relative_path="controlnet/SDXL/CN-anytest_v4-marged.safetensors",
+            source="hf_file",
+            repo_id="2vXpSwA7/iroiro-lora",
+            repo_path="test_controlnet2/CN-anytest_v4-marged.safetensors",
+            description="SDXL ControlNet AnyTest v4; preserves the existing job's model name.",
+        ),
+    ],
     "floyo-wan22-stable": [
         Asset(
             name="wan22_i2v_high_fp8_scaled",
