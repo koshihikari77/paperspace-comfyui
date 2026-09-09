@@ -96,6 +96,42 @@ Notebookの追加フラグは不要で、進捗は `DOWNLOAD_CONTROLNET_ANYTEST_
 配布サイズ: 2,502,139,104 bytes。
 SHA-256: `807aa29189c10660dff77a5bbfcf5cf39d60f7780199db36db36a9096e11ace7`。
 
+## クラッシュ調査ログ
+
+bootstrapのprepare/startで独立した監視プロセスが起動し、
+`/notebooks/logs/runtime/` に約10秒間隔で記録します。
+ComfyUIが終了しても監視は継続します。同じログディレクトリでは二重起動しません。
+Notebookの変更やComfyUIの再起動は不要です。
+
+- `metrics.jsonl`: コンテナRAM使用量・上限・OOMカウンター・メモリpressure、
+  ホストmeminfo、主要プロセスのRSS/PID/OOMスコア、GPU使用率・VRAM・温度・電力、
+  GPUプロセス、ディスク空き容量、ComfyUI疎通とキュー件数
+- `events.jsonl`: 監視開始（boot IDとPID）、OOMカウンター／疎通の変化、
+  カーネルログの末尾（60秒ごと、取得可能な場合）、収集エラー
+- `comfyui.jsonl`: `/storage/ComfyUI/user/logs/comfyui.log` と `bootstrap.log` の追記分。
+  監視開始時は各ファイルの末尾最大1MiBも取り込みます。
+
+時刻はUTC。各ログは10MiB×最大5世代（`.1`～`.4`が過去分）、合計約150MiBに制限。
+毎回flush/fsyncし、再起動後も追記します。保存世代を超えた古いログは自動削除されます。
+Git対象外です。監視は環境変数・コマンドライン・画像・動画・キューのpromptを保存しませんが、
+ComfyUI自体のログにpromptやパス等が含まれることがあるので、共有前に確認してください。
+
+手動起動: `python scripts/collect_runtime_logs.py --start`
+
+`koshi-custom-nodes` の `runtime_diagnostics` 拡張を有効にすると、追加の
+`nodes.jsonl` にWan sampler/decode・RealESRGAN・ColorMatch・RIFEの
+ノード開始/終了と実行中約1秒ごとのRAM/VRAMを記録します。
+prompt IDとnode IDで照合可能です。画像内容やprompt本文は記録しません。
+このファイルも最大約50MiBでローテーション（既存ログとの合計約200MiB）。
+初回の拡張読み込みにはComfyUIの再起動が必要です。
+
+`memory.current`はページキャッシュも含むため、上限近くでも即OOMとは限りません。
+`memory.events`の`oom_kill`増加、プロセス消失、直前の例外を時刻で照合します。
+CUDA OOMとホストRAM OOMは別です。監視プロセス自体が停止した場合やVMごと落ちた場合、
+最後の約10秒以上が残らない可能性があります。コンテナから`dmesg`が読めない場合は
+権限エラーを記録します。VM停止理由やホストGPUドライバ障害の確定には
+Paperspace側イベントログが必要な場合があります。
+
 ## Repo Config
 
 標準パスは clone した repo 内の [`hf-repo.yaml`](/mnt/c/Users/inada/obsidian/base/03_projects/paperspace-comfyui/hf-repo.yaml) です。  

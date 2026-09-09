@@ -175,7 +175,7 @@ def launch_comfyui(
         process = subprocess.Popen(
             cmd,
             cwd=comfyui_dir,
-            env=env,
+            env={**env, "PYTHONUNBUFFERED": "1"},
             stdin=subprocess.DEVNULL,
             stdout=log,
             stderr=subprocess.STDOUT,
@@ -209,7 +209,17 @@ def downloader_base(args: argparse.Namespace, scripts: Path, model_root: Path) -
     return cmd
 
 
+def start_diagnostics(args: argparse.Namespace, env: dict[str, str]) -> None:
+    subprocess.run(
+        [sys.executable, str(Path(args.repo_root) / "scripts/collect_runtime_logs.py"),
+         "--start", "--log-dir", str(Path(args.repo_root) / "logs/runtime"),
+         "--comfyui-dir", args.comfyui_dir, "--port", str(args.port)],
+        check=True, env=env,
+    )
+
+
 def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
+    start_diagnostics(args, env)
     repo_root = Path(args.repo_root)
     scripts = repo_root / "scripts"
     comfyui_dir = Path(args.comfyui_dir)
@@ -348,6 +358,7 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
 
 
 def start(args: argparse.Namespace, env: dict[str, str]) -> None:
+    start_diagnostics(args, env)
     comfyui_dir = Path(args.comfyui_dir)
     installer = Path(args.custom_nodes_repo).resolve() / "scripts/install_nodes.py"
     if not installer.is_file():
