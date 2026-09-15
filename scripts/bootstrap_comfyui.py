@@ -360,9 +360,18 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
 def start(args: argparse.Namespace, env: dict[str, str]) -> None:
     start_diagnostics(args, env)
     comfyui_dir = Path(args.comfyui_dir)
-    installer = Path(args.custom_nodes_repo).resolve() / "scripts/install_nodes.py"
+    repo = Path(args.custom_nodes_repo).resolve()
+    installer = repo / "scripts/install_nodes.py"
     if not installer.is_file():
         raise SystemExit(f"Custom nodes repo missing; place it at {args.custom_nodes_repo} or set --custom-nodes-repo")
+    if not getattr(args, "no_pull_custom_nodes", False) and (repo / ".git").exists():
+        # Pick up nodes pushed since the last boot (e.g. yolo_frame_detect). Offline/diverged is non-fatal.
+        pull = subprocess.run(["git", "-C", str(repo), "pull", "--ff-only", "--quiet"],
+                              capture_output=True, text=True, env=env)
+        if pull.returncode == 0:
+            print_status("CUSTOM_NODES_PULL", "complete", "git pull --ff-only")
+        else:
+            print_status("CUSTOM_NODES_PULL", "skipped", (pull.stderr or pull.stdout).strip()[-200:])
     subprocess.run([sys.executable, str(installer), "--comfyui-dir", str(comfyui_dir)], check=True, env=env)
     print_status("CUSTOM_NODES", "complete", "linked; loaded on ComfyUI startup")
     comfyui_python = resolve_comfyui_python(comfyui_dir, args.comfyui_python)
@@ -392,6 +401,7 @@ def main() -> int:
     parser.add_argument("--comfyui-dir", default="/storage/ComfyUI")
     parser.add_argument("--custom-nodes-repo", default="/storage/koshi-custom-nodes")
     parser.add_argument("--model-root", default="/app/models")
+    parser.add_argument("--no-pull-custom-nodes", action="store_true", help="start 時に custom nodes repo を git pull しない")
     parser.add_argument("--hf-home", default="/storage/.cache/huggingface")
     parser.add_argument("--hf-repo-config", default="/notebooks/hf-repo.yaml")
     parser.add_argument("--setup-log", default="/storage/ComfyUI/user/logs/bootstrap.log")
