@@ -1,4 +1,7 @@
-FROM docker.io/nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04
+FROM docker.io/nvidia/cuda:12.4.1-cudnn-runtime-ubuntu22.04
+
+# uv はバージョン固定で公式イメージからバイナリをコピーする（issue #10）
+COPY --from=ghcr.io/astral-sh/uv:0.10.7 /uv /uvx /usr/local/bin/
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
@@ -8,7 +11,9 @@ ENV HF_HOME=/app/.cache/huggingface
 
 RUN apt-get update && apt-get install -y \
     bash \
+    build-essential \
     ca-certificates \
+    cmake \
     curl \
     ffmpeg \
     git \
@@ -17,10 +22,18 @@ RUN apt-get update && apt-get install -y \
     libgl1 \
     libglib2.0-0 \
     less \
+    libice6 \
+    libsm6 \
+    libxi6 \
+    libxkbcommon0 \
+    libxrender1 \
+    ninja-build \
+    pkg-config \
     procps \
     python3.10 \
     python3-pip \
     python3.10-venv \
+    ripgrep \
     tini \
     unzip \
     vim-tiny \
