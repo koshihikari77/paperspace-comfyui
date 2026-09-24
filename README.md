@@ -15,6 +15,26 @@ Paperspace の永続ストレージにある `ComfyUI` をそのまま使うた�
 - `image` では `loras` のみ取得する
 - Wan 2.2 動画は Floyo 本番 workflow に必要なモデルだけを取得する
 
+## MiniMax H3（研究用の独立環境）
+
+[`minimax_h3_models.ipynb`](minimax_h3_models.ipynb) から
+`scripts/download_minimax_h3.py` を呼び、`/storage/h3-research/models` にモデルを取得できます。
+既定の `fused-core` は融合モデル・Qwen・INT8動画VAEの3ファイル（計39.48 GB）で、
+無音のI2VとRef2VAに使う構成です。通常のWan環境 `/storage/ComfyUI` と
+`/app/models` には配置しません。
+
+```bash
+python scripts/download_minimax_h3.py --dry-run
+python scripts/download_minimax_h3.py --group fused-core
+python scripts/download_minimax_h3.py --group fused-core --group audio
+```
+
+追加グループは `audio`（音声VAE）、`official-fl2va`、`official-ref2va`、
+`fasth3`。既存ファイルはサイズで確認し、新規取得はSHA-256で照合します。
+既存ファイルの完全照合には `--verify-existing` を付けてください。
+決定版の設定と実測は `/storage/h3-research/H3-VIDEO-DECISION-2026-09-23.md`、
+モデルの用途は `/storage/h3-research/H3-MODELS-I2V-REF2VA-2026-09-24.md` に記録しています。
+
 ## 含まれるもの
 
 - Ubuntu 22.04
