@@ -21,11 +21,9 @@ Paperspace の永続ストレージにある `ComfyUI` をそのまま使うた�
 `DOWNLOAD_MINIMAX_MODELS` で取得する系統を選びます。`False` の系統は、その下の個別設定が
 `True` でも一式を取得しません。MiniMaxを有効にすると `scripts/download_minimax_h3.py` が
 `/storage/h3-research/models` に取得します。
-`START_COMFYUI="auto"` は選択したモデル系統にかかわらず `/storage/ComfyUI` を起動します。
-この本体は0.37.0、Python 3.12、PyTorch 2.14.0+cu126へ更新済みです。MiniMaxを有効にした場合は
-検証済みのA6000用CUDA 12.8カーネルを照合して有効化します。`"main"` は常に統合環境、
-`"research"` は旧研究用環境、`"none"` は起動なしです。旧指定の `"wan"` と `"minimax"` も
-統合環境を起動します。両環境を同じ6006番で同時起動することはできません。
+Notebookの起動セルはモデル取得フラグと関係なく `/storage/ComfyUI` を6006番で起動します。
+この本体は0.37.0、Python 3.12、PyTorch 2.14.0+cu126へ更新済みです。
+検証済みのA6000用CUDA 12.8カーネルを起動時に照合して有効化します。
 既定の `fused-core` は融合モデル・Qwen・INT8動画VAEの3ファイル（計39.48 GB）で、
 無音のI2VとRef2VAに使う構成です。モデルの置き場は `/storage/h3-research/models` のまま、
 `/storage/ComfyUI/extra_model_paths.yaml` から読みます。画像/Wanモデルは従来どおり `/app/models` です。
@@ -243,7 +241,7 @@ Notebook の先頭セルで次を変更できます。
 - `DOWNLOAD_EYE_LORAS`: Eye LoRA一式を独立して選択
 - `DOWNLOAD_WAN22_NSFW_LORAS`: private mirrorの `loras/Nsfw/` 一式（既定は `True`）
 - `MINIMAX_H3_GROUPS`: 既定は融合モデル・Qwen・INT8動画VAEの `fused-core`
-- `START_COMFYUI`: `auto` / `wan` / `minimax` / `none`
+- `MINIMAX_MODEL_ROOT`: MiniMaxモデルの保存先（既定は `/storage/h3-research/models`）
 - `WAN22_LORA_PRESETS`: active workflowで使うHigh/Lowペア。リスト先頭を使用
 - `WAN22_DOWNLOAD_MAX_WORKERS`
 - `FORCE_DOWNLOAD`
