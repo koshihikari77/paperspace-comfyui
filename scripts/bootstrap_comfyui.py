@@ -252,12 +252,15 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
     else:
         print_status("HF_AUTH", "skipped", "no downloads selected")
 
-    run_step(
-        "DOWNLOAD_CONTROLNET_ANYTEST_V4",
-        [*downloader_base(args, scripts, model_root), "--group", "controlnet-anytest-v4"],
-        env,
-        setup_log,
-    )
+    if args.download_controlnet_anytest_v4:
+        run_step(
+            "DOWNLOAD_CONTROLNET_ANYTEST_V4",
+            [*downloader_base(args, scripts, model_root), "--group", "controlnet-anytest-v4"],
+            env,
+            setup_log,
+        )
+    else:
+        print_status("DOWNLOAD_CONTROLNET_ANYTEST_V4", "skipped", "image disabled")
 
     if args.download_image_loras:
         cmd = [
@@ -406,6 +409,7 @@ def main() -> int:
     parser.add_argument("--hf-repo-config", default="/notebooks/hf-repo.yaml")
     parser.add_argument("--setup-log", default="/storage/ComfyUI/user/logs/bootstrap.log")
     parser.add_argument("--download-image-loras", action="store_true")
+    parser.add_argument("--download-controlnet-anytest-v4", action="store_true")
     parser.add_argument("--download-eye-loras", action="store_true")
     parser.add_argument("--download-wan22-models", action="store_true")
     parser.add_argument("--download-wan22-nsfw-loras", action="store_true")

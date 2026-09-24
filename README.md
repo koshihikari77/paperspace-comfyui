@@ -9,18 +9,19 @@ Paperspace の永続ストレージにある `ComfyUI` をそのまま使うた�
 - モデルはイメージに焼かない
 - モデル取得のロジックは GitHub 側の `scripts/` に置く
 - Notebook は GitHub から clone した repo 内の `start.ipynb` を使う
-- 取得先は `/app/models`
-- `ComfyUI` からは `/storage/ComfyUI/extra_model_paths.yaml` で `/app/models` を参照する
+- 画像/Wanの取得先は `/app/models`、MiniMaxは `/storage/h3-research/models`
+- 通常の `ComfyUI` からは `/storage/ComfyUI/extra_model_paths.yaml` で `/app/models` を参照する
 - Hugging Face repo のトップレベル構成をそのまま参照する
-- `image` では `loras` のみ取得する
+- 画像系では選択したLoRAとAnyTest ControlNetを取得する
 - Wan 2.2 動画は Floyo 本番 workflow に必要なモデルだけを取得する
 
 ## MiniMax H3（研究用の独立環境）
 
-[`start.ipynb`](start.ipynb) の `MODEL_SETUP` を `"minimax"` にすると
-`scripts/download_minimax_h3.py` を呼び、`/storage/h3-research/models` にモデルを取得します。
-`"both"` はWanとMiniMaxの両方を準備し、`"wan"` は従来通りWanだけを準備します。
-`START_COMFYUI="auto"` は選んだ環境を起動します（`"both"` の場合はWan）。
+[`start.ipynb`](start.ipynb) の親フラグ `DOWNLOAD_IMAGE_MODELS`・`DOWNLOAD_WAN_MODELS`・
+`DOWNLOAD_MINIMAX_MODELS` で取得する系統を選びます。`False` の系統は、その下の個別設定が
+`True` でも一式を取得しません。MiniMaxを有効にすると `scripts/download_minimax_h3.py` が
+`/storage/h3-research/models` に取得します。
+`START_COMFYUI="auto"` は画像/Wan用ComfyUIを優先し、それらが無効でMiniMaxだけ有効なら研究用ComfyUIを起動します。
 `"minimax"` を明示すれば研究用ComfyUIをPaperspace proxy用の6006番で起動し、
 `"none"` なら起動しません。同じportで両方を同時起動することはできません。
 既定の `fused-core` は融合モデル・Qwen・INT8動画VAEの3ファイル（計39.48 GB）で、
@@ -112,9 +113,9 @@ Hugging Faceなどの詳細な進捗は `/storage/ComfyUI/user/logs/bootstrap.lo
 ### ControlNet AnyTest v4
 
 準備フェーズは公開HFの [AnyTest v4](https://huggingface.co/2vXpSwA7/iroiro-lora/blob/main/test_controlnet2/CN-anytest_v4-marged.safetensors)
-を毎回確認し、未配置なら `/app/models/controlnet/SDXL/CN-anytest_v4-marged.safetensors` に取得します。
+を `DOWNLOAD_IMAGE_MODELS=True` の場合だけ確認し、未配置なら `/app/models/controlnet/SDXL/CN-anytest_v4-marged.safetensors` に取得します。
 既存ファイルは再ダウンロードしません（`--force` 指定時を除く）。
-Notebookの追加フラグは不要で、進捗は `DOWNLOAD_CONTROLNET_ANYTEST_V4` に表示されます。
+`DOWNLOAD_IMAGE_MODELS=False` なら取得しません。進捗は `DOWNLOAD_CONTROLNET_ANYTEST_V4` に表示されます。
 公開モデルのため、この取得自体にprivate HFミラーの認証は不要です。
 
 既存の `extra_model_paths.yaml` のcontrolnet設定を使うため、ControlNetLoaderでの名前は
@@ -220,10 +221,14 @@ Floyo workflow が指定する SageAttention は永続 venv に固定します�
 
 Notebook の先頭セルで次を変更できます。
 
+- `DOWNLOAD_IMAGE_MODELS`: 画像用ControlNetと、下の画像LoRA設定をまとめて制御
+- `DOWNLOAD_WAN_MODELS`: Wan本体と、下のWan LoRA設定をまとめて制御
+- `DOWNLOAD_MINIMAX_MODELS`: MiniMax H3の `MINIMAX_H3_GROUPS` を取得
 - `DOWNLOAD_IMAGE_LORAS`: private mirrorの画像LoRA一式（既定は `False`）
 - `DOWNLOAD_EYE_LORAS`: Eye LoRA一式を独立して選択
-- `DOWNLOAD_WAN22_MODELS`
 - `DOWNLOAD_WAN22_NSFW_LORAS`: private mirrorの `loras/Nsfw/` 一式（既定は `True`）
+- `MINIMAX_H3_GROUPS`: 既定は融合モデル・Qwen・INT8動画VAEの `fused-core`
+- `START_COMFYUI`: `auto` / `wan` / `minimax` / `none`
 - `WAN22_LORA_PRESETS`: active workflowで使うHigh/Lowペア。リスト先頭を使用
 - `WAN22_DOWNLOAD_MAX_WORKERS`
 - `FORCE_DOWNLOAD`
@@ -266,9 +271,9 @@ Notebook から呼ぶスクリプトは、このリポジトリの `scripts/` �
 ## 備考
 
 - `/app/models` はコンテナローカルなので、Notebook セッションごとに必要なモデルを再同期します
-- `DOWNLOAD_IMAGE_LORAS=False` でも、`DOWNLOAD_WAN22_NSFW_LORAS=True` ならWan 2.2 NSFW LoRA一式は取得します
+- 親フラグが `False` の場合、その系統の子フラグはダウンロードを起こしません
 - `extra_model_paths.yaml` が既にある場合は `extra_model_paths.yaml.bak.paperspace-comfyui` に退避してから上書きします
-- 準備結果は `DOWNLOAD_IMAGE_LORAS`、`DOWNLOAD_EYE_LORAS`、`DOWNLOAD_WAN22_MODELS`、`DOWNLOAD_WAN22_NSFW_LORAS`、`WAN22_LORA_PRESETS` などの固定形式で出力します
+- Wan/画像の準備結果は `DOWNLOAD_IMAGE_LORAS`、`DOWNLOAD_EYE_LORAS`、`DOWNLOAD_WAN22_MODELS`、`DOWNLOAD_WAN22_NSFW_LORAS`、`WAN22_LORA_PRESETS` などの固定形式で出力します
 - 起動結果は `COMFYUI_PROCESS`、`COMFYUI_STATUS`、`COMFYUI_URL`、`COMFYUI_WORKFLOW`、`COMFYUI_LOG` の固定形式で出力します
 - 初回起動はLoRAの索引作成などで時間がかかるため最大300秒待機し、それを超えてもプロセスが生きていれば例外にせず `COMFYUI_STATUS=starting` を返します
 - 旧 README にあった GCS 前提の運用はこの構成では使いません
