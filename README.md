@@ -17,8 +17,12 @@ Paperspace の永続ストレージにある `ComfyUI` をそのまま使うた�
 
 ## MiniMax H3（研究用の独立環境）
 
-[`minimax_h3_models.ipynb`](minimax_h3_models.ipynb) から
-`scripts/download_minimax_h3.py` を呼び、`/storage/h3-research/models` にモデルを取得できます。
+[`start.ipynb`](start.ipynb) の `MODEL_SETUP` を `"minimax"` にすると
+`scripts/download_minimax_h3.py` を呼び、`/storage/h3-research/models` にモデルを取得します。
+`"both"` はWanとMiniMaxの両方を準備し、`"wan"` は従来通りWanだけを準備します。
+`START_COMFYUI="auto"` は選んだ環境を起動します（`"both"` の場合はWan）。
+`"minimax"` を明示すれば研究用ComfyUIをPaperspace proxy用の6006番で起動し、
+`"none"` なら起動しません。同じportで両方を同時起動することはできません。
 既定の `fused-core` は融合モデル・Qwen・INT8動画VAEの3ファイル（計39.48 GB）で、
 無音のI2VとRef2VAに使う構成です。通常のWan環境 `/storage/ComfyUI` と
 `/app/models` には配置しません。
@@ -34,6 +38,10 @@ python scripts/download_minimax_h3.py --group fused-core --group audio
 既存ファイルの完全照合には `--verify-existing` を付けてください。
 決定版の設定と実測は `/storage/h3-research/H3-VIDEO-DECISION-2026-09-23.md`、
 モデルの用途は `/storage/h3-research/H3-MODELS-I2V-REF2VA-2026-09-24.md` に記録しています。
+
+Issue #3/#7/#8/#9 の単発検証スクリプトは通常起動には使わないため、
+`scripts/` から除きました。同一内容はPaperspaceの
+`/notebooks/issues-3-7-8-9-validation-results-2026-09-23.zip` に保存しています。
 
 ## 含まれるもの
 
@@ -84,7 +92,9 @@ chmod +x docker/build-and-push.sh
 8. ComfyUI へのアクセスは `https://tensorboard-$PAPERSPACE_FQDN` を使う
 
 Notebook は「設定とURL」「ダウンロード／準備」「ComfyUI起動」の3セルです。
-実処理は `scripts/bootstrap_comfyui.py` が `prepare` / `start` のフェーズ別に行います。
+Wanの準備・起動は `scripts/bootstrap_comfyui.py`、MiniMaxのモデル取得は
+`scripts/download_minimax_h3.py`、研究用ComfyUI起動は
+`/storage/h3-research/scripts/h3_renderer/start_cuda128.sh` を使います。
 
 - `hf` と Hugging Face ログイン状態の確認
 - repo 設定の読み込み
