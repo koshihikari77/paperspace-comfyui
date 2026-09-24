@@ -38,6 +38,13 @@ def main() -> int:
     extra_model_paths = {"hf_models": {"base_path": str(model_root)}}
     for model_type in MODEL_TYPES:
         extra_model_paths["hf_models"][model_type] = f"{model_type}/"
+    extra_model_paths["h3"] = {
+        "base_path": "/storage/h3-research/models",
+        "diffusion_models": "diffusion_models",
+        "text_encoders": "text_encoders",
+        "vae": "vae",
+        "loras": "loras",
+    }
 
     if extra_model_paths_file.exists():
         shutil.copy2(extra_model_paths_file, backup_file)

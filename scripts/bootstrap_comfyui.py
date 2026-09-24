@@ -378,6 +378,16 @@ def start(args: argparse.Namespace, env: dict[str, str]) -> None:
     subprocess.run([sys.executable, str(installer), "--comfyui-dir", str(comfyui_dir)], check=True, env=env)
     print_status("CUSTOM_NODES", "complete", "linked; loaded on ComfyUI startup")
     comfyui_python = resolve_comfyui_python(comfyui_dir, args.comfyui_python)
+    if args.enable_minimax_kernels:
+        subprocess.run(
+            [str(comfyui_python), str(Path(args.repo_root) / "scripts/verify_minimax_kernel.py")],
+            check=True,
+            env=env,
+        )
+        env["H3_LOCAL_CUDA12_KERNELS"] = "1"
+        for flag in ("--enable-triton-backend", "--fast-disk", "--disable-pinned-memory"):
+            if flag not in shlex.split(args.comfyui_args):
+                args.comfyui_args += f" {flag}"
     print_status("COMFYUI_PROCESS", "running")
     status = launch_comfyui(
         comfyui_dir,
@@ -405,6 +415,7 @@ def main() -> int:
     parser.add_argument("--custom-nodes-repo", default="/storage/koshi-custom-nodes")
     parser.add_argument("--model-root", default="/app/models")
     parser.add_argument("--no-pull-custom-nodes", action="store_true", help="start 時に custom nodes repo を git pull しない")
+    parser.add_argument("--enable-minimax-kernels", action="store_true", help="verify and enable the local CUDA 12.8 H3 kernels")
     parser.add_argument("--hf-home", default="/storage/.cache/huggingface")
     parser.add_argument("--hf-repo-config", default="/notebooks/hf-repo.yaml")
     parser.add_argument("--setup-log", default="/storage/ComfyUI/user/logs/bootstrap.log")

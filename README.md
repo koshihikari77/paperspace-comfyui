@@ -15,18 +15,33 @@ Paperspace の永続ストレージにある `ComfyUI` をそのまま使うた�
 - 画像系では選択したLoRAとAnyTest ControlNetを取得する
 - Wan 2.2 動画は Floyo 本番 workflow に必要なモデルだけを取得する
 
-## MiniMax H3（研究用の独立環境）
+## MiniMax H3（普段のComfyUIと統合）
 
 [`start.ipynb`](start.ipynb) の親フラグ `DOWNLOAD_IMAGE_MODELS`・`DOWNLOAD_WAN_MODELS`・
 `DOWNLOAD_MINIMAX_MODELS` で取得する系統を選びます。`False` の系統は、その下の個別設定が
 `True` でも一式を取得しません。MiniMaxを有効にすると `scripts/download_minimax_h3.py` が
 `/storage/h3-research/models` に取得します。
-`START_COMFYUI="auto"` は画像/Wan用ComfyUIを優先し、それらが無効でMiniMaxだけ有効なら研究用ComfyUIを起動します。
-`"minimax"` を明示すれば研究用ComfyUIをPaperspace proxy用の6006番で起動し、
-`"none"` なら起動しません。同じportで両方を同時起動することはできません。
+`START_COMFYUI="auto"` は選択したモデル系統にかかわらず `/storage/ComfyUI` を起動します。
+この本体は0.37.0、Python 3.12、PyTorch 2.14.0+cu126へ更新済みです。MiniMaxを有効にした場合は
+検証済みのA6000用CUDA 12.8カーネルを照合して有効化します。`"main"` は常に統合環境、
+`"research"` は旧研究用環境、`"none"` は起動なしです。旧指定の `"wan"` と `"minimax"` も
+統合環境を起動します。両環境を同じ6006番で同時起動することはできません。
 既定の `fused-core` は融合モデル・Qwen・INT8動画VAEの3ファイル（計39.48 GB）で、
-無音のI2VとRef2VAに使う構成です。通常のWan環境 `/storage/ComfyUI` と
-`/app/models` には配置しません。
+無音のI2VとRef2VAに使う構成です。モデルの置き場は `/storage/h3-research/models` のまま、
+`/storage/ComfyUI/extra_model_paths.yaml` から読みます。画像/Wanモデルは従来どおり `/app/models` です。
+更新前の本体は `/storage/ComfyUI-backups/pre-minimax-20260924/core.tar`、旧Python環境は
+`/storage/ComfyUI/.venv-cu124-backup` に退避しています。
+ComfyUIのDBは0.37起動時に移行され、旧DBは `/storage/ComfyUI/user/comfyui.db.bkp` に保存されました。
+移行ログによると旧asset catalogの手動タグ・プレビュー等のメタデータは新DBに引き継がれません。
+旧 `smZNodes` の乱数フックはH3の複合latentを扱えないため、H3だけ本体の乱数生成へ渡す修正を適用しました。
+WanVideoWrapperは音声用 `torchaudio` を実際に使う時だけ読み込むようにしています。
+カスタムノード更新で修正が消えた場合の差分は
+[`patches/unified-comfyui-legacy-nodes.patch`](patches/unified-comfyui-legacy-nodes.patch) に保存しました。
+現行のWan画像→動画workflowのノードは読み込めますが、HuMo/Ovi等の音声専用機能は
+このCUDA12.6版PyTorchに合う `torchaudio` を別途用意するまで対象外です。
+統合環境で採用済みRef2VA graphを再実行し、無音1024×576・90フレーム・18fps・5秒のMP4を完走確認しました。
+初回実行はモデルロードを含め372.21秒で、旧研究環境の176.53秒はwarm状態等が異なるため直接の速度比較には使いません。
+検証動画は `/storage/ComfyUI/output/unified-check-2026-09-24/h3-ref-clay-silent90f18-retry_00001_.mp4`。
 
 ```bash
 python scripts/download_minimax_h3.py --dry-run

@@ -1,0 +1,13 @@
+--- a/comfyui_smznodes/modules/rng.py
++++ b/comfyui_smznodes/modules/rng.py
+@@ -44,0 +45,4 @@
++    if latent_image.is_nested:
++        from ..smZNodes import store
++        return store.prepare_noise(latent_image, seed, noise_inds)
++
+--- a/ComfyUI-WanVideoWrapper/HuMo/nodes.py
++++ b/ComfyUI-WanVideoWrapper/HuMo/nodes.py
+@@ -6 +5,0 @@
+-import torchaudio
+@@ -160,0 +160 @@
++                import torchaudio
