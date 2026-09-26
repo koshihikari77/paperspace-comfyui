@@ -240,6 +240,7 @@ Notebook の先頭セルで次を変更できます。
 - `DOWNLOAD_IMAGE_LORAS`: private mirrorの画像LoRA一式（既定は `False`）
 - `DOWNLOAD_EYE_LORAS`: Eye LoRA一式を独立して選択
 - `DOWNLOAD_WAN22_NSFW_LORAS`: private mirrorの `loras/Nsfw/` 一式（既定は `True`）
+- `DOWNLOAD_NASHIKONE_I2V`: 公開HF `nashikone/iroiroLoRA` のWan2.2 I2V bundle を `loras/Nashikone-I2v/` に取得（既定は `True`。`WAN22_LORA_PRESETS` では指定できない別グループ）
 - `MINIMAX_H3_GROUPS`: 既定は融合モデル・Qwen・INT8動画VAEの `fused-core`
 - `MINIMAX_MODEL_ROOT`: MiniMaxモデルの保存先（既定は `/storage/h3-research/models`）
 - `WAN22_LORA_PRESETS`: active workflowで使うHigh/Lowペア。リスト先頭を使用
@@ -286,7 +287,7 @@ Notebook から呼ぶスクリプトは、このリポジトリの `scripts/` �
 - `/app/models` はコンテナローカルなので、Notebook セッションごとに必要なモデルを再同期します
 - 親フラグが `False` の場合、その系統の子フラグはダウンロードを起こしません
 - `extra_model_paths.yaml` が既にある場合は `extra_model_paths.yaml.bak.paperspace-comfyui` に退避してから上書きします
-- Wan/画像の準備結果は `DOWNLOAD_IMAGE_LORAS`、`DOWNLOAD_EYE_LORAS`、`DOWNLOAD_WAN22_MODELS`、`DOWNLOAD_WAN22_NSFW_LORAS`、`WAN22_LORA_PRESETS` などの固定形式で出力します
+- Wan/画像の準備結果は `DOWNLOAD_IMAGE_LORAS`、`DOWNLOAD_EYE_LORAS`、`DOWNLOAD_WAN22_MODELS`、`DOWNLOAD_WAN22_NSFW_LORAS`、`DOWNLOAD_NASHIKONE_I2V`、`WAN22_LORA_PRESETS` などの固定形式で出力します
 - 起動結果は `COMFYUI_PROCESS`、`COMFYUI_STATUS`、`COMFYUI_URL`、`COMFYUI_WORKFLOW`、`COMFYUI_LOG` の固定形式で出力します
 - 初回起動はLoRAの索引作成などで時間がかかるため最大300秒待機し、それを超えてもプロセスが生きていれば例外にせず `COMFYUI_STATUS=starting` を返します
 - 旧 README にあった GCS 前提の運用はこの構成では使いません

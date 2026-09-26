@@ -245,6 +245,7 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
         or args.download_eye_loras
         or args.download_wan22_models
         or args.download_wan22_nsfw_loras
+        or args.download_nashikone_i2v
         or bool(args.wan22_lora_preset)
     )
     if downloads_enabled:
@@ -308,6 +309,16 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
         )
     else:
         print_status("DOWNLOAD_WAN22_NSFW_LORAS", "skipped", "disabled")
+
+    if args.download_nashikone_i2v:
+        run_step(
+            "DOWNLOAD_NASHIKONE_I2V",
+            [*downloader_base(args, scripts, model_root), "--group", "nashikone-i2v"],
+            env,
+            setup_log,
+        )
+    else:
+        print_status("DOWNLOAD_NASHIKONE_I2V", "skipped", "disabled")
 
     if args.wan22_lora_preset:
         if args.download_wan22_nsfw_loras:
@@ -424,6 +435,7 @@ def main() -> int:
     parser.add_argument("--download-eye-loras", action="store_true")
     parser.add_argument("--download-wan22-models", action="store_true")
     parser.add_argument("--download-wan22-nsfw-loras", action="store_true")
+    parser.add_argument("--download-nashikone-i2v", action="store_true", help="公開 HF nashikone/iroiroLoRA の Wan2.2 I2V bundle を loras/Nashikone-I2v に取得")
     parser.add_argument("--wan22-lora-preset", action="append", default=[])
     parser.add_argument("--max-workers", type=int, default=3)
     parser.add_argument("--force", action="store_true")
