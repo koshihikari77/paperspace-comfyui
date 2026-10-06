@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Download pinned MiniMax H3 weights for the isolated research ComfyUI."""
+"""Download pinned MiniMax H3 weights for the unified ComfyUI."""
 
 from __future__ import annotations
 
 import argparse
 import hashlib
 import os
+import subprocess
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -28,7 +29,15 @@ COMFY_REV = "7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1"
 FUSED_REV = "8a8dffaa0cd99c6184833ae0a3b4e9b0089c17b3"
 FAST_REV = "ec1e3aa374a91c57b0b94a1623b7e657c0498cf2"
 
+X2_REV = "af8c92d267c6849fec5032c35a65d5766737b338"
+
 ASSETS = {
+    "x2-vae": Asset(
+        "vae/MiniMax-H3-X2-Detail-v1.safetensors",
+        "speach1sdef178/MiniMax-H3-X2-Detail-VAE", X2_REV,
+        "MiniMax-H3-X2-Detail-v1.safetensors",
+        5246877148, "2296840f4acedcaa976688e7d7b97f7bf570b136e400385d3f46224011897aac",
+    ),
     "fused": Asset(
         "diffusion_models/minimax_h3_fused_refdelta_r1024_turbo8_mystic07_int8_convrot.safetensors",
         "MATLOWAI/minimax-h3-fused-turbo-int8-convrot", FUSED_REV,
@@ -74,6 +83,8 @@ ASSETS = {
 }
 
 GROUPS = {
+    "fused-x2": ("fused", "qwen", "video-vae", "x2-vae"),
+    "x2": ("x2-vae",),
     "fused-core": ("fused", "qwen", "video-vae"),
     "audio": ("audio-vae",),
     "official-fl2va": ("official-fl2va", "qwen", "video-vae"),
@@ -140,13 +151,30 @@ def download(asset: Asset, destination: Path, verify_existing: bool) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--group", action="append", choices=GROUPS, help="Repeat for extra model sets; default: fused-core")
+    parser.add_argument("--group", action="append", choices=GROUPS, help="Repeat for extra model sets; default: fused-x2")
     parser.add_argument("--model-root", type=Path, default=Path("/storage/h3-research/models"))
     parser.add_argument("--dry-run", action="store_true", help="Show selected files without downloading or hashing")
     parser.add_argument("--verify-existing", action="store_true", help="SHA-256 check already complete files too")
+    parser.add_argument("--prepare-x2-int8", action="store_true", help="After download, convert X2 with the installed H3-X2-Stream node and ComfyUI Python (CUDA required for first conversion)")
+    parser.add_argument("--comfyui-dir", type=Path, default=Path("/storage/ComfyUI"))
+    parser.add_argument("--comfyui-python", type=Path, help="Default: COMFYUI_DIR/.venv/bin/python")
     args = parser.parse_args()
-    groups = args.group or ["fused-core"]
+    args.model_root = args.model_root.resolve()
+    args.comfyui_dir = args.comfyui_dir.resolve()
+    if args.comfyui_python:
+        args.comfyui_python = args.comfyui_python.resolve()
+    groups = args.group or ["fused-x2"]
     keys = list(dict.fromkeys(key for group in groups for key in GROUPS[group]))
+    conversion = None
+    if args.prepare_x2_int8:
+        if "x2-vae" not in keys:
+            parser.error("--prepare-x2-int8 requires --group x2 or --group fused-x2")
+        converter = args.comfyui_dir / "custom_nodes/ComfyUI-H3-X2-Stream/quantization.py"
+        python = args.comfyui_python or args.comfyui_dir / ".venv/bin/python"
+        output = args.model_root / "vae/h3_x2_stream/MiniMax-H3-X2-Detail-v1-decoder-int8-convrot.safetensors"
+        conversion = [str(python), str(converter), str(args.model_root / ASSETS["x2-vae"].path), str(output)]
+        if not args.dry_run and (not python.is_file() or not converter.is_file()):
+            parser.error("Install ComfyUI-H3-X2-Stream in the selected ComfyUI first; no models were downloaded")
     for key in keys:
         asset = ASSETS[key]
         destination = args.model_root / asset.path
@@ -155,6 +183,11 @@ def main() -> None:
             print(f"{key:18} {state:7} {asset.size / 1e9:5.2f} GB  {destination}")
         else:
             download(asset, destination, args.verify_existing)
+    if conversion:
+        if args.dry_run:
+            print("PREPARE X2 INT8 (additional ~2.83 GB):", " ".join(conversion))
+        else:
+            subprocess.run(conversion, check=True, cwd=args.comfyui_dir)
     print(f"TOTAL selected: {sum(ASSETS[key].size for key in keys) / 1e9:.2f} GB")
 
 
