@@ -401,8 +401,16 @@ def start(args: argparse.Namespace, env: dict[str, str]) -> None:
     print_status("CUSTOM_NODES", "complete", "linked; loaded on ComfyUI startup")
     comfyui_python = resolve_comfyui_python(comfyui_dir, args.comfyui_python)
     if args.enable_minimax_kernels:
+        verifier = Path(args.repo_root) / "scripts/verify_minimax_kernel.py"
+        library_dir = subprocess.run(
+            [str(comfyui_python), str(verifier), "--prepare-library-dir", str(comfyui_dir / ".h3-cuda/lib")],
+            check=True, capture_output=True, text=True, env=env,
+        ).stdout.strip()
+        env["LD_LIBRARY_PATH"] = os.pathsep.join(
+            path for path in (library_dir, env.get("LD_LIBRARY_PATH", "")) if path
+        )
         subprocess.run(
-            [str(comfyui_python), str(Path(args.repo_root) / "scripts/verify_minimax_kernel.py")],
+            [str(comfyui_python), str(verifier)],
             check=True,
             env=env,
         )

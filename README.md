@@ -21,7 +21,9 @@ Paperspace の永続ストレージにある `ComfyUI` をそのまま使うた�
 2026-10-06の実測はI2Vが73.49/56.84/54.25秒、clay動画Refが173.79/157.75/154.16秒。
 前者は1088×1920・音声あり、後者は1920×1088・無音、双方124コマ・24fps・4step・部分INT8 X2です。
 CUDA INT8探索修正と一時モデル配置を使った検証値で、コピー時間は除外しています。
-**モデルを取得しただけで同じ速度になるわけではなく、通常起動へのcuBLASLt修正はまだ未反映です。**
+通常起動でもcuBLASLt探索修正を適用し、CUDA INT8のdispatch・GEMM・ConvRotを起動前に実GPU検査します。
+検査用aliasはComfyUIの `.h3-cuda/lib/` に作り、そのプロセスへだけ `LD_LIBRARY_PATH` を設定します。システムCUDAやdriverは変更しません。
+**RAM/ローカルへのモデル一時配置は自動化していないため、最速試験の総時間を保証するものではありません。**
 
 
 [`start.ipynb`](start.ipynb) の親フラグ `DOWNLOAD_IMAGE_MODELS`・`DOWNLOAD_WAN_MODELS`・
