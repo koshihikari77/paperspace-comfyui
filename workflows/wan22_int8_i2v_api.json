@@ -348,45 +348,29 @@
       ]
     }
   },
-  "rife": {
-    "class_type": "RIFE VFI",
+  "finish": {
+    "class_type": "RIFEStreamVideoCombine",
     "inputs": {
-      "ckpt_name": "rife49.pth",
-      "frames": [
+      "images": [
         "upscale",
         0
       ],
-      "clear_cache_after_n_frames": 10,
+      "interpolate": true,
+      "ckpt_name": "rife49.pth",
       "multiplier": 4,
       "fast_mode": true,
       "ensemble": true,
-      "scale_factor": 1.0
-    }
-  },
-  "finish": {
-    "inputs": {
+      "scale_factor": 1.0,
+      "clear_cache_after_n_frames": 10,
       "frame_rate": 64,
-      "loop_count": 0,
-      "filename_prefix": "wan22/final",
-      "format": "video/h264-mp4",
-      "pix_fmt": "yuv420p",
       "crf": 19,
-      "save_metadata": true,
-      "trim_to_audio": false,
-      "pingpong": false,
+      "filename_prefix": "wan22/final",
       "save_output": true,
-      "images": [
-        "rife",
-        0
-      ]
-    },
-    "class_type": "VHS_VideoCombine",
-    "_meta": {
-      "title": "Video Combine"
+      "save_metadata": true
     }
   },
   "color_match": {
-    "class_type": "ColorMatch",
+    "class_type": "ColorMatchMemoryEfficient",
     "inputs": {
       "image_ref": [
         "resize",
@@ -398,7 +382,8 @@
       ],
       "method": "mkl",
       "strength": 0.5,
-      "multithread": true
+      "multithread": true,
+      "max_workers": 4
     }
   },
   "high_motion": {

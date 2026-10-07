@@ -230,7 +230,7 @@ RIFE49はFrame Interpolationの`ckpts/rife`に初回利用時に取得されま�
 
 API正本は `workflows/wan22_int8_i2v_api.json`、選択プリセット適用後は
 `workflows/wan22_int8_i2v_active.json`、画面用は `workflows/wan22_int8_i2v.json`。
-標準はprestep1＋High3＋Low3、LightX2V3/1、NAG/FETA、色合わせ、2倍拡大、4倍補間。
+標準はprestep1＋High3＋Low3、LightX2V3/1、NAG/FETA、ColorMatchMemoryEfficient、2倍拡大、RIFEStreamVideoCombineの4倍補間。
 旧FP8/WrapperのJSONとダウンロードグループは比較用に明示選択できます。
 
 `koshi-custom-nodes/wan_native`、WanVideoWrapper、KJNodes、VHS、Frame Interpolationが必要。
@@ -238,7 +238,7 @@ API正本は `workflows/wan22_int8_i2v_api.json`、選択プリセット適用�
 新規環境では対応ComfyUI/comfy-kitchenおよびCUDA12カーネルの導入が必要です。
 重みを取得するだけで未対応環境がINT8対応になるわけではありません。
 SageAttentionを使用し、`--bf16-unet`は指定しません。
-実測と評価範囲は `docs/wan22-int8-end-to-end-2026-10-07.md`。
+最新の修正・実測は `docs/wan22-production-workflow-fix-2026-10-07.md`（通常環境217秒）。
 
 ## Notebook の設定値
 
