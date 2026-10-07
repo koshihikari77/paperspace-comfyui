@@ -221,27 +221,24 @@ repo のトップレベルで認識するディレクトリ:
 - `video`: `loras` 以外の対応ディレクトリを取得
 - `revision`: 省略時は `main`
 
-## Wan 2.2 安定版
+## Wan 2.2 標準（INT8 ConvRot）
 
-動画の通常起動は `scripts/download_easywan22.py` の `floyo-wan22-core` と、private mirrorの
-`loras/Nsfw/` 一式を取得します。
-SmoothMIX、GGUF、旧 EasyWan22 一式、Clip Vision、別系統の LightX2V は通常起動では取得しません。
+`start.ipynb` は `DOWNLOAD_WAN_MODELS=True`、`wan22-int8-core` が標準です。
+High/Low INT8 ConvRot、BF16 UMT5、native Wan VAE、旧rank64 LightX2V、AnimeSharp2xを
+`/storage/ComfyUI/models`へ取得します。追加LoRAの取得フラグ・プリセット選択は独立です。
+RIFE49はFrame Interpolationの`ckpts/rife`に初回利用時に取得されます。
 
-取得するのは Wan 2.2 I2V High/Low FP8 Scaled、BF16 UMT5、WanVideoWrapper VAE、
-rank64 LightX2V、RealESRGAN x2と、Wan 2.2 NSFW LoRA一式です。
-配置先はすべて `/app/models` で、`extra_model_paths.yaml` から参照します。
+API正本は `workflows/wan22_int8_i2v_api.json`、選択プリセット適用後は
+`workflows/wan22_int8_i2v_active.json`、画面用は `workflows/wan22_int8_i2v.json`。
+標準はprestep1＋High3＋Low3、LightX2V3/1、NAG/FETA、色合わせ、2倍拡大、4倍補間。
+旧FP8/WrapperのJSONとダウンロードグループは比較用に明示選択できます。
 
-workflow は `workflows/floyo_wanvideowrapper_i2v.json` です。
-起動時には先頭のLoRAプリセットを反映したコピーを
-`/app/workflows/floyo_wanvideowrapper_i2v_active.json` に生成します。
-RIFEだけはカスタムノードの仕様により `/storage/ComfyUI/custom_nodes/comfyui-frame-interpolation/ckpts/rife`
-で管理され、`rife47.pth` が初回使用時に自動取得されます。
-
-Floyo workflow が指定する SageAttention は永続 venv に固定します。
-
-```bash
-/storage/ComfyUI/.venv/bin/python -m pip install -r /notebooks/comfyui-requirements.txt
-```
+`koshi-custom-nodes/wan_native`、WanVideoWrapper、KJNodes、VHS、Frame Interpolationが必要。
+起動時に既存のCUDA12ローカルカーネル検証を実行します（H3/Wan共用）。
+新規環境では対応ComfyUI/comfy-kitchenおよびCUDA12カーネルの導入が必要です。
+重みを取得するだけで未対応環境がINT8対応になるわけではありません。
+SageAttentionを使用し、`--bf16-unet`は指定しません。
+実測と評価範囲は `docs/wan22-int8-end-to-end-2026-10-07.md`。
 
 ## Notebook の設定値
 

@@ -1,0 +1,432 @@
+{
+  "image": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "issue3_attention_input.png"
+    }
+  },
+  "resize": {
+    "class_type": "ImageScale",
+    "inputs": {
+      "image": [
+        "image",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": 512,
+      "height": 512,
+      "crop": "center"
+    }
+  },
+  "vae": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "wan_2.1_vae.safetensors"
+    }
+  },
+  "condition": {
+    "class_type": "WanImageToVideo",
+    "inputs": {
+      "positive": [
+        "bridge",
+        0
+      ],
+      "negative": [
+        "bridge",
+        1
+      ],
+      "vae": [
+        "vae",
+        0
+      ],
+      "width": 512,
+      "height": 512,
+      "length": 81,
+      "batch_size": 1,
+      "start_image": [
+        "resize",
+        0
+      ]
+    }
+  },
+  "high": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "wan2.2_i2v_high_noise_14B_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "high_shift": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "high",
+        0
+      ],
+      "shift": 8.0
+    }
+  },
+  "high_lora": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "high_feta",
+        0
+      ],
+      "lora_name": "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+      "strength_model": 3.0
+    }
+  },
+  "low": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "wan2.2_i2v_low_noise_14B_int8_convrot.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "low_shift": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "low",
+        0
+      ],
+      "shift": 8.0
+    }
+  },
+  "low_lora": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "low_feta",
+        0
+      ],
+      "lora_name": "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+      "strength_model": 1.0
+    }
+  },
+  "sample_high": {
+    "class_type": "WanWrapperNativeSampler",
+    "inputs": {
+      "model": [
+        "high_lora",
+        0
+      ],
+      "positive": [
+        "condition",
+        0
+      ],
+      "negative": [
+        "condition",
+        1
+      ],
+      "latent_image": [
+        "pre",
+        0
+      ],
+      "seed": 11111,
+      "steps": 7,
+      "start_step": 1,
+      "end_step": 4,
+      "shift": 8.0,
+      "cfg_first": 2.0,
+      "cfg_rest": 1.0,
+      "solver": "dpm++_sde"
+    }
+  },
+  "sample_low": {
+    "class_type": "WanWrapperNativeSampler",
+    "inputs": {
+      "model": [
+        "low_lora",
+        0
+      ],
+      "positive": [
+        "condition",
+        0
+      ],
+      "negative": [
+        "condition",
+        1
+      ],
+      "latent_image": [
+        "sample_high",
+        0
+      ],
+      "seed": 11111,
+      "steps": 7,
+      "start_step": 4,
+      "end_step": 7,
+      "shift": 8.0,
+      "cfg_first": 1.0,
+      "cfg_rest": 1.0,
+      "solver": "dpm++_sde"
+    }
+  },
+  "decode": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "sample_low",
+        0
+      ],
+      "vae": [
+        "vae",
+        0
+      ]
+    }
+  },
+  "60": {
+    "inputs": {
+      "frame_rate": 16,
+      "loop_count": 0,
+      "filename_prefix": "wan22/raw",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 19,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "decode",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine"
+    }
+  },
+  "112:11": {
+    "inputs": {
+      "model_name": "umt5-xxl-enc-bf16.safetensors",
+      "precision": "bf16",
+      "load_device": "offload_device",
+      "quantization": "disabled"
+    },
+    "class_type": "LoadWanVideoT5TextEncoder",
+    "_meta": {
+      "title": "WanVideo T5 Text Encoder Loader"
+    }
+  },
+  "112:16": {
+    "inputs": {
+      "positive_prompt": "The woman raises her right hand. Smooth natural motion. Preserve her face, clothing and the room.",
+      "negative_prompt": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
+      "force_offload": true,
+      "use_disk_cache": false,
+      "device": "gpu",
+      "t5": [
+        "112:11",
+        0
+      ]
+    },
+    "class_type": "WanVideoTextEncode",
+    "_meta": {
+      "title": "WanVideo TextEncode"
+    }
+  },
+  "bridge": {
+    "class_type": "WanTextEmbedsToConditioning",
+    "inputs": {
+      "embeds": [
+        "112:16",
+        0
+      ]
+    }
+  },
+  "high_nag": {
+    "class_type": "WanNAGBranchSafe",
+    "inputs": {
+      "model": [
+        "high_motion",
+        0
+      ],
+      "conditioning": [
+        "bridge",
+        1
+      ],
+      "nag_scale": 11.0,
+      "nag_alpha": 0.25,
+      "nag_tau": 2.5,
+      "input_type": "default",
+      "inplace": false
+    }
+  },
+  "high_feta": {
+    "class_type": "WanVideoEnhanceAVideoKJ",
+    "inputs": {
+      "model": [
+        "high_nag",
+        0
+      ],
+      "latent": [
+        "condition",
+        2
+      ],
+      "weight": 1.0
+    }
+  },
+  "low_nag": {
+    "class_type": "WanNAGBranchSafe",
+    "inputs": {
+      "model": [
+        "low_motion",
+        0
+      ],
+      "conditioning": [
+        "bridge",
+        1
+      ],
+      "nag_scale": 11.0,
+      "nag_alpha": 0.25,
+      "nag_tau": 2.5,
+      "input_type": "default",
+      "inplace": false
+    }
+  },
+  "low_feta": {
+    "class_type": "WanVideoEnhanceAVideoKJ",
+    "inputs": {
+      "model": [
+        "low_nag",
+        0
+      ],
+      "latent": [
+        "condition",
+        2
+      ],
+      "weight": 1.0
+    }
+  },
+  "pre": {
+    "class_type": "WanWrapperNativeSampler",
+    "inputs": {
+      "model": [
+        "high_feta",
+        0
+      ],
+      "positive": [
+        "condition",
+        0
+      ],
+      "negative": [
+        "condition",
+        1
+      ],
+      "latent_image": [
+        "condition",
+        2
+      ],
+      "seed": 11111,
+      "steps": 7,
+      "start_step": 0,
+      "end_step": 1,
+      "shift": 8.0,
+      "cfg_first": 3.5,
+      "cfg_rest": 3.5,
+      "solver": "dpm++_sde"
+    }
+  },
+  "upscale_model": {
+    "class_type": "UpscaleModelLoader",
+    "inputs": {
+      "model_name": "2x-AnimeSharpV4_Fast_RCAN_PU.safetensors"
+    }
+  },
+  "upscale": {
+    "class_type": "ImageUpscaleWithModel",
+    "inputs": {
+      "upscale_model": [
+        "upscale_model",
+        0
+      ],
+      "image": [
+        "color_match",
+        0
+      ]
+    }
+  },
+  "rife": {
+    "class_type": "RIFE VFI",
+    "inputs": {
+      "ckpt_name": "rife49.pth",
+      "frames": [
+        "upscale",
+        0
+      ],
+      "clear_cache_after_n_frames": 10,
+      "multiplier": 4,
+      "fast_mode": true,
+      "ensemble": true,
+      "scale_factor": 1.0
+    }
+  },
+  "finish": {
+    "inputs": {
+      "frame_rate": 64,
+      "loop_count": 0,
+      "filename_prefix": "wan22/final",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 19,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "rife",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine"
+    }
+  },
+  "color_match": {
+    "class_type": "ColorMatch",
+    "inputs": {
+      "image_ref": [
+        "resize",
+        0
+      ],
+      "image_target": [
+        "decode",
+        0
+      ],
+      "method": "mkl",
+      "strength": 0.5,
+      "multithread": true
+    }
+  },
+  "high_motion": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "high_shift",
+        0
+      ],
+      "lora_name": "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+      "strength_model": 0.0
+    },
+    "_meta": {
+      "title": "high additional LoRA (0 = disabled)"
+    }
+  },
+  "low_motion": {
+    "class_type": "LoraLoaderModelOnly",
+    "inputs": {
+      "model": [
+        "low_shift",
+        0
+      ],
+      "lora_name": "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
+      "strength_model": 0.0
+    },
+    "_meta": {
+      "title": "low additional LoRA (0 = disabled)"
+    }
+  }
+}

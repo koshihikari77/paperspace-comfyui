@@ -1,2 +1,2 @@
-# Required by workflows/floyo_wanvideowrapper_i2v.json on Ampere GPUs.
+# Required by the native INT8 Wan and legacy Wrapper workflows on Ampere GPUs.
 sageattention==1.0.6

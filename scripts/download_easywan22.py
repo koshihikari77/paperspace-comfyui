@@ -33,6 +33,7 @@ class Asset:
 
 
 GROUP_DESCRIPTIONS = {
+    "wan22-int8-core": "Default native Wan2.2 INT8 ConvRot prestep pipeline (T5, VAE, LightX2V, AnimeSharp).",
     "controlnet-anytest-v4": "SDXL ControlNet AnyTest v4 from the public Hugging Face source.",
     "floyo-wan22-stable": "Minimal model set for the stable Floyo WanVideoWrapper I2V workflow.",
     "floyo-wan22-core": "Floyo WanVideoWrapper I2V assets without the selectable motion LoRA pair.",
@@ -372,6 +373,25 @@ GROUP_ASSETS["floyo-wan22-core"] = [
     asset
     for asset in GROUP_ASSETS["floyo-wan22-stable"]
     if asset.name not in {"deepthroat_high", "deepthroat_low"}
+]
+
+
+GROUP_ASSETS["wan22-int8-core"] = [
+    Asset(name=f"wan22_{noise}_int8", source="hf_file",
+          relative_path=f"diffusion_models/wan2.2_i2v_{noise}_noise_14B_int8_convrot.safetensors",
+          repo_id="Winnougan/Wan2.2-INT8-Convrot",
+          repo_path=f"wan2.2_i2v_{noise}_noise_14B_int8_convrot.safetensors",
+          description="Native INT8 ConvRot Wan2.2 I2V.")
+    for noise in ("high", "low")
+] + [a for a in GROUP_ASSETS["floyo-wan22-core"]
+     if a.name in {"umt5_wrapper_bf16", "lightx2v_i2v_rank64_root"}] + [
+    Asset(name="wan_native_vae", source="hf_file", relative_path="vae/wan_2.1_vae.safetensors",
+          repo_id="Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+          repo_path="split_files/vae/wan_2.1_vae.safetensors", description="Native Wan VAE."),
+    Asset(name="anime_sharp_upscaler", source="hf_file",
+          relative_path="upscale_models/2x-AnimeSharpV4_Fast_RCAN_PU.safetensors",
+          repo_id="Kim2091/2x-AnimeSharpV4", repo_path="2x-AnimeSharpV4_Fast_RCAN_PU.safetensors",
+          description="Validated 2x upscaler."),
 ]
 
 
@@ -947,8 +967,8 @@ def main() -> int:
     )
     parser.add_argument(
         "--model-root",
-        default="/app/models",
-        help="Destination model root. Defaults to /app/models.",
+        default="/storage/ComfyUI/models",
+        help="Destination model root. Defaults to /storage/ComfyUI/models.",
     )
     parser.add_argument(
         "--civitai-model-root",
@@ -993,7 +1013,7 @@ def main() -> int:
         return 0
 
     preset_groups = [add_wan22_lora_preset_group(preset) for preset in args.wan22_lora_preset]
-    default_groups = [] if preset_groups else ["workflow-core"]
+    default_groups = [] if preset_groups else ["wan22-int8-core"]
     requested_groups = [*(args.group or default_groups), *preset_groups]
     groups = resolve_groups(requested_groups)
 

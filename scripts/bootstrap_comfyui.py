@@ -141,8 +141,14 @@ def ensure_sageattention(
 def write_active_workflow(source: Path, destination: Path, preset: str | None) -> Path:
     workflow = json.loads(source.read_text(encoding="utf-8"))
     if preset:
-        workflow["112:118"]["inputs"]["lora"] = f"Nsfw/{preset}-H.safetensors"
-        workflow["112:119"]["inputs"]["lora"] = f"Nsfw/{preset}-L.safetensors"
+        for side, suffix in (("high", "H"), ("low", "L")):
+            workflow[f"{side}_motion"] = {
+                "class_type": "LoraLoaderModelOnly",
+                "inputs": {"model": [f"{side}_shift", 0],
+                           "lora_name": f"Nsfw/{preset}-{suffix}.safetensors",
+                           "strength_model": 1.0},
+            }
+            workflow[f"{side}_nag"]["inputs"]["model"] = [f"{side}_motion", 0]
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(workflow, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return destination
@@ -294,7 +300,7 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
     if args.download_wan22_models:
         run_step(
             "DOWNLOAD_WAN22_MODELS",
-            [*downloader_base(args, scripts, model_root), "--group", "floyo-wan22-core"],
+            [*downloader_base(args, scripts, model_root), "--group", "wan22-int8-core"],
             env,
             setup_log,
         )
@@ -373,8 +379,8 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
         print_status("SAGEATTENTION", "skipped", "Wan 2.2 disabled")
 
     active_workflow = write_active_workflow(
-        repo_root / "workflows/floyo_wanvideowrapper_i2v.json",
-        Path("/app/workflows/floyo_wanvideowrapper_i2v_active.json"),
+        repo_root / "workflows/wan22_int8_i2v_api.json",
+        Path("/notebooks/workflows/wan22_int8_i2v_active.json"),
         args.wan22_lora_preset[0] if args.wan22_lora_preset else None,
     )
     print_status("ACTIVE_WORKFLOW", "complete", str(active_workflow))
@@ -399,6 +405,20 @@ def start(args: argparse.Namespace, env: dict[str, str]) -> None:
             print_status("CUSTOM_NODES_PULL", "skipped", (pull.stderr or pull.stdout).strip()[-200:])
     subprocess.run([sys.executable, str(installer), "--comfyui-dir", str(comfyui_dir)], check=True, env=env)
     print_status("CUSTOM_NODES", "complete", "linked; loaded on ComfyUI startup")
+    ui_dir = comfyui_dir / "user/default/workflows"
+    ui_dir.mkdir(parents=True, exist_ok=True)
+    workflow_dir = Path(args.repo_root) / "workflows"
+    active = workflow_dir / "wan22_int8_i2v_active.json"
+    if not active.exists():
+        write_active_workflow(workflow_dir / "wan22_int8_i2v_api.json", active, None)
+    graph = json.loads(active.read_text())
+    ui = json.loads((workflow_dir / "wan22_int8_i2v.json").read_text())
+    for node in ui["nodes"]:
+        if node["id"] in ("high_motion", "low_motion"):
+            inputs = graph[node["id"]]["inputs"]
+            node["widgets_values"] = [inputs["lora_name"], inputs["strength_model"]]
+    (ui_dir / "wan22_int8_i2v.json").write_text(json.dumps(ui, ensure_ascii=False, indent=2) + "\n")
+
     comfyui_python = resolve_comfyui_python(comfyui_dir, args.comfyui_python)
     if args.enable_minimax_kernels:
         verifier = Path(args.repo_root) / "scripts/verify_minimax_kernel.py"
@@ -433,7 +453,7 @@ def start(args: argparse.Namespace, env: dict[str, str]) -> None:
     print(f"COMFYUI_STATUS={'starting' if status == 'starting' else 'ready'}", flush=True)
     print(f"COMFYUI_LOCAL_URL=http://127.0.0.1:{args.port}", flush=True)
     print(f"COMFYUI_URL={public_url or 'PAPERSPACE_FQDN is not set'}", flush=True)
-    print("COMFYUI_WORKFLOW=/app/workflows/floyo_wanvideowrapper_i2v_active.json", flush=True)
+    print("COMFYUI_WORKFLOW=/notebooks/workflows/wan22_int8_i2v_active.json", flush=True)
     print(f"COMFYUI_LOG={comfyui_dir / 'user/logs/comfyui.log'}", flush=True)
 
 
@@ -443,9 +463,9 @@ def main() -> int:
     parser.add_argument("--repo-root", default="/notebooks")
     parser.add_argument("--comfyui-dir", default="/storage/ComfyUI")
     parser.add_argument("--custom-nodes-repo", default="/storage/koshi-custom-nodes")
-    parser.add_argument("--model-root", default="/app/models")
+    parser.add_argument("--model-root", default="/storage/ComfyUI/models")
     parser.add_argument("--no-pull-custom-nodes", action="store_true", help="start 時に custom nodes repo を git pull しない")
-    parser.add_argument("--enable-minimax-kernels", action="store_true", help="verify and enable the local CUDA 12.8 H3 kernels")
+    parser.add_argument("--enable-minimax-kernels", action=argparse.BooleanOptionalAction, default=True, help="verify shared Wan/H3 CUDA 12 kernels (enabled by default)")
     parser.add_argument("--hf-home", default="/storage/.cache/huggingface")
     parser.add_argument("--hf-repo-config", default="/notebooks/hf-repo.yaml")
     parser.add_argument("--setup-log", default="/storage/ComfyUI/user/logs/bootstrap.log")
@@ -461,7 +481,7 @@ def main() -> int:
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--port", type=int, default=6006)
     parser.add_argument("--startup-timeout", type=int, default=300)
-    parser.add_argument("--comfyui-args", default="--preview-method auto")
+    parser.add_argument("--comfyui-args", default="--preview-method auto --use-sage-attention")
     parser.add_argument("--comfyui-python")
     parser.add_argument("--paperspace-fqdn", default=os.environ.get("PAPERSPACE_FQDN", ""))
     args = parser.parse_args()
