@@ -176,28 +176,6 @@
       ]
     }
   },
-  "60": {
-    "inputs": {
-      "frame_rate": 16,
-      "loop_count": 0,
-      "filename_prefix": "wan22/raw",
-      "format": "video/h264-mp4",
-      "pix_fmt": "yuv420p",
-      "crf": 19,
-      "save_metadata": true,
-      "trim_to_audio": false,
-      "pingpong": false,
-      "save_output": true,
-      "images": [
-        "decode",
-        0
-      ]
-    },
-    "class_type": "VHS_VideoCombine",
-    "_meta": {
-      "title": "Video Combine"
-    }
-  },
   "112:11": {
     "inputs": {
       "model_name": "umt5-xxl-enc-bf16.safetensors",
