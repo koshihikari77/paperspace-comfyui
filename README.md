@@ -33,10 +33,12 @@ CUDA INT8探索修正と一時モデル配置を使った検証値で、コピ�
 Notebookの起動セルはモデル取得フラグと関係なく `/storage/ComfyUI` を6006番で起動します。
 この本体は0.37.0、Python 3.12、PyTorch 2.14.0+cu126へ更新済みです。
 検証済みのA6000用CUDA 12.8カーネルを起動時に照合して有効化します。
-既定の `fused-x2` は融合モデル・Qwen・通常INT8動画VAE・元FP16 X2 VAEの4ファイル（計44.73 GB）です。
-`MINIMAX_H3_PREPARE_X2_INT8=True` なら、導入済み `ComfyUI-H3-X2-Stream` の変換器をComfyUIのPythonで実行し、部分INT8 X2 VAE（約2.83 GB）を作ります。初回変換にはCUDA GPUが必要で、元FP16も保持します。変換済み出力はmetadataを検査して再利用します。ノード自体はこのダウンロード処理ではインストールしません。
-X2は最終出力に使い、参照入力には通常INT8 VAEを使います。通常VAEのみなら `fused-core`（計39.48 GB）を選びます。モデルの置き場は `/storage/h3-research/models` のまま、
-`/storage/ComfyUI/extra_model_paths.yaml` から読みます。画像/Wanモデルは従来どおり `/app/models` です。
+既定の `MINIMAX_H3_GROUPS=["fused-core", "postprocess"]` は融合モデル・Qwen・通常INT8動画VAEと、AnimeSharp 2x・RIFE49です（計約39.53 GB）。
+生成は通常VAEで元解像度・24fpsの無音MP4に保存し、プレビューに拡大・補間は使いません。
+仕上げは保存したMP4を別workflowに読み込み、Wanと同じAnimeSharp 2x → RIFE49の4倍補間で96fpsにします。
+生成workflowと後処理workflowはagent-harnessのMiniMax skill内 `workflows/` が正本です。
+H3本体は `/storage/h3-research/models`、AnimeSharpは共有の `ComfyUI/models/upscale_models`、RIFE49はFrame-Interpolationの設定先へ取得し、既存のWan用重みを再利用します。
+`MINIMAX_H3_PREPARE_X2_INT8=False` が既定です。旧X2が必要な場合のみ `x2` / `fused-x2` と変換フラグを明示選択できます。
 更新前の本体は `/storage/ComfyUI-backups/pre-minimax-20260924/core.tar`、旧Python環境は
 `/storage/ComfyUI/.venv-cu124-backup` に退避しています。
 ComfyUIのDBは0.37起動時に移行され、旧DBは `/storage/ComfyUI/user/comfyui.db.bkp` に保存されました。
@@ -52,10 +54,11 @@ WanVideoWrapperは音声用 `torchaudio` を実際に使う時だけ読み込む
 検証動画は `/storage/ComfyUI/output/unified-check-2026-09-24/h3-ref-clay-silent90f18-retry_00001_.mp4`。
 
 ```bash
-python scripts/download_minimax_h3.py --dry-run --prepare-x2-int8
-python scripts/download_minimax_h3.py --group fused-x2 --prepare-x2-int8
-python scripts/download_minimax_h3.py --group fused-core
-python scripts/download_minimax_h3.py --group fused-core --group audio
+python scripts/download_minimax_h3.py --dry-run
+python scripts/download_minimax_h3.py --group fused-core --group postprocess
+python scripts/download_minimax_h3.py --group postprocess --verify-existing
+# 旧X2を明示的に追加する場合だけ:
+python scripts/download_minimax_h3.py --group x2 --prepare-x2-int8
 ```
 
 X2だけ追加する場合は `--group x2 --prepare-x2-int8`。変換先は `MINIMAX_MODEL_ROOT/vae/h3_x2_stream/` です。
@@ -252,8 +255,8 @@ Notebook の先頭セルで次を変更できます。
 - `DOWNLOAD_WAN22_NSFW_LORAS`: private mirrorの `loras/Nsfw/` 一式（既定は `True`）
 - `DOWNLOAD_NASHIKONE_I2V`: 公開HF `nashikone/iroiroLoRA` のWan2.2 I2V bundle を `loras/Nashikone-I2v/` に取得（既定は `True`。`WAN22_LORA_PRESETS` では指定できない別グループ）
 - `DOWNLOAD_NASHIKONE_I2VWAN21`: 同リポジトリのWan2.1 I2V bundle を `loras/Nashikone-I2vWan21/` に取得（既定は `True`。Nashikone 2.2 は high のみ配布のため low 側の代用）
-- `MINIMAX_H3_GROUPS`: 既定は融合モデル・Qwen・通常INT8動画VAE・元X2 VAEの `fused-x2`
-- `MINIMAX_H3_PREPARE_X2_INT8`: X2選択時に部分INT8へ初回変換。MiniMax親フラグFalseなら実行しない
+- `MINIMAX_H3_GROUPS`: 既定は `fused-core` + `postprocess`（通常VAE生成、AnimeSharp＋RIFE後処理）
+- `MINIMAX_H3_PREPARE_X2_INT8`: 既定False。旧X2を明示選択したときだけ部分INT8へ変換。MiniMax親フラグFalseなら実行しない
 - `MINIMAX_MODEL_ROOT`: MiniMaxモデルの保存先（既定は `/storage/h3-research/models`）
 - `WAN22_LORA_PRESETS`: active workflowで使うHigh/Lowペア。リスト先頭を使用
 - `WAN22_DOWNLOAD_MAX_WORKERS`

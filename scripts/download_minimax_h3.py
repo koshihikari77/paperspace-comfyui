@@ -23,6 +23,8 @@ class Asset:
     source: str
     size: int
     sha256: str
+    url: str = ""
+    location: str = "h3"
 
 
 COMFY_REV = "7e75982b97cd5a41d2dcfa1904ee88d0686d6fd1"
@@ -32,6 +34,19 @@ FAST_REV = "ec1e3aa374a91c57b0b94a1623b7e657c0498cf2"
 X2_REV = "af8c92d267c6849fec5032c35a65d5766737b338"
 
 ASSETS = {
+    "anime-sharp": Asset(
+        "upscale_models/2x-AnimeSharpV4_Fast_RCAN_PU.safetensors",
+        "Kim2091/2x-AnimeSharpV4", "1a9339b5c308ab3990f6233be2c1169a75772878",
+        "2x-AnimeSharpV4_Fast_RCAN_PU.safetensors", 31359158,
+        "b641c9eb10b43f26538177aa8f0fef8b9fc2a153afd1431d0a062a84c49ce6d0",
+        location="comfy-models",
+    ),
+    "rife49": Asset(
+        "rife49.pth", "", "", "", 21345274,
+        "e55fd00f3cc184e3c65961f4bb827a9da022e78eed36b055242c0ac30000d533",
+        url="https://github.com/Fannovel16/ComfyUI-Frame-Interpolation/releases/download/models/rife49.pth",
+        location="rife",
+    ),
     "x2-vae": Asset(
         "vae/MiniMax-H3-X2-Detail-v1.safetensors",
         "speach1sdef178/MiniMax-H3-X2-Detail-VAE", X2_REV,
@@ -83,6 +98,7 @@ ASSETS = {
 }
 
 GROUPS = {
+    "postprocess": ("anime-sharp", "rife49"),
     "fused-x2": ("fused", "qwen", "video-vae", "x2-vae"),
     "x2": ("x2-vae",),
     "fused-core": ("fused", "qwen", "video-vae"),
@@ -91,6 +107,22 @@ GROUPS = {
     "official-ref2va": ("official-ref2va", "qwen", "video-vae"),
     "fasth3": ("fasth3", "qwen", "video-vae"),
 }
+
+
+def destination_for(asset: Asset, model_root: Path, comfyui_dir: Path) -> Path:
+    if asset.location == "comfy-models":
+        return comfyui_dir / "models" / asset.path
+    if asset.location == "rife":
+        import yaml
+        candidates = [comfyui_dir / "custom_nodes" / name for name in
+                      ("comfyui-frame-interpolation", "ComfyUI-Frame-Interpolation")]
+        node_dir = next((path for path in candidates if path.exists()), candidates[0])
+        config_file = node_dir / "config.yaml"
+        checkpoint_root = "./ckpts"
+        if config_file.exists():
+            checkpoint_root = yaml.safe_load(config_file.read_text())["ckpts_path"]
+        return (node_dir / checkpoint_root / "rife" / asset.path).resolve()
+    return model_root / asset.path
 
 
 def digest(path: Path) -> str:
@@ -112,9 +144,9 @@ def download(asset: Asset, destination: Path, verify_existing: bool) -> None:
         return
 
     partial = destination.with_name(destination.name + ".partial")
-    url = f"https://huggingface.co/{asset.repo}/resolve/{asset.revision}/{quote(asset.source, safe='/')}"
+    url = asset.url or f"https://huggingface.co/{asset.repo}/resolve/{asset.revision}/{quote(asset.source, safe='/')}"
     headers = {}
-    if os.environ.get("HF_TOKEN"):
+    if not asset.url and os.environ.get("HF_TOKEN"):
         headers["Authorization"] = f"Bearer {os.environ['HF_TOKEN']}"
     print(f"DOWNLOAD {destination} ({asset.size / 1e9:.2f} GB)", flush=True)
     for attempt in range(10):
@@ -151,7 +183,7 @@ def download(asset: Asset, destination: Path, verify_existing: bool) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--group", action="append", choices=GROUPS, help="Repeat for extra model sets; default: fused-x2")
+    parser.add_argument("--group", action="append", choices=GROUPS, help="Repeat for extra model sets; default: fused-core + postprocess")
     parser.add_argument("--model-root", type=Path, default=Path("/storage/h3-research/models"))
     parser.add_argument("--dry-run", action="store_true", help="Show selected files without downloading or hashing")
     parser.add_argument("--verify-existing", action="store_true", help="SHA-256 check already complete files too")
@@ -163,8 +195,13 @@ def main() -> None:
     args.comfyui_dir = args.comfyui_dir.resolve()
     if args.comfyui_python:
         args.comfyui_python = args.comfyui_python.resolve()
-    groups = args.group or ["fused-x2"]
+    groups = args.group or ["fused-core", "postprocess"]
     keys = list(dict.fromkeys(key for group in groups for key in GROUPS[group]))
+    if "rife49" in keys and not args.dry_run:
+        configs = [args.comfyui_dir / "custom_nodes" / name / "config.yaml" for name in
+                   ("comfyui-frame-interpolation", "ComfyUI-Frame-Interpolation")]
+        if not any(path.is_file() for path in configs):
+            parser.error("Install ComfyUI-Frame-Interpolation with config.yaml first; no models were downloaded")
     conversion = None
     if args.prepare_x2_int8:
         if "x2-vae" not in keys:
@@ -177,7 +214,7 @@ def main() -> None:
             parser.error("Install ComfyUI-H3-X2-Stream in the selected ComfyUI first; no models were downloaded")
     for key in keys:
         asset = ASSETS[key]
-        destination = args.model_root / asset.path
+        destination = destination_for(asset, args.model_root, args.comfyui_dir)
         if args.dry_run:
             state = "present" if destination.is_file() and destination.stat().st_size == asset.size else "needed"
             print(f"{key:18} {state:7} {asset.size / 1e9:5.2f} GB  {destination}")
