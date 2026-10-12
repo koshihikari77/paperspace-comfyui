@@ -476,7 +476,7 @@ def main() -> int:
     parser.add_argument("--repo-root", default="/notebooks")
     parser.add_argument("--comfyui-dir", default="/storage/ComfyUI")
     parser.add_argument("--custom-nodes-repo", default="/storage/koshi-custom-nodes")
-    parser.add_argument("--model-root", default="/storage/ComfyUI/models")
+    parser.add_argument("--model-root", default="/app/models")
     parser.add_argument("--no-pull-custom-nodes", action="store_true", help="start 時に custom nodes repo を git pull しない")
     parser.add_argument("--enable-minimax-kernels", action=argparse.BooleanOptionalAction, default=True, help="verify shared Wan/H3 CUDA 12 kernels (enabled by default)")
     parser.add_argument("--hf-home", default="/storage/.cache/huggingface")

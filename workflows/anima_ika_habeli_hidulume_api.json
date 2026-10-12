@@ -1,0 +1,161 @@
+{
+ "1": {
+  "class_type": "UNETLoader",
+  "inputs": {
+   "unet_name": "anima/animaika_v49.safetensors",
+   "weight_dtype": "default"
+  }
+ },
+ "2": {
+  "class_type": "CLIPLoader",
+  "inputs": {
+   "clip_name": "qwen_3_06b_base.safetensors",
+   "type": "stable_diffusion",
+   "device": "default"
+  }
+ },
+ "3": {
+  "class_type": "VAELoader",
+  "inputs": {
+   "vae_name": "qwen_image_vae.safetensors"
+  }
+ },
+ "4": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "2",
+    0
+   ],
+   "text": "masterpiece, best quality, habeli_flat_style, clean lineart, anime coloring, cel shading, clean lineart, detailed eyes, sparkling eyes, shiny skin, shiny hair, big eyes, round eyes, sparkling eyes, detailed irises, gradient eyes, long eyelashes, safe, 1girl, solo, adult, cute, round face, medium breasts, (ここにキャラ・シーンのタグ)"
+  }
+ },
+ "5": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "2",
+    0
+   ],
+   "text": "worst quality, low quality, blurry, jpeg artifacts, chromatic aberration, artist name, signature, watermark, nsfw, explicit, 3d, realistic, photorealistic, loli, child, petite, flat chest, panties, pantyshot, upskirt, underwear, covered nipples, cleavage, speech bubble, text, english text, japanese text, sound effects, gigantic breasts, huge breasts, lineless, painterly, impasto, watercolor, soft focus, sketch, 2.5d, semi-realistic"
+  }
+ },
+ "6": {
+  "class_type": "EmptyLatentImage",
+  "inputs": {
+   "width": 896,
+   "height": 1152,
+   "batch_size": 1
+  }
+ },
+ "7": {
+  "class_type": "KSampler",
+  "inputs": {
+   "model": [
+    "21",
+    0
+   ],
+   "positive": [
+    "4",
+    0
+   ],
+   "negative": [
+    "5",
+    0
+   ],
+   "latent_image": [
+    "6",
+    0
+   ],
+   "seed": 1001,
+   "steps": 30,
+   "cfg": 5.5,
+   "sampler_name": "er_sde",
+   "scheduler": "simple",
+   "denoise": 1.0
+  }
+ },
+ "8": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "31",
+    0
+   ],
+   "vae": [
+    "3",
+    0
+   ]
+  }
+ },
+ "9": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "images": [
+    "8",
+    0
+   ],
+   "filename_prefix": "anima_final/img"
+  }
+ },
+ "20": {
+  "class_type": "LoraLoaderModelOnly",
+  "inputs": {
+   "model": [
+    "1",
+    0
+   ],
+   "lora_name": "anima/style/habeli_v4.safetensors",
+   "strength_model": 0.6
+  }
+ },
+ "21": {
+  "class_type": "LoraLoaderModelOnly",
+  "inputs": {
+   "model": [
+    "20",
+    0
+   ],
+   "lora_name": "anima/style/hidulume_v1.safetensors",
+   "strength_model": 0.6
+  }
+ },
+ "30": {
+  "class_type": "LatentUpscaleBy",
+  "inputs": {
+   "samples": [
+    "7",
+    0
+   ],
+   "upscale_method": "nearest-exact",
+   "scale_by": 1.5
+  }
+ },
+ "31": {
+  "class_type": "KSampler",
+  "inputs": {
+   "model": [
+    "21",
+    0
+   ],
+   "positive": [
+    "4",
+    0
+   ],
+   "negative": [
+    "5",
+    0
+   ],
+   "latent_image": [
+    "30",
+    0
+   ],
+   "seed": 1001,
+   "steps": 15,
+   "cfg": 5.5,
+   "sampler_name": "er_sde",
+   "scheduler": "simple",
+   "denoise": 0.5
+  }
+ }
+}

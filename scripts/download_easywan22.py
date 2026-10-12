@@ -1019,13 +1019,13 @@ def main() -> int:
     )
     parser.add_argument(
         "--model-root",
-        default="/storage/ComfyUI/models",
-        help="Destination model root. Defaults to /storage/ComfyUI/models.",
+        default="/app/models",
+        help="Destination model root. Defaults to /app/models.",
     )
     parser.add_argument(
         "--civitai-model-root",
-        default="/storage/ComfyUI/models",
-        help="Destination root for Civitai assets. Defaults to /storage/ComfyUI/models.",
+        default=None,
+        help="Destination root for Civitai assets. Defaults to --model-root.",
     )
     parser.add_argument(
         "--force",
@@ -1078,7 +1078,7 @@ def main() -> int:
         os.environ.get("CIVITAI_API_KEY") or os.environ.get("CIVITAI_TOKEN")
     )
     model_root = Path(args.model_root)
-    civitai_model_root = Path(args.civitai_model_root)
+    civitai_model_root = Path(args.civitai_model_root or args.model_root)
     model_root.mkdir(parents=True, exist_ok=True)
     civitai_model_root.mkdir(parents=True, exist_ok=True)
 

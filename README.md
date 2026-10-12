@@ -9,7 +9,8 @@ Paperspace の永続ストレージにある `ComfyUI` をそのまま使うた�
 - モデルはイメージに焼かない
 - モデル取得のロジックは GitHub 側の `scripts/` に置く
 - Notebook は GitHub から clone した repo 内の `start.ipynb` を使う
-- 画像/Wanの取得先は `/app/models`、MiniMaxは `/storage/h3-research/models`
+- 画像/Wanの取得先は `/app/models`（コンテナ内。セッションごとに再取得し、`/storage` には置かない）
+- MiniMax は `DOWNLOAD_MINIMAX_MODELS=False` が既定。有効にすると `/storage/h3-research/models` に取得する（2026-10-12 に旧データは削除済み）
 - 通常の `ComfyUI` からは `/storage/ComfyUI/extra_model_paths.yaml` で `/app/models` を参照する
 - Hugging Face repo のトップレベル構成をそのまま参照する
 - 画像系では選択したLoRAとAnyTest ControlNetを取得する
@@ -262,7 +263,7 @@ repo のトップレベルで認識するディレクトリ:
 
 `start.ipynb` は `DOWNLOAD_WAN_MODELS=True`、`wan22-int8-core` が標準です。
 High/Low INT8 ConvRot、BF16 UMT5、native Wan VAE、旧rank64 LightX2V、AnimeSharp2xを
-`/storage/ComfyUI/models`へ取得します。追加LoRAの取得フラグ・プリセット選択は独立です。
+`/app/models`へ取得します（2026-10-07〜10-12 は `/storage/ComfyUI/models` に取得していたため、10-12 に再取得可能な分を削除）。追加LoRAの取得フラグ・プリセット選択は独立です。
 RIFE49はFrame Interpolationの`ckpts/rife`に初回利用時に取得されます。
 
 API正本は `workflows/wan22_int8_i2v_api.json`、選択プリセット適用後は
