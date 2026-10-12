@@ -8,3 +8,7 @@ env/*.local.sh
 logs/
 
 workflows/wan22_int8_i2v_active.json
+__pycache__/
+ref/
+workspace/
+*.zip

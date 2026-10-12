@@ -37,6 +37,8 @@ GROUP_DESCRIPTIONS = {
     "controlnet-anytest-v4": "SDXL ControlNet AnyTest v4 from the public Hugging Face source.",
     "floyo-wan22-stable": "Minimal model set for the stable Floyo WanVideoWrapper I2V workflow.",
     "floyo-wan22-core": "Floyo WanVideoWrapper I2V assets without the selectable motion LoRA pair.",
+    "wan22-fun-control-native": "Optional native Wan2.2 Fun-Control FP8 models and 4-step LoRAs for research.",
+    "wan22-animate-native": "Optional native Wan2.2 Animate FP8 model and CLIP Vision encoder for research.",
     "wan22-nsfw-loras": "All Wan 2.2 NSFW LoRAs from the private Hugging Face mirror.",
     "wan22-bubblebutt": "BubbleButt K3NK v1.0 High/Low pair from the private mirror.",
     "easywan22-default": "Full EasyWan22 Default.bat asset set, including preset LoRAs and detectors.",
@@ -177,6 +179,58 @@ GROUP_ASSETS: dict[str, list[Asset]] = {
         ),
     ],
     "floyo-wan22-core": [],
+    "wan22-fun-control-native": [
+        Asset(
+            name=f"wan22_fun_control_{noise}_fp8_scaled",
+            relative_path=f"diffusion_models/wan2.2_fun_control_{noise}_noise_14B_fp8_scaled.safetensors",
+            source="hf_file",
+            repo_id="Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+            repo_path=f"split_files/diffusion_models/wan2.2_fun_control_{noise}_noise_14B_fp8_scaled.safetensors",
+            description=f"Native Wan2.2 Fun-Control {noise}-noise model.",
+        )
+        for noise in ("high", "low")
+    ] + [
+        Asset(
+            name=name,
+            relative_path=f"{folder}/{filename}",
+            source="hf_file",
+            repo_id="Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+            repo_path=f"split_files/{folder}/{filename}",
+            description=description,
+        )
+        for name, folder, filename, description in (
+            ("umt5_native_fp8", "text_encoders", "umt5_xxl_fp8_e4m3fn_scaled.safetensors", "Native FP8 UMT5 encoder."),
+            ("wan_vae_native", "vae", "wan_2.1_vae.safetensors", "Native Wan2.1 VAE."),
+            ("lightx2v_native_high", "loras", "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors", "Optional 4-step high-noise LoRA."),
+            ("lightx2v_native_low", "loras", "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors", "Optional 4-step low-noise LoRA."),
+        )
+    ],
+    "wan22-animate-native": [
+        Asset(
+            name="wan22_animate_fp8_scaled",
+            relative_path="diffusion_models/Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors",
+            source="hf_file",
+            repo_id="Kijai/WanVideo_comfy_fp8_scaled",
+            repo_path="Wan22Animate/Wan2_2-Animate-14B_fp8_e4m3fn_scaled_KJ.safetensors",
+            description="Native Wan2.2 Animate 14B FP8 model for Move/Mix research.",
+        ),
+        Asset(
+            name="clip_vision_h_native",
+            relative_path="clip_vision/clip_vision_h.safetensors",
+            source="hf_file",
+            repo_id="Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+            repo_path="split_files/clip_vision/clip_vision_h.safetensors",
+            description="CLIP Vision H encoder for Animate reference images.",
+        ),
+        Asset(
+            name="wan_animate_relight_lora",
+            relative_path="loras/WanAnimate_relight_lora_fp16.safetensors",
+            source="hf_file",
+            repo_id="Kijai/WanVideo_comfy",
+            repo_path="LoRAs/Wan22_relight/WanAnimate_relight_lora_fp16.safetensors",
+            description="Optional relight LoRA used by the official Animate workflow.",
+        ),
+    ],
     "workflow-core": [
         Asset(
             name="wan_vae_bf16",
@@ -858,27 +912,25 @@ def download_hf_file_batch(
     if len(patterns) != len(pending_assets):
         raise SystemExit(f"Invalid hf_file asset definition in repo batch: {repo_id}")
 
-    with tempfile.TemporaryDirectory(prefix="easywan22-repo-download-") as temp_dir:
-        snapshot_root = Path(
-            snapshot_download(
-                repo_id=repo_id,
-                repo_type="model",
-                allow_patterns=patterns,
-                local_dir=temp_dir,
-                token=token,
-                max_workers=max_workers,
-            )
+    snapshot_root = Path(
+        snapshot_download(
+            repo_id=repo_id,
+            repo_type="model",
+            allow_patterns=patterns,
+            token=token,
+            max_workers=max_workers,
         )
+    )
 
-        for asset in pending_assets:
-            src = snapshot_root / asset.repo_path
-            if not src.exists():
-                if keep_going:
-                    results[asset.relative_path] = f"missing in repo: {asset.repo_path}"
-                    continue
-                raise SystemExit(f"Downloaded file not found: {src}")
-            results[asset.relative_path] = copy_file(src, destination_root / asset.relative_path, force)
-        return results
+    for asset in pending_assets:
+        src = snapshot_root / asset.repo_path
+        if not src.exists():
+            if keep_going:
+                results[asset.relative_path] = f"missing in repo: {asset.repo_path}"
+                continue
+            raise SystemExit(f"Downloaded file not found: {src}")
+        results[asset.relative_path] = copy_file(src, destination_root / asset.relative_path, force)
+    return results
 
 
 def download_asset(

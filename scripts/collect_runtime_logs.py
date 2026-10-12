@@ -12,6 +12,7 @@ import subprocess
 import sys
 import time
 import urllib.request
+from runtime_lifecycle import Lifecycle, identity, runtime_log_root
 
 
 def read(path):
@@ -85,13 +86,28 @@ def collect(args):
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
     except BlockingIOError:
         return
-    metrics, events, console = [logger(root, n) for n in ('metrics', 'events', 'comfyui')]
+    metrics, events, console, lifecycle_log = [logger(root, n) for n in ('metrics', 'events', 'comfyui', 'lifecycle')]
+    from diagnose_runtime import recover, recover_previous_notebooks
+    try:
+        recover(root)
+        recovered = recover_previous_notebooks(root)
+        if recovered:
+            emit(events, event='previous_notebook_evidence_saved', paths=recovered)
+    except (OSError, ValueError) as error:
+        emit(events, event='recovery_report_error', error_type=type(error).__name__)
+    def lifecycle_emit(**fields):
+        emit(lifecycle_log, **fields)
+        for handler in lifecycle_log.handlers:
+            handler.flush()
+            os.fsync(handler.stream.fileno())
+    lifecycle = Lifecycle(root, lifecycle_emit, identity())
+    lifecycle.install_handlers()
     group = cgroup_path()
     emit(events, event='collector_start', pid=os.getpid(), boot_id=read('/proc/sys/kernel/random/boot_id'),
          cgroup=str(group), interval=args.interval,
          gpu=command(['nvidia-smi', '--query-gpu=name,driver_version,memory.total', '--format=csv,noheader']))
     offsets = {}
-    previous = kernel_previous = None
+    previous = kernel_previous = health_previous = None
     next_kernel = 0
     while True:
         started = time.monotonic()
@@ -123,6 +139,10 @@ def collect(args):
                 if chunk:
                     emit(console, source=name, text=chunk.decode('utf-8', errors='replace'))
             if started >= next_kernel:
+                from platform_evidence import save as save_platform
+                emit(events, event='platform_observation', observation=save_platform(root))
+                emit(events, event='gpu_health', result=command(
+                    ['nvidia-smi', '-q', '-d', 'TEMPERATURE,PERFORMANCE,ECC']))
                 kernel = command(['dmesg', '--ctime'])
                 if kernel != kernel_previous:
                     emit(events, event='kernel_log', result=kernel)
@@ -130,7 +150,17 @@ def collect(args):
                 next_kernel = started + 60
         except Exception as e:
             emit(events, event='collector_error', error=type(e).__name__, message=str(e))
-        for log in (metrics, events, console):
+        lifecycle.heartbeat()
+        from check_crash_diagnostics import coverage
+        from runtime_lifecycle import write_state
+        health = coverage(root, args.comfyui_dir)
+        write_state(root/'coverage.json', health)
+        missing = health['local_missing']
+        if missing != health_previous:
+            emit(events, event='diagnostic_coverage_changed', local_ready=health['local_ready'],
+                 local_missing=missing, complete_cause_coverage=False)
+            health_previous = missing
+        for log in (metrics, events, console, lifecycle_log):
             for handler in log.handlers:
                 handler.flush()
                 try:
@@ -138,13 +168,19 @@ def collect(args):
                 except OSError:
                     pass
         if args.once:
+            lifecycle.close('once_complete')
             return
-        time.sleep(max(0.1, args.interval - (time.monotonic() - started)))
+        deadline = started + args.interval
+        while lifecycle.stop_signal is None and time.monotonic() < deadline:
+            time.sleep(min(0.2, max(0, deadline - time.monotonic())))
+        if lifecycle.stop_signal is not None:
+            lifecycle.close('signal_received')
+            return
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--log-dir', default='/notebooks/logs/runtime')
+    parser.add_argument('--log-dir', default=str(runtime_log_root()))
     parser.add_argument('--comfyui-dir', default='/storage/ComfyUI')
     parser.add_argument('--port', type=int, default=6006)
     parser.add_argument('--interval', type=float, default=10)
@@ -154,11 +190,31 @@ def main():
     if args.interval < 1:
         parser.error('--interval must be at least 1 second')
     if args.start:
+        root = Path(args.log_dir)
+        root.mkdir(parents=True, exist_ok=True)
+        # Keep worker tracebacks instead of silently discarding failed collectors.
+        launch_log = (root/'collector-launch.log').open('a')
+        subprocess.Popen([sys.executable, str(Path(__file__).with_name('collect_file_memory.py')),
+                          '--log-dir', args.log_dir, '--comfyui-dir', args.comfyui_dir],
+                         stdin=subprocess.DEVNULL, stdout=launch_log,
+                         stderr=subprocess.STDOUT, start_new_session=True)
+        gpu_python = Path(args.comfyui_dir) / '.venv/bin/python'
+        if gpu_python.exists():
+            gpu_log = Path(args.log_dir) / 'gpu-monitor-launch.log'
+            gpu_log.parent.mkdir(parents=True, exist_ok=True)
+            with gpu_log.open('a') as stream:
+                subprocess.Popen([str(gpu_python), str(Path(__file__).with_name('collect_gpu_events.py')),
+                                  '--log-dir', args.log_dir], stdin=subprocess.DEVNULL,
+                                 stdout=stream, stderr=subprocess.STDOUT, start_new_session=True)
+        subprocess.Popen([sys.executable, str(Path(__file__).with_name('collect_fast_runtime.py')),
+                          '--log-dir', args.log_dir], stdin=subprocess.DEVNULL,
+                         stdout=launch_log, stderr=subprocess.STDOUT, start_new_session=True)
         subprocess.Popen([sys.executable, str(Path(__file__).resolve()), '--log-dir', args.log_dir,
                           '--comfyui-dir', args.comfyui_dir, '--port', str(args.port), '--interval', str(args.interval)],
-                         stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                         stdin=subprocess.DEVNULL, stdout=launch_log, stderr=subprocess.STDOUT,
                          start_new_session=True)
-        print(f'Runtime diagnostics enabled: {args.log_dir}')
+        launch_log.close()
+        print(f'Runtime diagnostics launch requested: {args.log_dir}; readiness is verified separately')
     else:
         collect(args)
 

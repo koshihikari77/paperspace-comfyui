@@ -6,6 +6,8 @@ import argparse
 import shlex
 import shutil
 import subprocess
+import sys
+from runtime_lifecycle import runtime_log_root, write_state
 from pathlib import Path
 
 
@@ -55,7 +57,16 @@ def main() -> int:
 
     print(f"Using python: {comfyui_python}")
     print("$", shlex.join(cmd))
-    subprocess.run(cmd, cwd=comfyui_dir, check=True)
+    root = runtime_log_root()
+    root.mkdir(parents=True, exist_ok=True)
+    if not (root/'mode.json').exists():
+        write_state(root/'mode.json', {'mode': 'debug'})
+    subprocess.run([sys.executable, str(Path(__file__).with_name('collect_runtime_logs.py')),
+                    '--start', '--log-dir', str(root), '--comfyui-dir', str(comfyui_dir),
+                    '--port', str(args.port)], check=True)
+    subprocess.run([sys.executable, str(Path(__file__).with_name('supervise_comfyui.py')),
+                    '--cwd', str(comfyui_dir), '--log-dir', str(runtime_log_root()), '--', *cmd],
+                   cwd=comfyui_dir, check=True)
     return 0
 
 

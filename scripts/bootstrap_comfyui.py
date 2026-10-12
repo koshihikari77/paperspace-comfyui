@@ -9,6 +9,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+from runtime_lifecycle import runtime_log_root, write_state
 import time
 import urllib.error
 import urllib.request
@@ -179,7 +180,8 @@ def launch_comfyui(
     ]
     with log_file.open("a", encoding="utf-8") as log:
         process = subprocess.Popen(
-            cmd,
+            [sys.executable, str(Path(__file__).with_name('supervise_comfyui.py')),
+             '--cwd', str(comfyui_dir), '--log-dir', str(runtime_log_root()), '--', *cmd],
             cwd=comfyui_dir,
             env={**env, "PYTHONUNBUFFERED": "1"},
             stdin=subprocess.DEVNULL,
@@ -216,9 +218,13 @@ def downloader_base(args: argparse.Namespace, scripts: Path, model_root: Path) -
 
 
 def start_diagnostics(args: argparse.Namespace, env: dict[str, str]) -> None:
+    root = runtime_log_root()
+    root.mkdir(parents=True, exist_ok=True)
+    if not (root / 'mode.json').exists():
+        write_state(root / 'mode.json', {'mode': 'debug'})
     subprocess.run(
         [sys.executable, str(Path(args.repo_root) / "scripts/collect_runtime_logs.py"),
-         "--start", "--log-dir", str(Path(args.repo_root) / "logs/runtime"),
+         "--start", "--log-dir", str(runtime_log_root()),
          "--comfyui-dir", args.comfyui_dir, "--port", str(args.port)],
         check=True, env=env,
     )
@@ -447,6 +453,13 @@ def start(args: argparse.Namespace, env: dict[str, str]) -> None:
         env,
         args.startup_timeout,
     )
+
+    from check_crash_diagnostics import verify
+    coverage = verify(runtime_log_root(), comfyui_dir, wait=25)
+    if not coverage['local_ready']:
+        print_status('CRASH_DIAGNOSTICS', 'failed', ', '.join(coverage['local_missing']))
+        raise SystemExit('ComfyUI diagnostics are incomplete; see coverage.json. No process was stopped.')
+    print_status('CRASH_DIAGNOSTICS', 'complete', 'local hooks and collectors verified; platform cause coverage remains incomplete')
 
     public_url = f"https://tensorboard-{args.paperspace_fqdn}" if args.paperspace_fqdn else ""
     print_status("COMFYUI_PROCESS", status)

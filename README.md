@@ -158,6 +158,11 @@ SHA-256: `807aa29189c10660dff77a5bbfcf5cf39d60f7780199db36db36a9096e11ace7`。
 
 ## クラッシュ調査ログ
 
+**2026-09-26更新**: 現行の保存先は `/notebooks/logs/runtime/notebooks/<Notebook ID>/`。
+ComfyUI終了コード・fatal traceback・独立した毎秒メモリ監視を追加しました。
+詳細と未取得の情報は [クラッシュ診断](docs/crash-diagnostics.md) を参照してください。
+以下の旧パスにある過去ログはそのまま残します。Paperspace側の停止理由の取得は未接続です。
+
 bootstrapのprepare/startで独立した監視プロセスが起動し、
 `/notebooks/logs/runtime/` に約10秒間隔で記録します。
 ComfyUIが終了しても監視は継続します。同じログディレクトリでは二重起動しません。
@@ -177,6 +182,35 @@ Git対象外です。監視は環境変数・コマンドライン・画像・�
 ComfyUI自体のログにpromptやパス等が含まれることがあるので、共有前に確認してください。
 
 手動起動: `python scripts/collect_runtime_logs.py --start`
+
+### 停止・再起動の記録
+
+`logs/runtime/lifecycle.jsonl` に監視開始、SIGTERM/SIGINT/SIGHUPによる監視終了、
+次回起動時の前回セッション情報を記録します。最終生存時刻は約10秒ごとに
+`lifecycle-state.json` へ原子的に保存してfsyncします。終了記録がない場合は
+`no_exit_record` と記録し、boot ID・コンテナIDの変化も残します。
+これは監視プロセスの履歴であり、Paperspaceの正式な停止履歴ではありません。
+SIGKILL・VM停止時には終了処理を実行できず、停止理由は `unknown` のままです。
+`lifecycle.jsonl` も10MiB×5世代で、全診断ログの上限は約250MiBです。
+
+Paperspace Notebookの自動停止は起動時からのタイマーです。
+公式説明: https://docs.digitalocean.com/products/paperspace/notebooks/how-to/swap-machines/
+現在のコンテナにはタイマー設定が渡されておらず、Pod参照APIも403です。
+公開API資料ではNotebook停止履歴・タイマー設定の取得先を確認できませんでした。
+Core MachineのAPIをNotebookの履歴として流用していません。
+
+Instance画面の停止予定時刻を保存する場合（下記日時は例。実際の日時に置き換える）:
+
+```bash
+python scripts/runtime_lifecycle.py --shutdown-at '2026-09-27T01:00:00+09:00'
+# 画面で自動停止が無効であることを確認した場合:
+python scripts/runtime_lifecycle.py --disabled
+```
+
+入力値は `shutdown-observation.json` に保存し、監視が次の周期で読み込みます。
+`manual_console_observation` と明記し、コンテナが変わった後は古い設定を適用しません。
+未入力時は `unknown` です。実際のPaperspace設定は変更しません。
+正確な停止理由にはPaperspaceの管理画面・サポート側の記録が必要です。
 
 `koshi-custom-nodes` の `runtime_diagnostics` 拡張を有効にすると、追加の
 `nodes.jsonl` にWan sampler/decode・RealESRGAN・ColorMatch・RIFEの
