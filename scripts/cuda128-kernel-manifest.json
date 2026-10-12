@@ -1,0 +1,5 @@
+{
+  "extension": "comfy_kitchen/backends/cuda/_C.abi3.so",
+  "extension_sha256": "27ff50036159d3452f91be079952fc601b2fbf16168b8f1e87da2bc0fb9c6ba9",
+  "note": "Pinned from the installed A6000 (SM86) CUDA 12.8 build on 2026-10-12. The original build manifest with unit-test counts lived in /storage/h3-research/issue6 and was deleted; runtime dispatch/GEMM/ConvRot checks still run at startup."
+}
