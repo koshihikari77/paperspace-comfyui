@@ -10,7 +10,7 @@ Paperspace の永続ストレージにある `ComfyUI` をそのまま使うた�
 - モデル取得のロジックは GitHub 側の `scripts/` に置く
 - Notebook は GitHub から clone した repo 内の `start.ipynb` を使う
 - 画像/Wanの取得先は `/app/models`（コンテナ内。セッションごとに再取得し、`/storage` には置かない）
-- MiniMax は `DOWNLOAD_MINIMAX_MODELS=False` が既定。有効にすると `/storage/h3-research/models` に取得する（2026-10-12 に旧データは削除済み）
+- MiniMax も `MODEL_ROOT`（`/app/models`）に取得する。`DOWNLOAD_MINIMAX_MODELS=True` で有効
 - 通常の `ComfyUI` からは `/storage/ComfyUI/extra_model_paths.yaml` で `/app/models` を参照する
 - Hugging Face repo のトップレベル構成をそのまま参照する
 - 画像系では選択したLoRAとAnyTest ControlNetを取得する
@@ -30,7 +30,7 @@ CUDA INT8探索修正と一時モデル配置を使った検証値で、コピ�
 [`start.ipynb`](start.ipynb) の親フラグ `DOWNLOAD_IMAGE_MODELS`・`DOWNLOAD_WAN_MODELS`・
 `DOWNLOAD_MINIMAX_MODELS` で取得する系統を選びます。`False` の系統は、その下の個別設定が
 `True` でも一式を取得しません。MiniMaxを有効にすると `scripts/download_minimax_h3.py` が
-`/storage/h3-research/models` に取得します。
+`/app/models` に取得します。
 Notebookの起動セルはモデル取得フラグと関係なく `/storage/ComfyUI` を6006番で起動します。
 この本体は0.37.0、Python 3.12、PyTorch 2.14.0+cu126へ更新済みです。
 検証済みのA6000用CUDA 12.8カーネルを起動時に照合して有効化します。
@@ -38,7 +38,7 @@ Notebookの起動セルはモデル取得フラグと関係なく `/storage/Comf
 生成は通常VAEで元解像度・24fpsの無音MP4に保存し、プレビューに拡大・補間は使いません。
 仕上げは保存したMP4を別workflowに読み込み、Wanと同じAnimeSharp 2x → RIFE49の4倍補間で96fpsにします。
 生成workflowと後処理workflowはagent-harnessのMiniMax skill内 `workflows/` が正本です。
-H3本体は `/storage/h3-research/models`、AnimeSharpは共有の `ComfyUI/models/upscale_models`、RIFE49はFrame-Interpolationの設定先へ取得し、既存のWan用重みを再利用します。
+H3本体とAnimeSharpは `/app/models`、RIFE49はFrame-Interpolationの設定先へ取得し、既存のWan用重みを再利用します。
 `MINIMAX_H3_PREPARE_X2_INT8=False` が既定です。旧X2が必要な場合のみ `x2` / `fused-x2` と変換フラグを明示選択できます。
 更新前の本体は `/storage/ComfyUI-backups/pre-minimax-20260924/core.tar`、旧Python環境は
 `/storage/ComfyUI/.venv-cu124-backup` に退避しています。
@@ -292,7 +292,7 @@ Notebook の先頭セルで次を変更できます。
 - `DOWNLOAD_NASHIKONE_I2VWAN21`: 同リポジトリのWan2.1 I2V bundle を `loras/Nashikone-I2vWan21/` に取得（既定は `True`。Nashikone 2.2 は high のみ配布のため low 側の代用）
 - `MINIMAX_H3_GROUPS`: 既定は `fused-core` + `postprocess`（通常VAE生成、AnimeSharp＋RIFE後処理）
 - `MINIMAX_H3_PREPARE_X2_INT8`: 既定False。旧X2を明示選択したときだけ部分INT8へ変換。MiniMax親フラグFalseなら実行しない
-- `MINIMAX_MODEL_ROOT`: MiniMaxモデルの保存先（既定は `/storage/h3-research/models`）
+- `MINIMAX_MODEL_ROOT`: MiniMaxモデルの保存先（既定は `MODEL_ROOT` と同じ `/app/models`）
 - `WAN22_LORA_PRESETS`: active workflowで使うHigh/Lowペア。リスト先頭を使用
 - `WAN22_DOWNLOAD_MAX_WORKERS`
 - `FORCE_DOWNLOAD`

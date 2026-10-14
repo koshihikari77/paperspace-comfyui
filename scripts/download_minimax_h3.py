@@ -32,6 +32,8 @@ FUSED_REV = "8a8dffaa0cd99c6184833ae0a3b4e9b0089c17b3"
 FAST_REV = "ec1e3aa374a91c57b0b94a1623b7e657c0498cf2"
 
 X2_REV = "af8c92d267c6849fec5032c35a65d5766737b338"
+EROS_REV = "84c820586c62701c2a29a6eafb94416d490564ed"
+ANIME_LORA_DIR = "loras/civitai-h3/2861135_2D-Anime-Style-NSFW-LORA-H3"
 
 ASSETS = {
     "anime-sharp": Asset(
@@ -89,6 +91,19 @@ ASSETS = {
         "diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors",
         20970379616, "9255f52b6677845ad238f20dfaafa94727053694127ab7f255c048f0f9365779",
     ),
+    # TenStrip 10Eros Max TURBO-hybrid beta5 (I2V + Ref2VA; author: res_multistep/simple 6-8 steps).
+    "10eros-beta5": Asset(
+        "diffusion_models/10Eros_Max_h3_TURBO-hybrid_beta5_int8.safetensors",
+        "TenStrip/10Eros-Max", EROS_REV,
+        "10Eros_Max_h3_TURBO-hybrid_beta5_int8.safetensors",
+        20970414464, "4dd965496e5b1b83cd13c65cbe7a535b8a4d94ae768a7646b4e336d52c4781cf",
+    ),
+    # Civitai 2861135 v0.5 (trigger: "2d anime style"); needs a Civitai token.
+    "anime-lora": Asset(
+        f"{ANIME_LORA_DIR}/NSFW_ANIME_H3_V16-step00002250.safetensors", "", "", "",
+        298957392, "2353de7443b9693a73d23124923b18eab3f0850a68fc32fd36876537c641a721",
+        url="https://civitai.com/api/download/models/3386948?type=Model&format=SafeTensor",
+    ),
     "fasth3": Asset(
         "diffusion_models/fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
         "FastVideo/FastVideo-FastH3-Comfy", FAST_REV,
@@ -102,6 +117,7 @@ GROUPS = {
     "fused-x2": ("fused", "qwen", "video-vae", "x2-vae"),
     "x2": ("x2-vae",),
     "fused-core": ("fused", "qwen", "video-vae"),
+    "10eros-core": ("10eros-beta5", "qwen", "video-vae", "anime-lora"),
     "audio": ("audio-vae",),
     "official-fl2va": ("official-fl2va", "qwen", "video-vae"),
     "official-ref2va": ("official-ref2va", "qwen", "video-vae"),
@@ -111,7 +127,7 @@ GROUPS = {
 
 def destination_for(asset: Asset, model_root: Path, comfyui_dir: Path) -> Path:
     if asset.location == "comfy-models":
-        return comfyui_dir / "models" / asset.path
+        return model_root / asset.path
     if asset.location == "rife":
         import yaml
         candidates = [comfyui_dir / "custom_nodes" / name for name in
@@ -123,6 +139,13 @@ def destination_for(asset: Asset, model_root: Path, comfyui_dir: Path) -> Path:
             checkpoint_root = yaml.safe_load(config_file.read_text())["ckpts_path"]
         return (node_dir / checkpoint_root / "rife" / asset.path).resolve()
     return model_root / asset.path
+
+
+CIVITAI_TOKEN_FILE = Path("/storage/.civitai_token")
+
+
+def civitai_token() -> str:
+    return CIVITAI_TOKEN_FILE.read_text().strip() if CIVITAI_TOKEN_FILE.is_file() else ""
 
 
 def digest(path: Path) -> str:
@@ -148,6 +171,11 @@ def download(asset: Asset, destination: Path, verify_existing: bool) -> None:
     headers = {}
     if not asset.url and os.environ.get("HF_TOKEN"):
         headers["Authorization"] = f"Bearer {os.environ['HF_TOKEN']}"
+    if "civitai.com" in asset.url:
+        token = os.environ.get("CIVITAI_TOKEN") or civitai_token()
+        if not token:
+            raise RuntimeError(f"Civitai token required for {destination}: set CIVITAI_TOKEN or {CIVITAI_TOKEN_FILE}")
+        headers["Authorization"] = f"Bearer {token}"
     print(f"DOWNLOAD {destination} ({asset.size / 1e9:.2f} GB)", flush=True)
     for attempt in range(10):
         offset = partial.stat().st_size if partial.exists() else 0
@@ -183,8 +211,8 @@ def download(asset: Asset, destination: Path, verify_existing: bool) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--group", action="append", choices=GROUPS, help="Repeat for extra model sets; default: fused-core + postprocess")
-    parser.add_argument("--model-root", type=Path, default=Path("/storage/h3-research/models"))
+    parser.add_argument("--group", action="append", choices=GROUPS, help="Repeat for extra model sets; default: 10eros-core + postprocess")
+    parser.add_argument("--model-root", type=Path, default=Path("/app/models"))
     parser.add_argument("--dry-run", action="store_true", help="Show selected files without downloading or hashing")
     parser.add_argument("--verify-existing", action="store_true", help="SHA-256 check already complete files too")
     parser.add_argument("--prepare-x2-int8", action="store_true", help="After download, convert X2 with the installed H3-X2-Stream node and ComfyUI Python (CUDA required for first conversion)")
@@ -195,7 +223,7 @@ def main() -> None:
     args.comfyui_dir = args.comfyui_dir.resolve()
     if args.comfyui_python:
         args.comfyui_python = args.comfyui_python.resolve()
-    groups = args.group or ["fused-core", "postprocess"]
+    groups = args.group or ["10eros-core", "postprocess"]
     keys = list(dict.fromkeys(key for group in groups for key in GROUPS[group]))
     if "rife49" in keys and not args.dry_run:
         configs = [args.comfyui_dir / "custom_nodes" / name / "config.yaml" for name in
