@@ -32,7 +32,10 @@ CUDA INT8探索修正と一時モデル配置を使った検証値で、コピ�
 `True` でも一式を取得しません。MiniMaxを有効にすると `scripts/download_minimax_h3.py` が
 `/app/models` に取得します。
 Notebookの起動セルはモデル取得フラグと関係なく `/storage/ComfyUI` を6006番で起動します。
-この本体は0.37.0、Python 3.12、PyTorch 2.14.0+cu126へ更新済みです。
+この本体は0.41.0（2026-10-17更新）、Python 3.12、PyTorch 2.14.0+cu126です。
+本体のローカル修正（CUDA12でのH3カーネル許可とcross-siteの画面遷移許可）は [`patches/comfyui-core-local.patch`](patches/comfyui-core-local.patch) に保存し、更新時に当て直します。
+comfy-kitchen は0.41推奨の0.2.37ではなく、照合済みCUDA 12.8カーネル入りの0.2.35に固定しています。`requirements.txt` をそのまま入れるとカーネルが上書きされ起動時の照合で止まるため、更新時は再度0.2.35（控え：`/storage/ComfyUI-backups/comfy-kitchen-0.2.35-cu128-sm86/`）を戻してください。
+0.41更新前の本体は `/storage/ComfyUI-backups/pre-v0.41-20261017/core.tar` に退避しています。
 検証済みのA6000用CUDA 12.8カーネルを起動時に照合して有効化します。
 既定の `MINIMAX_H3_GROUPS=["fused-core", "postprocess"]` は融合モデル・Qwen・通常INT8動画VAEと、AnimeSharp 2x・RIFE49です（計約39.53 GB）。
 生成は通常VAEで元解像度・24fpsの無音MP4に保存し、プレビューに拡大・補間は使いません。
@@ -277,6 +280,16 @@ API正本は `workflows/wan22_int8_i2v_api.json`、選択プリセット適用�
 重みを取得するだけで未対応環境がINT8対応になるわけではありません。
 SageAttentionを使用し、`--bf16-unet`は指定しません。
 最新の修正・実測は `docs/wan22-production-workflow-fix-2026-10-07.md`（通常環境217秒）。
+
+## 日本語TTS（drama3-small / Irodori-TTS v4.1 Anime）
+
+Issue #13 の比較で残した2モデルを、ComfyUIのノードとして使えます。導入とモデル取得は
+`bash scripts/install_tts_nodes.sh` です。ノードと依存は `/storage/ComfyUI` に残り、モデルは `/app/models` に入るので、セッションごとに再実行してください（導入済みの部分は飛ばします）。
+
+- drama3-small：作者の [ComfyUI-drama3-small](https://github.com/pentaCoxian/ComfyUI-drama3-small)。純PyTorch実装でaudio.cppは不要。モデルは `/app/models/drama3/`。参照音声を使う場合は書き起こしが必須。
+- Irodori Anime：[comfy-IrodoriTTS](https://github.com/kjranyone/comfy-IrodoriTTS)。モデルは `/app/models/checkpoints/Irodori-TTS-v4.1-Anime/`、codecは `/app/models/irodori/`。
+
+比較結果は `docs/tts-drama3-small-vs-irodori-2026-10-16.md`。
 
 ## Notebook の設定値
 

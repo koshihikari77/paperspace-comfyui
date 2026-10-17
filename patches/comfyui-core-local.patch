@@ -1,0 +1,40 @@
+diff --git a/comfy/quant_ops.py b/comfy/quant_ops.py
+index 01dfff3..906a8ff 100644
+--- a/comfy/quant_ops.py
++++ b/comfy/quant_ops.py
+@@ -1,5 +1,6 @@
+ import torch
+ import logging
++import os
+ 
+ from comfy.cli_args import args
+ 
+@@ -23,7 +24,8 @@ try:
+         ck.registry.disable("cuda")
+     else:
+         cuda_version = tuple(map(int, str(torch.version.cuda).split('.')))
+-        if cuda_version < (13,):
++        local_cuda12 = cuda_version[0] == 12 and os.environ.get("H3_LOCAL_CUDA12_KERNELS") == "1"
++        if cuda_version < (13,) and not local_cuda12:
+             ck.registry.disable("cuda")
+             logging.warning("WARNING: You need pytorch with cu130 or higher to use optimized CUDA operations.\nWARNING WARNING WARNING\nIf you are on nvidia 20 series and above it is required that you update your pytorch to cu130 or higher.\n")
+ 
+diff --git a/server.py b/server.py
+index ac87191..34a633c 100644
+--- a/server.py
++++ b/server.py
+@@ -162,7 +162,13 @@ def create_origin_only_middleware():
+         if 'Sec-Fetch-Site' in request.headers:
+             sec_fetch_site = request.headers['Sec-Fetch-Site']
+             if sec_fetch_site == 'cross-site':
+-                return web.Response(status=403)
++                is_document_navigation = (
++                    request.method == 'GET'
++                    and request.headers.get('Sec-Fetch-Mode') == 'navigate'
++                    and request.headers.get('Sec-Fetch-Dest') == 'document'
++                )
++                if not is_document_navigation:
++                    return web.Response(status=403)
+         #this code is used to prevent the case where a random website can queue comfy workflows by making a POST to 127.0.0.1 which browsers don't prevent for some dumb reason.
+         #in that case the Host and Origin hostnames won't match
+         #I know the proper fix would be to add a cookie but this should take care of the problem in the meantime

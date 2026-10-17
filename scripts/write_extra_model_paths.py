@@ -21,6 +21,7 @@ MODEL_TYPES = [
     "ipadapter",
     "diffusion_models",
     "unet",
+    "drama3",
 ]
 
 
