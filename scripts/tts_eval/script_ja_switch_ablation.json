@@ -1,0 +1,53 @@
+{
+ "version": "ablation",
+ "lines": [
+  {
+   "id": "s01a",
+   "category": "switch_alt",
+   "intent": "calm -> angry within line",
+   "text": "わかった、もういいよ。……って、言うと思った？冗談じゃない！",
+   "drama3": "[calmly] わかった、もういいよ。[suddenly angry, shouting] って、言うと思った？冗談じゃない！",
+   "irodori": "わかった、もういいよ。⏸️😠って、言うと思った？冗談じゃない！💥"
+  },
+  {
+   "id": "s01p",
+   "category": "switch_plain",
+   "intent": "calm -> angry within line",
+   "text": "わかった、もういいよ。……って、言うと思った？冗談じゃない！",
+   "drama3": "わかった、もういいよ。……って、言うと思った？冗談じゃない！",
+   "irodori": "わかった、もういいよ。⏸️😠って、言うと思った？冗談じゃない！💥"
+  },
+  {
+   "id": "s02a",
+   "category": "switch_alt",
+   "intent": "sad -> relieved laugh",
+   "text": "もう会えないかと思ってた。本当に、本当に無事でよかった。",
+   "drama3": "[voice trembling] もう会えないかと思ってた。[relieved] 本当に、本当に無事でよかった。",
+   "irodori": "🥺もう会えないかと思ってた。😭😌本当に、本当に無事でよかった。"
+  },
+  {
+   "id": "s02p",
+   "category": "switch_plain",
+   "intent": "sad -> relieved laugh",
+   "text": "もう会えないかと思ってた。本当に、本当に無事でよかった。",
+   "drama3": "もう会えないかと思ってた。本当に、本当に無事でよかった。",
+   "irodori": "🥺もう会えないかと思ってた。😭😌本当に、本当に無事でよかった。"
+  },
+  {
+   "id": "s03a",
+   "category": "switch_alt",
+   "intent": "teasing -> panicked",
+   "text": "ふふ、顔が赤いよ？……え、ちょっと、なんで急に近づいてくるの！",
+   "drama3": "[teasing] ふふ、顔が赤いよ？[panicked] え、ちょっと、なんで急に近づいてくるの！",
+   "irodori": "😏ふふ、顔が赤いよ？⏸️😰え、ちょっと、なんで急に近づいてくるの！"
+  },
+  {
+   "id": "s03p",
+   "category": "switch_plain",
+   "intent": "teasing -> panicked",
+   "text": "ふふ、顔が赤いよ？……え、ちょっと、なんで急に近づいてくるの！",
+   "drama3": "ふふ、顔が赤いよ？……え、ちょっと、なんで急に近づいてくるの！",
+   "irodori": "😏ふふ、顔が赤いよ？⏸️😰え、ちょっと、なんで急に近づいてくるの！"
+  }
+ ]
+}
