@@ -281,7 +281,7 @@ API正本は `workflows/wan22_int8_i2v_api.json`、選択プリセット適用�
 SageAttentionを使用し、`--bf16-unet`は指定しません。
 最新の修正・実測は `docs/wan22-production-workflow-fix-2026-10-07.md`（通常環境217秒）。
 
-## 日本語TTS（drama3-small / Irodori-TTS v4.1 Anime）
+## 日本語TTS / voice conversion（drama3-small / Irodori-TTS v4.1 Anime / Seed-VC / RVC）
 
 Issue #13 の比較で残した2モデルを、ComfyUIのノードとして使えます。Notebookの `DOWNLOAD_TTS_MODELS=True` で、
 ノードと依存の導入（`scripts/install_tts_nodes.sh`。`/storage/ComfyUI` に一度だけ入れ、導入済みなら飛ばす）と、
@@ -290,7 +290,10 @@ Issue #13 の比較で残した2モデルを、ComfyUIのノードとして使�
 - drama3-small：作者の [ComfyUI-drama3-small](https://github.com/pentaCoxian/ComfyUI-drama3-small)。純PyTorch実装でaudio.cppは不要。モデルは `/app/models/drama3/`。参照音声を使う場合は書き起こしが必須。
 - Irodori Anime：[comfy-IrodoriTTS](https://github.com/kjranyone/comfy-IrodoriTTS)。モデルは `/app/models/checkpoints/Irodori-TTS-v4.1-Anime/`、codecは `/app/models/irodori/`。
 
-比較結果は `docs/tts-drama3-small-vs-irodori-2026-10-16.md`。
+- Seed-VC（ゼロショット voice conversion）：[ComfyUI_Seed-VC](https://github.com/billwuhao/ComfyUI_Seed-VC)。モデルは `/app/models/TTS/`（`ComfyUI/models/TTS` からリンク）。本家 seed-vc はアーカイブ済み。huggingface_hub 1.x 用の互換パッチは `patches/comfyui-seedvc-hfhub1.patch`（導入時に自動で当てる）。
+- RVC（学習型 voice conversion）：`TTS_GROUPS` に `"rvc"` を足すと、Applio を `/storage/tts-runtime/applio` に専用venvで導入（`scripts/install_rvc.sh`）し、事前学習を `/app/models/rvc/` に取得します。学習済みモデルは `applio/logs/` に残ります。
+
+比較結果は `docs/tts-drama3-small-vs-irodori-2026-10-16.md`（TTS）と `docs/vc-seedvc-rvc-2026-10-17.md`（VC）。
 
 ## Notebook の設定値
 
@@ -299,7 +302,7 @@ Notebook の先頭セルで次を変更できます。
 - `DOWNLOAD_IMAGE_MODELS`: 画像用ControlNetと、下の画像LoRA設定をまとめて制御
 - `DOWNLOAD_WAN_MODELS`: Wan本体と、下のWan LoRA設定をまとめて制御
 - `DOWNLOAD_MINIMAX_MODELS`: MiniMax H3の `MINIMAX_H3_GROUPS` を取得
-- `DOWNLOAD_TTS_MODELS`: 日本語TTSのノードを導入し、`TTS_GROUPS` を取得
+- `DOWNLOAD_TTS_MODELS`: 日本語TTS / VC のノード・環境を導入し、`TTS_GROUPS` を取得
 - `DOWNLOAD_IMAGE_LORAS`: private mirrorの画像LoRA一式（既定は `False`）
 - `DOWNLOAD_EYE_LORAS`: Eye LoRA一式を独立して選択
 - `DOWNLOAD_WAN22_NSFW_LORAS`: private mirrorの `loras/Nsfw/` 一式（既定は `True`）
@@ -308,7 +311,7 @@ Notebook の先頭セルで次を変更できます。
 - `MINIMAX_H3_GROUPS`: 既定は `fused-core` + `postprocess`（通常VAE生成、AnimeSharp＋RIFE後処理）
 - `MINIMAX_H3_PREPARE_X2_INT8`: 既定False。旧X2を明示選択したときだけ部分INT8へ変換。MiniMax親フラグFalseなら実行しない
 - `MINIMAX_MODEL_ROOT`: MiniMaxモデルの保存先（既定は `MODEL_ROOT` と同じ `/app/models`）
-- `TTS_GROUPS`: 既定は `drama3-small`（10.46GB）+ `irodori-anime`（Anime本体とcodecで3.50GB）
+- `TTS_GROUPS`: 既定は `drama3-small`（10.46GB）+ `irodori-anime`（Anime本体とcodecで3.50GB）+ `seed-vc`（3.38GB）。`rvc`（0.82GB、初回はApplioのvenvも作成）は任意
 - `TTS_VERIFY_EXISTING`: Trueなら既存のTTSモデルもSHA-256で照合
 - `WAN22_LORA_PRESETS`: active workflowで使うHigh/Lowペア。リスト先頭を使用
 - `WAN22_DOWNLOAD_MAX_WORKERS`

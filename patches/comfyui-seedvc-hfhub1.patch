@@ -1,0 +1,15 @@
+diff --git a/seed_vc/modules/bigvgan/bigvgan.py b/seed_vc/modules/bigvgan/bigvgan.py
+index 41d6e44..7afcf75 100644
+--- a/seed_vc/modules/bigvgan/bigvgan.py
++++ b/seed_vc/modules/bigvgan/bigvgan.py
+@@ -418,8 +418,8 @@ class BigVGAN(
+             revision: str,
+             cache_dir: str,
+             force_download: bool,
+-            proxies: Optional[Dict],
+-            resume_download: bool,
++            proxies: Optional[Dict] = None,  # huggingface_hub>=1 no longer passes these
++            resume_download: bool = False,
+             local_files_only: bool,
+             token: Union[str, bool, None],
+             map_location: str = "cpu",  # Additional argument
