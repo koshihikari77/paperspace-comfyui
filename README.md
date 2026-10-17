@@ -283,8 +283,9 @@ SageAttentionを使用し、`--bf16-unet`は指定しません。
 
 ## 日本語TTS（drama3-small / Irodori-TTS v4.1 Anime）
 
-Issue #13 の比較で残した2モデルを、ComfyUIのノードとして使えます。導入とモデル取得は
-`bash scripts/install_tts_nodes.sh` です。ノードと依存は `/storage/ComfyUI` に残り、モデルは `/app/models` に入るので、セッションごとに再実行してください（導入済みの部分は飛ばします）。
+Issue #13 の比較で残した2モデルを、ComfyUIのノードとして使えます。Notebookの `DOWNLOAD_TTS_MODELS=True` で、
+ノードと依存の導入（`scripts/install_tts_nodes.sh`。`/storage/ComfyUI` に一度だけ入れ、導入済みなら飛ばす）と、
+`TTS_GROUPS` のモデル取得（`scripts/download_tts.py`。`/app/models` へ、サイズとSHA-256を照合）を行います。
 
 - drama3-small：作者の [ComfyUI-drama3-small](https://github.com/pentaCoxian/ComfyUI-drama3-small)。純PyTorch実装でaudio.cppは不要。モデルは `/app/models/drama3/`。参照音声を使う場合は書き起こしが必須。
 - Irodori Anime：[comfy-IrodoriTTS](https://github.com/kjranyone/comfy-IrodoriTTS)。モデルは `/app/models/checkpoints/Irodori-TTS-v4.1-Anime/`、codecは `/app/models/irodori/`。
@@ -298,6 +299,7 @@ Notebook の先頭セルで次を変更できます。
 - `DOWNLOAD_IMAGE_MODELS`: 画像用ControlNetと、下の画像LoRA設定をまとめて制御
 - `DOWNLOAD_WAN_MODELS`: Wan本体と、下のWan LoRA設定をまとめて制御
 - `DOWNLOAD_MINIMAX_MODELS`: MiniMax H3の `MINIMAX_H3_GROUPS` を取得
+- `DOWNLOAD_TTS_MODELS`: 日本語TTSのノードを導入し、`TTS_GROUPS` を取得
 - `DOWNLOAD_IMAGE_LORAS`: private mirrorの画像LoRA一式（既定は `False`）
 - `DOWNLOAD_EYE_LORAS`: Eye LoRA一式を独立して選択
 - `DOWNLOAD_WAN22_NSFW_LORAS`: private mirrorの `loras/Nsfw/` 一式（既定は `True`）
@@ -306,6 +308,8 @@ Notebook の先頭セルで次を変更できます。
 - `MINIMAX_H3_GROUPS`: 既定は `fused-core` + `postprocess`（通常VAE生成、AnimeSharp＋RIFE後処理）
 - `MINIMAX_H3_PREPARE_X2_INT8`: 既定False。旧X2を明示選択したときだけ部分INT8へ変換。MiniMax親フラグFalseなら実行しない
 - `MINIMAX_MODEL_ROOT`: MiniMaxモデルの保存先（既定は `MODEL_ROOT` と同じ `/app/models`）
+- `TTS_GROUPS`: 既定は `drama3-small`（10.46GB）+ `irodori-anime`（Anime本体とcodecで3.50GB）
+- `TTS_VERIFY_EXISTING`: Trueなら既存のTTSモデルもSHA-256で照合
 - `WAN22_LORA_PRESETS`: active workflowで使うHigh/Lowペア。リスト先頭を使用
 - `WAN22_DOWNLOAD_MAX_WORKERS`
 - `FORCE_DOWNLOAD`

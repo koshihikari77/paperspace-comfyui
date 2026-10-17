@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Japanese TTS in ComfyUI: drama3-small (pure-PyTorch node, no audio.cpp) and Irodori-TTS v4.1 Anime.
-# Nodes and their Python packages persist in /storage/ComfyUI; models are per-session in /app/models
-# (re-run this script after a restart; installed parts are skipped). See
+# Installs the nodes and their Python packages once into /storage/ComfyUI (already-installed parts are
+# skipped). The per-session models in /app/models come from scripts/download_tts.py, which start.ipynb
+# runs when DOWNLOAD_TTS_MODELS=True. See
 # docs/tts-drama3-small-vs-irodori-2026-10-16.md for why these two models.
 set -euo pipefail
 
@@ -12,9 +13,6 @@ NODES=$COMFYUI_DIR/custom_nodes
 
 DRAMA3_NODE_COMMIT=c7137d2c26333ba6aa12aeabb4fddfbf8e6a6e73   # pentaCoxian/ComfyUI-drama3-small
 IRODORI_NODE_COMMIT=60b57245c2a6a9544c62c91166c8b80cca141ef7  # kjranyone/comfy-IrodoriTTS
-DRAMA3_REV=4a3078e885344bb9b24d511cec389d2726854d15
-ANIME_REV=6b259f5baa5e236b3d14cbd1f8555ca87d92b530
-CODEC_REV=47376ee24834d7a05a48ebabfe3cde29b3c5e214
 
 clone() {  # repo dir commit
   [ -d "$NODES/$2" ] || git clone -q "https://github.com/$1" "$NODES/$2"
@@ -45,12 +43,4 @@ for sub in codecs tokenizers; do
   [ -L "$link" ] || { rm -rf "$link"; ln -s "$MODEL_ROOT/irodori/$sub" "$link"; }
 done
 
-# Models (pinned). drama3 is found through extra_model_paths.yaml (write_extra_model_paths.py).
-hf download pentacoxian-dev/drama3-small-GGUF drama3-small-IQ3_XXS.gguf --revision "$DRAMA3_REV" \
-  --local-dir "$MODEL_ROOT/drama3"
-hf download phasefield-audio/Irodori-TTS-v4.1-Anime model.safetensors tokenizer/tokenizer.json \
-  tokenizer/tokenizer_config.json README.md --revision "$ANIME_REV" \
-  --local-dir "$MODEL_ROOT/checkpoints/Irodori-TTS-v4.1-Anime"
-hf download Aratako/Semantic-DACVAE-Japanese-32dim weights.pth --revision "$CODEC_REV" \
-  --local-dir "$MODEL_ROOT/irodori/codecs/Aratako_Semantic-DACVAE-Japanese-32dim"
 echo "tts nodes ready"

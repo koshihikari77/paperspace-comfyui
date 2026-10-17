@@ -118,7 +118,7 @@
 
 ## ComfyUI への組み込み（2026-10-17 追記：導入済み）
 
-当初は「別プロセスのサーバーを HTTP で呼ぶ」案だったが、両モデルとも ComfyUI の venv で直接動くノードがあったので、そちらを入れた。手順は `scripts/install_tts_nodes.sh`。
+当初は「別プロセスのサーバーを HTTP で呼ぶ」案だったが、両モデルとも ComfyUI の venv で直接動くノードがあったので、そちらを入れた。ノードと依存の導入は `scripts/install_tts_nodes.sh`、モデル取得は `scripts/download_tts.py`。どちらも `start.ipynb` の `DOWNLOAD_TTS_MODELS=True` で実行される。
 
 - **drama3-small：作者の [ComfyUI-drama3-small](https://github.com/pentaCoxian/ComfyUI-drama3-small)（commit c7137d2c）。audio.cpp は不要。**
   - 同じ GGUF を純 PyTorch と Triton カーネルで動かす。pause fix と長文の分割も入っている。
