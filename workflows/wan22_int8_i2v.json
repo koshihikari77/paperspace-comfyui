@@ -2,7 +2,7 @@
   "id": "7b3d0321-7969-4377-912b-3a38504b36f6",
   "revision": 0,
   "last_node_id": 60,
-  "last_link_id": 82,
+  "last_link_id": 84,
   "nodes": [
     {
       "id": "image",
@@ -1112,7 +1112,7 @@
           "shape": null,
           "type": "MODEL",
           "pos": null,
-          "link": 52
+          "link": 83
         },
         {
           "color_off": null,
@@ -1371,7 +1371,7 @@
           "shape": null,
           "type": "MODEL",
           "pos": null,
-          "link": 56
+          "link": 84
         },
         {
           "color_off": null,
@@ -3610,6 +3610,472 @@
         "lora_name": "lightx2v_I2V_14B_480p_cfg_step_distill_rank64_bf16.safetensors",
         "strength_model": 0
       }
+    },
+    {
+      "id": "high_sparse",
+      "type": "BlockSparseAttention",
+      "pos": [
+        920,
+        660
+      ],
+      "size": [
+        270,
+        250
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "title": "sol-attn high (tau 1.3, from 20%)",
+      "inputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "model",
+          "locked": null,
+          "name": "model",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "MODEL",
+          "pos": null,
+          "link": 52
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "selection",
+          "locked": null,
+          "name": "selection",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "selection"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "selection.tau",
+          "locked": null,
+          "name": "selection.tau",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "selection.tau"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "start_percent",
+          "locked": null,
+          "name": "start_percent",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "start_percent"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "end_percent",
+          "locked": null,
+          "name": "end_percent",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "end_percent"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "dense_blocks",
+          "locked": null,
+          "name": "dense_blocks",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "STRING",
+          "widget": {
+            "name": "dense_blocks"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "min_tokens",
+          "locked": null,
+          "name": "min_tokens",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "INT",
+          "widget": {
+            "name": "min_tokens"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "extra_tokens",
+          "locked": null,
+          "name": "extra_tokens",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "INT",
+          "widget": {
+            "name": "extra_tokens"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "sink_conditioning",
+          "locked": null,
+          "name": "sink_conditioning",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "sink_conditioning"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "verbose",
+          "locked": null,
+          "name": "verbose",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "verbose"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "model",
+          "locked": null,
+          "name": "model",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "MODEL",
+          "pos": null,
+          "slot_index": null,
+          "links": [
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.41.0",
+        "Node name for S&R": "BlockSparseAttention"
+      },
+      "widgets_values": [
+        "sol-attn",
+        1.3,
+        0.2,
+        1.0,
+        "",
+        4096,
+        256,
+        "off",
+        false
+      ],
+      "widgets_values_named": {
+        "selection": "sol-attn",
+        "selection.tau": 1.3,
+        "start_percent": 0.2,
+        "end_percent": 1.0,
+        "dense_blocks": "",
+        "min_tokens": 4096,
+        "extra_tokens": 256,
+        "sink_conditioning": "off",
+        "verbose": false
+      }
+    },
+    {
+      "id": "low_sparse",
+      "type": "BlockSparseAttention",
+      "pos": [
+        0,
+        1210
+      ],
+      "size": [
+        270,
+        250
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "title": "sol-attn low (tau 1.3, from 20%)",
+      "inputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "model",
+          "locked": null,
+          "name": "model",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "MODEL",
+          "pos": null,
+          "link": 56
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "selection",
+          "locked": null,
+          "name": "selection",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "selection"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "selection.tau",
+          "locked": null,
+          "name": "selection.tau",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "selection.tau"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "start_percent",
+          "locked": null,
+          "name": "start_percent",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "start_percent"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "end_percent",
+          "locked": null,
+          "name": "end_percent",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "FLOAT",
+          "widget": {
+            "name": "end_percent"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "dense_blocks",
+          "locked": null,
+          "name": "dense_blocks",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "STRING",
+          "widget": {
+            "name": "dense_blocks"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "min_tokens",
+          "locked": null,
+          "name": "min_tokens",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "INT",
+          "widget": {
+            "name": "min_tokens"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "extra_tokens",
+          "locked": null,
+          "name": "extra_tokens",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "INT",
+          "widget": {
+            "name": "extra_tokens"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "sink_conditioning",
+          "locked": null,
+          "name": "sink_conditioning",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "COMBO",
+          "widget": {
+            "name": "sink_conditioning"
+          },
+          "link": null
+        },
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "verbose",
+          "locked": null,
+          "name": "verbose",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "verbose"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "color_off": null,
+          "color_on": null,
+          "dir": null,
+          "label": null,
+          "localized_name": "model",
+          "locked": null,
+          "name": "model",
+          "nameLocked": null,
+          "removable": null,
+          "shape": null,
+          "type": "MODEL",
+          "pos": null,
+          "slot_index": null,
+          "links": [
+            84
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.41.0",
+        "Node name for S&R": "BlockSparseAttention"
+      },
+      "widgets_values": [
+        "sol-attn",
+        1.3,
+        0.2,
+        1.0,
+        "",
+        4096,
+        256,
+        "off",
+        false
+      ],
+      "widgets_values_named": {
+        "selection": "sol-attn",
+        "selection.tau": 1.3,
+        "start_percent": 0.2,
+        "end_percent": 1.0,
+        "dense_blocks": "",
+        "min_tokens": 4096,
+        "extra_tokens": 256,
+        "sink_conditioning": "off",
+        "verbose": false
+      }
     }
   ],
   "links": [
@@ -3689,7 +4155,7 @@
       52,
       "high_lora",
       0,
-      "sample_high",
+      "high_sparse",
       0,
       "MODEL"
     ],
@@ -3721,7 +4187,7 @@
       56,
       "low_lora",
       0,
-      "sample_low",
+      "low_sparse",
       0,
       "MODEL"
     ],
@@ -3930,6 +4396,22 @@
       "low_shift",
       0,
       "low_motion",
+      0,
+      "MODEL"
+    ],
+    [
+      83,
+      "high_sparse",
+      0,
+      "sample_high",
+      0,
+      "MODEL"
+    ],
+    [
+      84,
+      "low_sparse",
+      0,
+      "sample_low",
       0,
       "MODEL"
     ]
