@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify the locally built CUDA 12.8 kernels before enabling H3 on A6000."""
+"""Verify the locally built CUDA 12.8 kernels before enabling H3 on A100/A6000."""
 
 import argparse
 import importlib.util
@@ -46,8 +46,8 @@ def verify() -> None:
         raise RuntimeError("CUDA kernel test manifest is not passing")
     if not torch.version.cuda or not torch.version.cuda.startswith("12."):
         raise RuntimeError(f"Expected CUDA 12 PyTorch, got {torch.version.cuda}")
-    if torch.cuda.get_device_capability() != (8, 6):
-        raise RuntimeError("This CUDA kernel was built for A6000 SM86 only")
+    if torch.cuda.get_device_capability() not in {(8, 0), (8, 6)}:
+        raise RuntimeError("This CUDA kernel was built for A100 SM80 / A6000 SM86 only")
     if not cuda._CUBLASLT_AVAILABLE:
         raise RuntimeError("cuBLASLt unavailable: prepare libcublasLt.so and set LD_LIBRARY_PATH before launching Python")
     x = torch.ones((32, 512), device="cuda", dtype=torch.bfloat16)

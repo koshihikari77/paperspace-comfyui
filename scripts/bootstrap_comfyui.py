@@ -394,6 +394,18 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
     return active_workflow
 
 
+def gpu_compute_capability() -> str:
+    """Return the first GPU's compute capability (e.g. "8.6") without initializing CUDA."""
+    try:
+        out = subprocess.run(
+            ["nvidia-smi", "--query-gpu=compute_cap", "--format=csv,noheader"],
+            check=True, capture_output=True, text=True,
+        ).stdout.strip().splitlines()
+        return out[0].strip() if out else ""
+    except (OSError, subprocess.CalledProcessError):
+        return ""
+
+
 def start(args: argparse.Namespace, env: dict[str, str]) -> None:
     start_diagnostics(args, env)
     comfyui_dir = Path(args.comfyui_dir)
@@ -426,6 +438,12 @@ def start(args: argparse.Namespace, env: dict[str, str]) -> None:
     (ui_dir / "wan22_int8_i2v.json").write_text(json.dumps(ui, ensure_ascii=False, indent=2) + "\n")
 
     comfyui_python = resolve_comfyui_python(comfyui_dir, args.comfyui_python)
+    capability = gpu_compute_capability() if args.enable_minimax_kernels else ""
+    if args.enable_minimax_kernels and capability not in {"8.0", "8.6"}:
+        # The pinned CUDA 12.8 kernel only contains SM80 (A100) and SM86 (A6000) images.
+        print_status("MINIMAX_KERNELS", "skipped",
+                     f"GPU compute capability {capability or 'unknown'} is not 8.0 (A100) / 8.6 (A6000); CUDA INT8 kernel unavailable")
+        args.enable_minimax_kernels = False
     if args.enable_minimax_kernels:
         verifier = Path(args.repo_root) / "scripts/verify_minimax_kernel.py"
         library_dir = subprocess.run(
