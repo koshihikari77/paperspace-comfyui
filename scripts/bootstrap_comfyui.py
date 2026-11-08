@@ -255,6 +255,7 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
     downloads_enabled = (
         args.download_image_loras
         or args.download_eye_loras
+        or bool(args.chara_lora)
         or args.download_wan22_models
         or args.download_wan22_nsfw_loras
         or args.download_nashikone_i2v
@@ -292,6 +293,17 @@ def prepare(args: argparse.Namespace, env: dict[str, str]) -> Path:
         run_step("DOWNLOAD_IMAGE_LORAS", cmd, env, setup_log)
     else:
         print_status("DOWNLOAD_IMAGE_LORAS", "skipped", "disabled")
+
+    if args.chara_lora:
+        run_step(
+            "DOWNLOAD_CHARA_LORAS",
+            [sys.executable, str(scripts / "chara_db.py"), "fetch", "--model-root", str(model_root),
+             "--chara", *args.chara_lora],
+            env,
+            setup_log,
+        )
+    else:
+        print_status("DOWNLOAD_CHARA_LORAS", "skipped", "no characters selected")
 
     if args.download_eye_loras:
         run_step(
@@ -501,6 +513,7 @@ def main() -> int:
     parser.add_argument("--hf-repo-config", default="/notebooks/hf-repo.yaml")
     parser.add_argument("--setup-log", default="/storage/ComfyUI/user/logs/bootstrap.log")
     parser.add_argument("--download-image-loras", action="store_true")
+    parser.add_argument("--chara-lora", action="append", default=[], help="chara_db の id か名前 (例: nijisanji/shiina_yuika, 椎名唯華, hololive/*)。複数可")
     parser.add_argument("--download-controlnet-anytest-v4", action="store_true")
     parser.add_argument("--download-eye-loras", action="store_true")
     parser.add_argument("--download-wan22-models", action="store_true")

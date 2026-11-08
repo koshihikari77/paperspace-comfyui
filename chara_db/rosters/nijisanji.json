@@ -1,0 +1,4147 @@
+[
+ {
+  "id": "aadya",
+  "en": "Aadya",
+  "ja": "アディア",
+  "branch": "Nijisanji IN",
+  "groups": [
+   "Nijisanji IN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "achikita_chinami",
+  "en": "Achikita Chinami",
+  "ja": "遠北千南",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Nijisanji SEEDs"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "aia_amare",
+  "en": "Aia Amare",
+  "ja": "アイア アマレ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "ILUNA"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "aiba_uiha",
+  "en": "Aiba Uiha",
+  "ja": "相羽ういは",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "aizono_manami",
+  "en": "Aizono Manami",
+  "ja": "愛園愛美",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Beni Zuwaigani"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "akabane_youko",
+  "en": "Akabane Youko",
+  "ja": "赤羽葉子",
+  "branch": "Nijisanji Gamers",
+  "groups": [],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "akagi_wen",
+  "en": "Akagi Wen",
+  "ja": "赤城ウェン",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Oriens"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "akira_ray",
+  "en": "Akira Ray",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Third Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "alban_knox",
+  "en": "Alban Knox",
+  "ja": "アルバーン・ノックス",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Noctyx"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "amagase_muyu",
+  "en": "Amagase Muyu",
+  "ja": "天ヶ瀬むゆ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Ranunculus"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [
+   "Nijisanji Muyu"
+  ],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "amamiya_kokoro",
+  "en": "Amamiya Kokoro",
+  "ja": "天宮こころ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Posanke"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "amemori_sayo",
+  "en": "Amemori Sayo",
+  "ja": "雨森小夜",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "amicia_michella",
+  "en": "Amicia Michella",
+  "ja": "アミシア ミシェラ",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "ange_katrina",
+  "en": "Ange Katrina",
+  "ja": "アンジュ・カトリーナ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Sanbaka"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "angie_fei",
+  "en": "Angie Fei",
+  "ja": "",
+  "branch": "Nijisanji Shanghai",
+  "groups": [
+   "Nijisanji Shanghai"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ars_almal",
+  "en": "Ars Almal",
+  "ja": "アルス・アルマル",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Blues"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "asahina_akane",
+  "en": "Asahina Akane",
+  "ja": "朝日南アカネ",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "aster_arcadia",
+  "en": "Aster Arcadia",
+  "ja": "アスター アルカディア",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "asuka_hina",
+  "en": "Asuka Hina",
+  "ja": "飛鳥ひな",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "atles",
+  "en": "Atles",
+  "ja": "アトルズ",
+  "branch": "Nijisanji Taipei",
+  "groups": [
+   "Nijisanji Taipei"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "axia_krone",
+  "en": "Axia Krone",
+  "ja": "アクシア・クローネ",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "azuchi_momo",
+  "en": "Azuchi Momo",
+  "ja": "安土桃",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Nijisanji SEEDs"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "azura_cecillia",
+  "en": "Azura Cecillia",
+  "ja": "アズラ セシリア",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "ban_hada",
+  "en": "Ban Hada",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "belmond_banderas",
+  "en": "Belmond Banderas",
+  "ja": "ベルモンド・バンデラス",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "bonnivier_pranaja",
+  "en": "Bonnivier Pranaja",
+  "ja": "ボンニフィエール プラナジャ",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "chae_ara",
+  "en": "Chae Ara",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "chen_kuang_kuang",
+  "en": "Chen Kuang-kuang",
+  "ja": "",
+  "branch": "Nijisanji Taipei",
+  "groups": [
+   "Nijisanji Taipei"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "claude_clawmark",
+  "en": "Claude Clawmark",
+  "ja": "クロード クローマーク",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "TTT"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "dailechi",
+  "en": "Dailechi",
+  "ja": "",
+  "branch": "Nijisanji Taipei",
+  "groups": [
+   "Nijisanji Taipei"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "debidebi_debiru",
+  "en": "Debidebi Debiru",
+  "ja": "でびでび・でびる",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "derem_kado",
+  "en": "Derem Kado",
+  "ja": "デレム・カド",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Fifth Wave"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "dola",
+  "en": "Dola",
+  "ja": "ドーラ",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "doppio_dropscythe",
+  "en": "Doppio Dropscythe",
+  "ja": "ドッピオ ドロップサイト",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "XSOLEIL"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "eli_conifer",
+  "en": "Eli Conifer",
+  "ja": "エリー・コニファー",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Posanke"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "elira_pendora",
+  "en": "Elira Pendora",
+  "ja": "エリーラ ペンドラ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "LazuLight"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "elu",
+  "en": "Elu",
+  "ja": "える",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "emma_august",
+  "en": "Emma August",
+  "ja": "えま★おうがすと",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Aka no Soshiki"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "enna_alouette",
+  "en": "Enna Alouette",
+  "ja": "エナー・アールウェット",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Ethyria"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "etna_crimson",
+  "en": "Etna Crimson",
+  "ja": "エトナ・クリムソン",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Fourth Wave"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "ex_albio",
+  "en": "Ex Albio",
+  "ja": "エクス・アルビオ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "LvEx"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "finana_ryugu",
+  "en": "Finana Ryugu",
+  "ja": "フィナーナ 竜宮",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "LazuLight"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "freodore",
+  "en": "Freodore",
+  "ja": "フリオドール",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "BY THE BEAT"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "fulgur_ovid",
+  "en": "Fulgur Ovid",
+  "ja": "ファルガー・オーヴィド",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "fumi",
+  "en": "Fumi",
+  "ja": "フミ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Orihimeboshi"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "fumino_tamaki",
+  "en": "Fumino Tamaki",
+  "ja": "文野環",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "fura_kanato",
+  "en": "Fura Kanato",
+  "ja": "風楽奏斗",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "VOLTACTION"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "furen_e_lustario",
+  "en": "Furen E Lustario",
+  "ja": "フレン・E・ルスタリオ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Meifu"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [
+   "Furen E Rustario",
+   "Furen Lustario"
+  ],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "fushimi_gaku",
+  "en": "Fushimi Gaku",
+  "ja": "伏見ガク",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "fuwa_minato",
+  "en": "Fuwa Minato",
+  "ja": "不破湊",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Night Kingdom"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "gaon",
+  "en": "Gaon",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "First Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "genzuki_tojiro",
+  "en": "Genzuki Tojiro",
+  "ja": "弦月藤士郎",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "VΔLZ"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "gilzaren_iii",
+  "en": "Gilzaren III",
+  "ja": "ギルザレン",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "gundo_mirei",
+  "en": "Gundo Mirei",
+  "ja": "郡道美玲",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "gwelu_os_gar",
+  "en": "Gwelu Os Gar",
+  "ja": "グウェル・オス・ガール",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "ha_yun",
+  "en": "Ha Yun",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Sixth Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "hakase_fuyuki",
+  "en": "Hakase Fuyuki",
+  "ja": "葉加瀬冬雪",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "SMC-gumi"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hakuren",
+  "en": "Hakuren",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "han_chiho",
+  "en": "Han Chiho",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "hana_macchia",
+  "en": "Hana Macchia",
+  "ja": "ハナ・マキア",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "First Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hanabatake_chaika",
+  "en": "Hanabatake Chaika",
+  "ja": "花畑チャイカ",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "hanakago_tsubasa",
+  "en": "Hanakago Tsubasa",
+  "ja": "花籠つばさ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Splare"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "harusaki_air",
+  "en": "Harusaki Air",
+  "ja": "春崎エアル",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "hassaku_yuzu",
+  "en": "Hassaku Yuzu",
+  "ja": "八朔ゆず",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Nijisanji SEEDs"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hayama_marin",
+  "en": "Hayama Marin",
+  "ja": "葉山舞鈴",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Majomarity"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hayase_sou",
+  "en": "Hayase Sou",
+  "ja": "早瀬走",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Tulip-gumi"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "hex_haywire",
+  "en": "Hex Haywire",
+  "ja": "ヘックス へイワイヤー",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "hibachi_mana",
+  "en": "Hibachi Mana",
+  "ja": "緋八マナ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Oriens"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "higuchi_kaede",
+  "en": "Higuchi Kaede",
+  "ja": "樋口楓",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hitotsubashi_ayato",
+  "en": "Hitotsubashi Ayato",
+  "ja": "一橋綾人",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Eriburi"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "honma_himawari",
+  "en": "Honma Himawari",
+  "ja": "本間ひまわり",
+  "branch": "Nijisanji Gamers",
+  "groups": [],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hoshikawa_sara",
+  "en": "Hoshikawa Sara",
+  "ja": "星川サラ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Orihimeboshi"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hoshirube_sho",
+  "en": "Hoshirube Sho",
+  "ja": "星導ショウ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Dytica"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "hyakumantenbara_salome",
+  "en": "Hyakumantenbara Salome",
+  "ja": "壱百満天原サロメ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Solo Debut"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hyona_elatiora",
+  "en": "Hyona Elatiora",
+  "ja": "ヒョナ エラティオラ",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "ibrahim",
+  "en": "Ibrahim",
+  "ja": "イブラヒム",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Meifu"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "ienaga_mugi",
+  "en": "Ienaga Mugi",
+  "ja": "家長むぎ",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "igarashi_rika",
+  "en": "Igarashi Rika",
+  "ja": "五十嵐梨花",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Idios"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "ike_eveland",
+  "en": "Ike Eveland",
+  "ja": "アイク・イーヴランド",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "inami_rai",
+  "en": "Inami Rai",
+  "ja": "伊波ライ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Dytica"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "inui_toko",
+  "en": "Inui Toko",
+  "ja": "戌亥とこ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Sanbaka"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "ishigami_nozomi",
+  "en": "Ishigami Nozomi",
+  "ja": "石神のぞみ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Idios"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "itsuki_sakyo",
+  "en": "Itsuki Sakyo",
+  "ja": "五木左京",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Eriburi"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "izumo_kasumi",
+  "en": "Izumo Kasumi",
+  "ja": "出雲霞",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Nijisanji SEEDs"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "joe_rikiichi",
+  "en": "Joe Rikiichi",
+  "ja": "ジョー・力一",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kaburaki_roco",
+  "en": "Kaburaki Roco",
+  "ja": "鏑木ろこ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Idios"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kadou_mikaru",
+  "en": "Kadou Mikaru",
+  "ja": "蝸堂みかる",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Yoiyume"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kaelix_debonair",
+  "en": "Kaelix Debonair",
+  "ja": "ケイリクス・デボネア",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "BY THE BEAT"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "kaen",
+  "en": "Kaen",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "kagami_hayato",
+  "en": "Kagami Hayato",
+  "ja": "加賀美ハヤト",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "SMC-gumi"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kaida_haru",
+  "en": "Kaida Haru",
+  "ja": "甲斐田晴",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "VΔLZ"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kaisei",
+  "en": "Kaisei",
+  "ja": "魁星",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "3SKM"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kaminaga_taiga",
+  "en": "Kaminaga Taiga",
+  "ja": "神永タイガ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "RhyZyGy"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kaminari_poaro",
+  "en": "Kaminari Poaro",
+  "ja": "神成ポアロ",
+  "branch": "VOIZ",
+  "groups": [
+   "VOIZ"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kanae",
+  "en": "Kanae",
+  "ja": "叶",
+  "branch": "Nijisanji Gamers",
+  "groups": [],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kanda_shoichi",
+  "en": "Kanda Shoichi",
+  "ja": "神田笑一",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kataribe_tsumugu",
+  "en": "Kataribe Tsumugu",
+  "ja": "語部紡",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "28 January Debut"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kenmochi_toya",
+  "en": "Kenmochi Toya",
+  "ja": "剣持刀也",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kingyozaka_meiro",
+  "en": "Kingyozaka Meiro",
+  "ja": "金魚坂めいろ",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kirara_tamako",
+  "en": "Kirara Tamako",
+  "ja": "雲母たまこ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Speciale"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kisara",
+  "en": "Kisara",
+  "ja": "綺沙良",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Ayakaki"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kitakoji_hisui",
+  "en": "Kitakoji Hisui",
+  "ja": "北小路ヒスイ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Selene Drama Club"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [
+   "Kitakouji Hisui"
+  ],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kitami_yusei",
+  "en": "Kitami Yusei",
+  "ja": "北見遊征",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "3SKM"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "klara_charmwood",
+  "en": "Klara Charmwood",
+  "ja": "クララ チャームウッド",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Denauth"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ko_yami",
+  "en": "Ko Yami",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "kobayakawa_nana",
+  "en": "Kobayakawa Nana",
+  "ja": "小早川奈々",
+  "branch": "Nijisanji Taipei",
+  "groups": [
+   "Nijisanji Taipei"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "kokonami_iruka",
+  "en": "Kokonami Iruka",
+  "ja": "小々波いるか",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Y4T4"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "koshimizu_toru",
+  "en": "Koshimizu Toru",
+  "ja": "小清水透",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Idios"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kotoka_torahime",
+  "en": "Kotoka Torahime",
+  "ja": "虎姫 コトカ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "koyanagi_rou",
+  "en": "Koyanagi Rou",
+  "ja": "小柳ロウ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Dytica"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kozue_mone",
+  "en": "Kozue Mone",
+  "ja": "梢桃音",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Ayakaki"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kudou_chitose",
+  "en": "Kudou Chitose",
+  "ja": "久遠千歳",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kunai_nakasato",
+  "en": "Kunai Nakasato",
+  "ja": "中里苦無",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "kuramochi_meruto",
+  "en": "Kuramochi Meruto",
+  "ja": "倉持めると",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Idios"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kuri_eita",
+  "en": "Kuri Eita",
+  "ja": "九里詠太",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Y4T4"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kurohane_kuroto",
+  "en": "Kurohane Kuroto",
+  "ja": "黒羽黒兎",
+  "branch": "VOIZ",
+  "groups": [
+   "VOIZ"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kuroi_shiba",
+  "en": "Kuroi Shiba",
+  "ja": "黒井しば",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kurusu_natsume",
+  "en": "Kurusu Natsume",
+  "ja": "来栖夏芽",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Mananatsu"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kuzuha",
+  "en": "Kuzuha",
+  "ja": "葛葉",
+  "branch": "Nijisanji Gamers",
+  "groups": [],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kyo_kaneko",
+  "en": "Kyo Kaneko",
+  "ja": "金子 鏡",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "lain_paterson",
+  "en": "Lain Paterson",
+  "ja": "レイン・パターソン",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Eden-gumi"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "lauren_iroas",
+  "en": "Lauren Iroas",
+  "ja": "ローレン・イロアス",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Eden-gumi"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "layla_alstroemeria",
+  "en": "Layla Alstroemeria",
+  "ja": "ライラ・アルストロエメリア",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Third Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "lee_on",
+  "en": "Lee On",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "lee_roha",
+  "en": "Lee Roha",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Third Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "lee_siu",
+  "en": "Lee Siu",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "leos_vincent",
+  "en": "Leos Vincent",
+  "ja": "レオス・ヴィンセント",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Eden-gumi"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "levi_elipha",
+  "en": "Levi Elipha",
+  "ja": "レヴィ・エリファ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "LvEx"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "limaoshan",
+  "en": "Limaoshan",
+  "ja": "",
+  "branch": "Nijisanji Shanghai",
+  "groups": [
+   "Nijisanji Shanghai"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "lize_helesta",
+  "en": "Lize Helesta",
+  "ja": "リゼ・ヘルエスタ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Sanbaka"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "lorou",
+  "en": "Lorou",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "luca_kaneshiro",
+  "en": "Luca Kaneshiro",
+  "ja": "ルカ・カネシロ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Luxiem"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "luis_cammy",
+  "en": "Luis Cammy",
+  "ja": "ルイス・キャミー",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Aka no Soshiki"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "lunlun",
+  "en": "Lunlun",
+  "ja": "ルンルン",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Ayakaki"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "machita_chima",
+  "en": "Machita Chima",
+  "ja": "町田ちま",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "maimoto_keisuke",
+  "en": "Maimoto Keisuke",
+  "ja": "舞元啓介",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "makaino_ririmu",
+  "en": "Makaino Ririmu",
+  "ja": "魔界ノりりむ",
+  "branch": "Nijisanji Gamers",
+  "groups": [],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "maria_marionette",
+  "en": "Maria Marionette",
+  "ja": "マリア マリオネット",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "ILUNA"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "mashiro_mome",
+  "en": "Mashiro Mome",
+  "ja": "ましろ爻",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Mananatsu"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "matsukai_mao",
+  "en": "Matsukai Mao",
+  "ja": "魔使マオ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Aka no Soshiki"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "mayuzumi_kai",
+  "en": "Mayuzumi Kai",
+  "ja": "黛灰",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "melissa_kinrenka",
+  "en": "Melissa Kinrenka",
+  "ja": "メリッサ・キンレンカ",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "meloco_kyoran",
+  "en": "Meloco Kyoran",
+  "ja": "狂蘭 メロコ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "XSOLEIL"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "mifentan",
+  "en": "Mifentan",
+  "ja": "",
+  "branch": "Nijisanji Taipei",
+  "groups": [
+   "Nijisanji Taipei"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "mika_melatika",
+  "en": "Mika Melatika",
+  "ja": "ミカ メラティカ",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "mikogami_kotone",
+  "en": "Mikogami Kotone",
+  "ja": "御子神琴音",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Y4T4"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "milan_kestrel",
+  "en": "Milan Kestrel",
+  "ja": "ミラン・ケストレル",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Mitarashi-dan"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "millie_parfait",
+  "en": "Millie Parfait",
+  "ja": "ミリー・パフェ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Ethyria"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "min_suha",
+  "en": "Min Suha",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "First Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "minamo_madoka",
+  "en": "Minamo Madoka",
+  "ja": "水面まどか",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Umyami"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "miyashita_mariko",
+  "en": "Miyashita Mariko",
+  "ja": "宫下真梨子",
+  "branch": "Nijisanji Shanghai",
+  "groups": [
+   "Nijisanji Shanghai"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "miyu_ottavia",
+  "en": "Miyu Ottavia",
+  "ja": "ミユ オッタフィア",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "moarin",
+  "en": "Moarin",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "moira",
+  "en": "Moira",
+  "ja": "モイラ",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "monmon",
+  "en": "Monmon",
+  "ja": "モンモン",
+  "branch": "Nijisanji Taipei",
+  "groups": [
+   "Nijisanji Taipei"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "mononobe_alice",
+  "en": "Mononobe Alice",
+  "ja": "物述有栖",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "morinaka_kazaki",
+  "en": "Morinaka Kazaki",
+  "ja": "森中花咲",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "murakumo_kagetsu",
+  "en": "Murakumo Kagetsu",
+  "ja": "叢雲カゲツ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Dytica"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "mysta_rias",
+  "en": "Mysta Rias",
+  "ja": "ミスタ・リアス",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "na_sera",
+  "en": "Na Sera",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Sixth Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "nagao_kei",
+  "en": "Nagao Kei",
+  "ja": "長尾景",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "VΔLZ"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "nagisa_arcinia",
+  "en": "Nagisa Arcinia",
+  "ja": "ナギサ・アルシニア",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Fifth Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nagisa_trout",
+  "en": "Nagisa Trout",
+  "ja": "渚トラウト",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Speciale"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nakao_azuma",
+  "en": "Nakao Azuma",
+  "ja": "名伽尾アズマ",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Nijisanji SEEDs"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "nanase_suzuna",
+  "en": "Nanase Suzuna",
+  "ja": "七瀬すず菜",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Speciale"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nara_haramaung",
+  "en": "Nara Haramaung",
+  "ja": "ナラ ハラマウン",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "naraka",
+  "en": "Naraka",
+  "ja": "奈羅花",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "naruse_naru",
+  "en": "Naruse Naru",
+  "ja": "成瀬鳴",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Nijisanji SEEDs"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "naruto_kogane",
+  "en": "Naruto Kogane",
+  "ja": "鳴門こがね",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Nijisanji SEEDs"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nekoyashiki_miku",
+  "en": "Nekoyashiki Miku",
+  "ja": "猫屋敷美紅",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Yoiyume"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nina_kosaka",
+  "en": "Nina Kosaka",
+  "ja": "狐坂ニナ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "nishizono_chigusa",
+  "en": "Nishizono Chigusa",
+  "ja": "西園チグサ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Selene Drama Club"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "noor",
+  "en": "Noor",
+  "ja": "ヌール",
+  "branch": "Nijisanji IN",
+  "groups": [
+   "Nijisanji IN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "nui_sociere",
+  "en": "Nui Sociere",
+  "ja": "ニュイ・ソシエール",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Majomarity"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nun_bora",
+  "en": "Nun Bora",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "oh_jiyu",
+  "en": "Oh Jiyu",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Fourth Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "oliver_evans",
+  "en": "Oliver Evans",
+  "ja": "オリバー・エバンス",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Eden-gumi"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "onomachi_haruka",
+  "en": "Onomachi Haruka",
+  "ja": "小野町春香",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "onotora",
+  "en": "Onotora",
+  "ja": "男虎",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Y4T4"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "otogibara_era",
+  "en": "Otogibara Era",
+  "ja": "御伽原江良",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "petra_gurin",
+  "en": "Petra Gurin",
+  "ja": "ペトラ グリン",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "OBSYDIA"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "pomelo_punch",
+  "en": "Pomelo Punch",
+  "ja": "ぽめろ・ぱんち",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Poppun Parlor"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "pomu_rainpuff",
+  "en": "Pomu Rainpuff",
+  "ja": "ぽむ れいんぱふ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ponto_nei",
+  "en": "Ponto Nei",
+  "ja": "先斗寧",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Ranunculus"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "purin_lala_mode",
+  "en": "Purin Lala Mode",
+  "ja": "ぷりん・らら・もーど",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Poppun Parlor"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "qing",
+  "en": "Qing",
+  "ja": "",
+  "branch": "Nijisanji Shanghai",
+  "groups": [
+   "Nijisanji Shanghai"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "rai_galilei",
+  "en": "Rai Galilei",
+  "ja": "ライ・ガリレイ",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Second Wave"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "ratna_petit",
+  "en": "Ratna Petit",
+  "ja": "ラトナ・プティ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Posanke"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "rayon",
+  "en": "Rayon",
+  "ja": "レヨン",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Y4T4"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "rei7",
+  "en": "Rei7",
+  "ja": "れいな",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Y4T4"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "reimu_endou",
+  "en": "Reimu Endou",
+  "ja": "遠藤霊夢",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ren_zotto",
+  "en": "Ren Zotto",
+  "ja": "レン ゾット",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "ILUNA"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "reza_avanluna",
+  "en": "Reza Avanluna",
+  "ja": "レザ アファンルナ",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "riksa_dhirendra",
+  "en": "Riksa Dhirendra",
+  "ja": "リクサ ディレンドラ",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "rindou_mikoto",
+  "en": "Rindou Mikoto",
+  "ja": "竜胆尊",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "rosemi_lovelock",
+  "en": "Rosemi Lovelock",
+  "ja": "ロゼミ ラブロック",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "royuan_an",
+  "en": "Royuan-an",
+  "ja": "",
+  "branch": "Nijisanji Shanghai",
+  "groups": [
+   "Nijisanji Shanghai"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ryoma_barrenwort",
+  "en": "Ryoma Barrenwort",
+  "ja": "凉舞 バレンウォート",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Denauth"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ryu_hari",
+  "en": "Ryu Hari",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Fourth Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ryushen",
+  "en": "Ryushen",
+  "ja": "緑仙",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "saegusa_akina",
+  "en": "Saegusa Akina",
+  "ja": "三枝明那",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Beni Zuwaigani"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "saiki_ittetsu",
+  "en": "Saiki Ittetsu",
+  "ja": "佐伯イッテツ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Oriens"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "sakayori_soma",
+  "en": "Sakayori Soma",
+  "ja": "酒寄颯馬",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Speciale"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "sakura_ritsuki",
+  "en": "Sakura Ritsuki",
+  "ja": "桜凛月",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "saotome_berry",
+  "en": "Saotome Berry",
+  "ja": "早乙女 ベリー",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Speciale"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "sasaki_ness",
+  "en": "Sasaki Ness",
+  "ja": "榊ネス",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "3SKM"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "sasaki_saku",
+  "en": "Sasaki Saku",
+  "ja": "笹木咲",
+  "branch": "Nijisanji Gamers",
+  "groups": [],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "satania_liun_limse",
+  "en": "Satania Liun Limse",
+  "ja": "",
+  "branch": "Nijisanji Shanghai",
+  "groups": [
+   "Nijisanji Shanghai"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "scarle_yonaguni",
+  "en": "Scarle Yonaguni",
+  "ja": "スカーレ ヨナグニ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "ILUNA"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "seffyna",
+  "en": "Seffyna",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Fifth Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "seible",
+  "en": "Seible",
+  "ja": "セイブル",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "BY THE BEAT"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "selen_tatsuki",
+  "en": "Selen Tatsuki",
+  "ja": "セレン 龍月",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "senri_ayumu",
+  "en": "Senri Ayumu",
+  "ja": "千凛あゆむ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Y4T4"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "seraph_dazzlegarden",
+  "en": "Seraph Dazzlegarden",
+  "ja": "セラフ・ダズルガーデン",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "VOLTACTION"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "seto_miyako",
+  "en": "Seto Miyako",
+  "ja": "瀬戸美夜子",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "setsuna",
+  "en": "Setsuna",
+  "ja": "雪汝",
+  "branch": "Nijisanji Gamers",
+  "groups": [
+   "Nijisanji Gamers"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shellin_burgundy",
+  "en": "Shellin Burgundy",
+  "ja": "シェリン・バーガンディ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Tulip-gumi"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shibuya_hajime",
+  "en": "Shibuya Hajime",
+  "ja": "渋谷ハジメ",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "shiga_riko",
+  "en": "Shiga Riko",
+  "ja": "司賀りこ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Ayakaki"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shiina_yuika",
+  "en": "Shiina Yuika",
+  "ja": "椎名唯華",
+  "branch": "Nijisanji Gamers",
+  "groups": [],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shikinagi_akira",
+  "en": "Shikinagi Akira",
+  "ja": "四季凪アキラ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "VOLTACTION"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "shin_kiru",
+  "en": "Shin Kiru",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "shin_yuya",
+  "en": "Shin Yuya",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "shindo_raito",
+  "en": "Shindo Raito",
+  "ja": "真堂雷斗",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "shinomiya_yuno",
+  "en": "Shinomiya Yuno",
+  "ja": "篠宮ゆの",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Splare"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shioriha_ruri",
+  "en": "Shioriha Ruri",
+  "ja": "栞葉るり",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Mitarashi-dan"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shirasa_ayane",
+  "en": "Shirasa Ayane",
+  "ja": "白砂あやね",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Umyami"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shirayuki_tomoe",
+  "en": "Shirayuki Tomoe",
+  "ja": "白雪巴",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Night Kingdom"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shirose_isumi",
+  "en": "Shirose Isumi",
+  "ja": "城瀬いすみ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Splare"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shishido_akari",
+  "en": "Shishido Akari",
+  "ja": "獅子堂あかり",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Idios"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shizuka_rin",
+  "en": "Shizuka Rin",
+  "ja": "静凛",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shu_yamino",
+  "en": "Shu Yamino",
+  "ja": "闇ノシュウ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Luxiem"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "siarurin",
+  "en": "Siarurin",
+  "ja": "",
+  "branch": "Nijisanji Taipei",
+  "groups": [
+   "Nijisanji Taipei"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "siddel",
+  "en": "Siddel",
+  "ja": "",
+  "branch": "Nijisanji Shanghai",
+  "groups": [
+   "Nijisanji Shanghai"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "siska_leontyne",
+  "en": "Siska Leontyne",
+  "ja": "シスカ レオンタイン",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "sister_claire",
+  "en": "Sister Claire",
+  "ja": "シスター・クレア",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "so_nagi",
+  "en": "So Nagi",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Second Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "song_mia",
+  "en": "Song Mia",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "sonny_brisko",
+  "en": "Sonny Brisko",
+  "ja": "サニー・ブリスコー",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Noctyx"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "sophia_valentine",
+  "en": "Sophia Valentine",
+  "ja": "ソフィア・ヴァレンタイン",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Idios"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "sorahoshi_kirame",
+  "en": "Sorahoshi Kirame",
+  "ja": "空星きらめ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Kiramero"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "sukoya_kana",
+  "en": "Sukoya Kana",
+  "ja": "健屋花那",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Tulip-gumi"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "sumeragi_reo",
+  "en": "Sumeragi Reo",
+  "ja": "皇れお",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Splare"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "suo_sango",
+  "en": "Suo Sango",
+  "ja": "周央サンゴ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Selene Drama Club"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [
+   "Suou Sango",
+   "周防サンゴ"
+  ],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "suzuhara_lulu",
+  "en": "Suzuhara Lulu",
+  "ja": "鈴原るる",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "MahiLulu"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "suzuka_utako",
+  "en": "Suzuka Utako",
+  "ja": "鈴鹿詩子",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "suzuki_masaru",
+  "en": "Suzuki Masaru",
+  "ja": "鈴木勝",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "suzuya_aki",
+  "en": "Suzuya Aki",
+  "ja": "鈴谷アキ",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "tachitsute_toto",
+  "en": "Tachitsute Toto",
+  "ja": "立伝都々",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Mitarashi-dan"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "taka_radjiman",
+  "en": "Taka Radjiman",
+  "ja": "タカ ラジマン",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "takamiya_rion",
+  "en": "Takamiya Rion",
+  "ja": "鷹宮リオン",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "talency",
+  "en": "Talency",
+  "ja": "",
+  "branch": "Nijisanji Taipei",
+  "groups": [
+   "Nijisanji Taipei"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "tamanoi_nana",
+  "en": "Tamanoi Nana",
+  "ja": "珠乃井ナナ",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Ayakaki"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "todo_kohaku",
+  "en": "Todo Kohaku",
+  "ja": "東堂コハク",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Selene Drama Club"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "todoroki_kyoko",
+  "en": "Todoroki Kyoko",
+  "ja": "轟京子",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "togawa_nonoha",
+  "en": "Togawa Nonoha",
+  "ja": "十河ののは",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Yoiyume"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "tsukahara_daichi",
+  "en": "Tsukahara Daichi",
+  "ja": "塚原大地",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Y4T4"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "tsukimi_shizuku",
+  "en": "Tsukimi Shizuku",
+  "ja": "月見しずく",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Nijisanji SEEDs"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "tsukino_mito",
+  "en": "Tsukino Mito",
+  "ja": "月ノ美兎",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "twisty_amanozako",
+  "en": "Twisty Amanozako",
+  "ja": "トゥイスティー アマノザコ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "uki_violeta",
+  "en": "Uki Violeta",
+  "ja": "浮奇ヴィオレタ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Noctyx"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "umise_yotsuha",
+  "en": "Umise Yotsuha",
+  "ja": "海妹四葉",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Ranunculus"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "umiyashano_kami",
+  "en": "Umiyashano Kami",
+  "ja": "海夜叉神",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Nijisanji SEEDs"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "usami_rito",
+  "en": "Usami Rito",
+  "ja": "宇佐美リト",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Oriens"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "ushimi_ichigo",
+  "en": "Ushimi Ichigo",
+  "ja": "宇志海いちご",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "uzuki_kou",
+  "en": "Uzuki Kou",
+  "ja": "卯月コウ",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "vantacrow_bringer",
+  "en": "Vantacrow Bringer",
+  "ja": "ベンタクロウ ブリンガー",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Krisis"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ver_vermillion",
+  "en": "Ver Vermillion",
+  "ja": "ヴェール ヴァーミリオン",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "XSOLEIL"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "vezalius_bandage",
+  "en": "Vezalius Bandage",
+  "ja": "ヴェザリウス バンデージ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Krisis"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "victoria_brightshield",
+  "en": "Victoria Brightshield",
+  "ja": "ヴィクトリア ブライトシールド",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "vihaan",
+  "en": "Vihaan",
+  "ja": "ビハン",
+  "branch": "Nijisanji IN",
+  "groups": [
+   "Nijisanji IN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "vox_akuma",
+  "en": "Vox Akuma",
+  "ja": "ヴォックス・アクマ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Luxiem"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "warabeda_meiji",
+  "en": "Warabeda Meiji",
+  "ja": "童田明治",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [
+   "Warabeda Meijii"
+  ],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "watarai_hibari",
+  "en": "Watarai Hibari",
+  "ja": "渡会雲雀",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "VOLTACTION"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "wiffy",
+  "en": "Wiffy",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "xia_ekavira",
+  "en": "Xia Ekavira",
+  "ja": "シア エカフィラ",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yaguruma_rine",
+  "en": "Yaguruma Rine",
+  "ja": "矢車りね",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yagyu_shino",
+  "en": "Yagyu Shino",
+  "ja": "夜牛詩乃",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "Yoiyume"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yamada_ryuichiro",
+  "en": "Yamada Ryuichiro",
+  "ja": "山田龍一郎",
+  "branch": "Post-2022 merger",
+  "groups": [
+   "RhyZyGy"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "yamagami_karuta",
+  "en": "Yamagami Karuta",
+  "ja": "山神カルタ",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Orihimeboshi"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yamiyono_moruru",
+  "en": "Yamiyono Moruru",
+  "ja": "闇夜乃モルル",
+  "branch": "Nijisanji Gamers",
+  "groups": [
+   "Nijisanji Gamers"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yang_nari",
+  "en": "Yang Nari",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Fourth Wave"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "yashiro_kizuku",
+  "en": "Yashiro Kizuku",
+  "ja": "社築",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "yingou",
+  "en": "Yingou",
+  "ja": "",
+  "branch": "Nijisanji Shanghai",
+  "groups": [
+   "Nijisanji Shanghai"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "yorumi_rena",
+  "en": "Yorumi Rena",
+  "ja": "夜見れな",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "SMC-gumi"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yu_q_wilson",
+  "en": "Yu Q. Wilson",
+  "ja": "ユウ Q ウィルソン",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Krisis"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "yu_ruri",
+  "en": "Yu Ruri",
+  "ja": "",
+  "branch": "Nijisanji KR",
+  "groups": [
+   "Nijisanji KR"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "yugo_asuma",
+  "en": "Yugo Asuma",
+  "ja": "遊間ユーゴ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "yuhi_riri",
+  "en": "Yuhi Riri",
+  "ja": "夕陽リリ",
+  "branch": "Nijisanji (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [
+   "Riri Yuuhi",
+   "Yuuhi Riri"
+  ],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yuki_chihiro",
+  "en": "Yuki Chihiro",
+  "ja": "勇気ちひろ",
+  "branch": "Nijisanji",
+  "groups": [
+   "Nijisanji"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yukishiro_mahiro",
+  "en": "Yukishiro Mahiro",
+  "ja": "雪城眞尋",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "MahiLulu"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yumeoi_kakeru",
+  "en": "Yumeoi Kakeru",
+  "ja": "夢追翔",
+  "branch": "Nijisanji SEEDs",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "yuzuki_roa",
+  "en": "Yuzuki Roa",
+  "ja": "夢月ロア",
+  "branch": "Post-2018 merger",
+  "groups": [
+   "Usa-chan Club"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "zaion_lanza",
+  "en": "Zaion Lanza",
+  "ja": "ランザー 罪恩",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "Nijisanji EN"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "zea_cornelia",
+  "en": "ZEA Cornelia",
+  "ja": "ゼア コルネリア",
+  "branch": "Nijisanji ID",
+  "groups": [
+   "Nijisanji ID"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "zeal_ginjoka",
+  "en": "Zeal Ginjoka",
+  "ja": "ジール・ギンジョウカ",
+  "branch": "Nijisanji EN",
+  "groups": [
+   "BY THE BEAT"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ }
+]

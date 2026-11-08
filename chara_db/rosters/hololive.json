@@ -1,0 +1,1677 @@
+[
+ {
+  "id": "achichi_mela",
+  "en": "Achichi Mela",
+  "ja": "熱千めら",
+  "branch": "Post-merger",
+  "groups": [
+   "ASOBI★MAWARI-TAI!"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "airani_iofifteen",
+  "en": "Airani Iofifteen",
+  "ja": "アイラニ・イオフィフティーン",
+  "branch": "Hololive Indonesia",
+  "groups": [
+   "AREA 15"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "akai_haato",
+  "en": "Akai Haato",
+  "ja": "赤井はあと",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "aki_rosenthal",
+  "en": "Aki Rosenthal",
+  "ja": "アキ・ローゼンタール",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "amane_kanata",
+  "en": "Amane Kanata",
+  "ja": "天音かなた",
+  "branch": "Hololive",
+  "groups": [
+   "Hololive"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "amelia_watson_streamer",
+  "en": "[[Amelia Watson (streamer)",
+  "ja": "Watson Amelia]]",
+  "branch": "Hololive English",
+  "groups": [
+   "Hololive English"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "anya_melfissa",
+  "en": "Anya Melfissa",
+  "ja": "アーニャ・メルフィッサ",
+  "branch": "Hololive Indonesia",
+  "groups": [
+   "holoro"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "aragami_oga",
+  "en": "Aragami Oga",
+  "ja": "荒咬オウガ",
+  "branch": "Holostars (Japan)",
+  "groups": [
+   "Generation 3 (MaFia)"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "artia",
+  "en": "Artia",
+  "ja": "",
+  "branch": "Hololive China",
+  "groups": [
+   "Hololive China"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "arurandeisu",
+  "en": "Arurandeisu",
+  "ja": "アルランディス",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "astel_leda",
+  "en": "Astel Leda",
+  "ja": "アステル・レダ",
+  "branch": "Holostars (Japan)",
+  "groups": [
+   "Generation 2 (SunTempo)"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "axel_syrios",
+  "en": "Axel Syrios",
+  "ja": "アクセル・シリオス",
+  "branch": "Holostars English",
+  "groups": [
+   "TEMPUS Headquarters"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ayunda_risu",
+  "en": "Ayunda Risu",
+  "ja": "アユンダ・リス",
+  "branch": "Hololive Indonesia",
+  "groups": [
+   "AREA 15"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "azki",
+  "en": "AZKi",
+  "ja": "",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 0"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "banzoin_hakka",
+  "en": "Banzoin Hakka",
+  "ja": "万象院ハッカ",
+  "branch": "Holostars English",
+  "groups": [
+   "TEMPUS Vanguard"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ceres_fauna",
+  "en": "Ceres Fauna",
+  "ja": "セレス・ファウナ",
+  "branch": "Hololive English",
+  "groups": [
+   "Hololive English"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "civia",
+  "en": "Civia",
+  "ja": "",
+  "branch": "Hololive China",
+  "groups": [
+   "Hololive China"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "crimzon_ruze",
+  "en": "Crimzon Ruze",
+  "ja": "クリムゾン・ルーズ",
+  "branch": "Holostars English",
+  "groups": [
+   "ARMIS"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "doris",
+  "en": "Doris",
+  "ja": "",
+  "branch": "Hololive China",
+  "groups": [
+   "Hololive China"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "friend_a",
+  "en": "Friend A",
+  "ja": "友人A",
+  "branch": "Staff",
+  "groups": [
+   "Staff"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "fuwawa_abyssgard",
+  "en": "Fuwawa Abyssgard",
+  "ja": "フワワ・アビスガード",
+  "branch": "Hololive English",
+  "groups": [
+   "Advent"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "gavis_bettel",
+  "en": "Gavis Bettel",
+  "ja": "ガビス・ベッテル",
+  "branch": "Holostars English",
+  "groups": [
+   "TEMPUS Vanguard"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "gawr_gura",
+  "en": "Gawr Gura",
+  "ja": "がうる・ぐら",
+  "branch": "Hololive English",
+  "groups": [
+   "Hololive English"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "goldbullet",
+  "en": "Goldbullet",
+  "ja": "ゴールドブレット",
+  "branch": "Holostars English",
+  "groups": [
+   "ARMIS"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "hakos_baelz",
+  "en": "Hakos Baelz",
+  "ja": "ハコス・ベールズ",
+  "branch": "Hololive English",
+  "groups": [
+   "Promise"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "hakui_koyori",
+  "en": "Hakui Koyori",
+  "ja": "博衣こより",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 6 (Secret Society holoX)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hanasaki_miyabi",
+  "en": "Hanasaki Miyabi",
+  "ja": "花咲みやび",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "hanazono_sayaka",
+  "en": "Hanazono Sayaka",
+  "ja": "花園さやか",
+  "branch": "holoAN",
+  "groups": [],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "harusaki_nodoka",
+  "en": "Harusaki Nodoka",
+  "ja": "春先のどか",
+  "branch": "Staff",
+  "groups": [
+   "Staff"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "himemori_luna",
+  "en": "Himemori Luna",
+  "ja": "姫森ルーナ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 4 (holoForce)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hiodoshi_ao",
+  "en": "Hiodoshi Ao",
+  "ja": "火威青",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "Hololive DEV_IS"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hitomi_chris",
+  "en": "Hitomi Chris",
+  "ja": "人見クリス",
+  "branch": "Hololive",
+  "groups": [
+   "Hololive"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hizaki_gamma",
+  "en": "Hizaki Gamma",
+  "ja": "緋崎ガンマ",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "hoshimachi_suisei",
+  "en": "Hoshimachi Suisei",
+  "ja": "星街すいせい",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 0"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "houshou_marine",
+  "en": "Houshou Marine",
+  "ja": "宝鐘マリン",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 3 (Hololive Fantasy)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "hyakuto_kyoko",
+  "en": "Hyakuto Kyoko",
+  "ja": "百灯キョーコ",
+  "branch": "Post-merger",
+  "groups": [
+   "ASOBI★MAWARI-TAI!"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "ichijou_ririka",
+  "en": "Ichijou Ririka",
+  "ja": "一条莉々華",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "ReGloss"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "inugami_korone",
+  "en": "Inugami Korone",
+  "ja": "戌神ころね",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Hololive GAMERS"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "irys",
+  "en": "IRyS",
+  "ja": "",
+  "branch": "Hololive English",
+  "groups": [
+   "Promise"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "isaki_riona",
+  "en": "Isaki Riona",
+  "ja": "響咲 リオナ",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "FLOW GLOW"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "izuki_michiru",
+  "en": "Izuki Michiru",
+  "ja": "井月みちる",
+  "branch": "holoAN",
+  "groups": [],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "josuiji_shinri",
+  "en": "Josuiji Shinri",
+  "ja": "定水寺シンリ",
+  "branch": "Holostars English",
+  "groups": [
+   "TEMPUS Vanguard"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "jurard_t_rexford",
+  "en": "Jurard T Rexford",
+  "ja": "ジュラルド・ティー・レクスフォード",
+  "branch": "Holostars English",
+  "groups": [
+   "ARMIS"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "juufuutei_raden",
+  "en": "Juufuutei Raden",
+  "ja": "儒烏風亭らでん",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "ReGloss"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kaela_kovalskia",
+  "en": "Kaela Kovalskia",
+  "ja": "カエラ・コヴァルスキア",
+  "branch": "Hololive Indonesia",
+  "groups": [
+   "holoh3ro"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kagami_kira",
+  "en": "Kagami Kira",
+  "ja": "鏡見キラ",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kageyama_shien",
+  "en": "Kageyama Shien",
+  "ja": "影山シエン",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kanade_izuru",
+  "en": "Kanade Izuru",
+  "ja": "奏手イヅル",
+  "branch": "Holostars (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kazama_iroha",
+  "en": "Kazama Iroha",
+  "ja": "風真いろは",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 6 (Secret Society holoX)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kazeshiro_yuki",
+  "en": "Kazeshiro Yuki",
+  "ja": "風白ゆき",
+  "branch": "holoAN",
+  "groups": [],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kikirara_vivi",
+  "en": "Kikirara Vivi",
+  "ja": "綺々羅々ヴィヴィ",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "FLOW GLOW"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kiryu_coco",
+  "en": "Kiryu Coco",
+  "ja": "桐生ココ",
+  "branch": "Hololive",
+  "groups": [
+   "Hololive"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "kishido_temma",
+  "en": "Kishido Temma",
+  "ja": "岸堂天真",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "kobo_kanaeru",
+  "en": "Kobo Kanaeru",
+  "ja": "こぼ・かなえる",
+  "branch": "Hololive Indonesia",
+  "groups": [
+   "holoh3ro"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "koganei_niko",
+  "en": "Koganei Niko",
+  "ja": "虎金妃笑虎",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "FLOW GLOW"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "koseki_bijou",
+  "en": "Koseki Bijou",
+  "ja": "古石ビジュー",
+  "branch": "Hololive English",
+  "groups": [
+   "Advent"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "kureiji_ollie",
+  "en": "Kureiji Ollie",
+  "ja": "クレイジー・オリー",
+  "branch": "Hololive Indonesia",
+  "groups": [
+   "holoro"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "la_darknesss",
+  "en": "La+ Darknesss",
+  "ja": "ラプラス・ダークネス",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 6 (Secret Society holoX)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "machina_x_flayon",
+  "en": "Machina X Flayon",
+  "ja": "マキナ・X・フレオン",
+  "branch": "Holostars English",
+  "groups": [
+   "TEMPUS Vanguard"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "magni_dezmond",
+  "en": "Magni Dezmond",
+  "ja": "マグニ・デズモンド",
+  "branch": "Holostars English",
+  "groups": [
+   "Holostars English"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "mano_aloe",
+  "en": "Mano Aloe",
+  "ja": "魔乃アロエ",
+  "branch": "Hololive",
+  "groups": [
+   "Hololive"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "minase_rio",
+  "en": "Minase Rio",
+  "ja": "水無世燐央",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "minato_aqua",
+  "en": "Minato Aqua",
+  "ja": "湊あくあ",
+  "branch": "Hololive",
+  "groups": [
+   "Hololive"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "mizumiya_su",
+  "en": "Mizumiya Su",
+  "ja": "水宮枢",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "FLOW GLOW"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "mococo_abyssgard",
+  "en": "Mococo Abyssgard",
+  "ja": "モココ・アビスガード",
+  "branch": "Hololive English",
+  "groups": [
+   "Advent"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "momosuzu_nene",
+  "en": "Momosuzu Nene",
+  "ja": "桃鈴ねね",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 5 (NePoLaBo)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "moona_hoshinova",
+  "en": "Moona Hoshinova",
+  "ja": "ムーナ・ホシノヴァ",
+  "branch": "Hololive Indonesia",
+  "groups": [
+   "AREA 15"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "mori_calliope",
+  "en": "Mori Calliope",
+  "ja": "森カリオペ",
+  "branch": "Hololive English",
+  "groups": [
+   "Myth"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "murasaki_shion",
+  "en": "Murasaki Shion",
+  "ja": "紫咲シオン",
+  "branch": "Hololive",
+  "groups": [
+   "Hololive"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nakiri_ayame",
+  "en": "Nakiri Ayame",
+  "ja": "百鬼あやめ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nanashi_mumei",
+  "en": "Nanashi Mumei",
+  "ja": "七詩ムメイ",
+  "branch": "Hololive English",
+  "groups": [
+   "Hololive English"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "natsuiro_matsuri",
+  "en": "Natsuiro Matsuri",
+  "ja": "夏色まつり",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 1"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nekomata_okayu",
+  "en": "Nekomata Okayu",
+  "ja": "猫又おかゆ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Hololive GAMERS"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "nerissa_ravencroft",
+  "en": "Nerissa Ravencroft",
+  "ja": "ネリッサ・レイヴンクロフト",
+  "branch": "Hololive English",
+  "groups": [
+   "Advent"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "ninomae_ina_nis",
+  "en": "Ninomae Ina'nis",
+  "ja": "一伊那尓栖",
+  "branch": "Hololive English",
+  "groups": [
+   "Myth"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "noir_vesper",
+  "en": "Noir Vesper",
+  "ja": "ノワール・ヴェスパー",
+  "branch": "Holostars English",
+  "groups": [
+   "Holostars English"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "octavio",
+  "en": "Octavio",
+  "ja": "オクタビオ",
+  "branch": "Holostars English",
+  "groups": [
+   "ARMIS"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "omaru_polka",
+  "en": "Omaru Polka",
+  "ja": "尾丸ポルカ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 5 (NePoLaBo)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "ookami_mio",
+  "en": "Ookami Mio",
+  "ja": "大神ミオ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Hololive GAMERS"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "oozora_subaru",
+  "en": "Oozora Subaru",
+  "ja": "大空スバル",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "otonose_kanade",
+  "en": "Otonose Kanade",
+  "ja": "音乃瀬奏",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "ReGloss"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "ouro_kronii",
+  "en": "Ouro Kronii",
+  "ja": "オーロ・クロニー",
+  "branch": "Hololive English",
+  "groups": [
+   "Promise"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "pavolia_reine",
+  "en": "Pavolia Reine",
+  "ja": "パヴォリア・レイネ",
+  "branch": "Hololive Indonesia",
+  "groups": [
+   "holoro"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "regis_altare",
+  "en": "Regis Altare",
+  "ja": "リージス・アルテア",
+  "branch": "Holostars English",
+  "groups": [
+   "TEMPUS Headquarters"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "rikka",
+  "en": "Rikka",
+  "ja": "律可",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "rindo_chihaya",
+  "en": "Rindo Chihaya",
+  "ja": "輪堂千速",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "FLOW GLOW"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "roboco_san",
+  "en": "Roboco-san",
+  "ja": "ロボ子さん",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 0"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "rosalyn",
+  "en": "Rosalyn",
+  "ja": "",
+  "branch": "Hololive China",
+  "groups": [
+   "Hololive China"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "rumigaki_rirara",
+  "en": "Rumigaki Rirara",
+  "ja": "琉海垣りらら",
+  "branch": "mekPark",
+  "groups": [
+   "ACHRORA"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "sakamata_chloe",
+  "en": "Sakamata Chloe",
+  "ja": "沙花叉クロヱ",
+  "branch": "Hololive",
+  "groups": [
+   "Hololive"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "sakura_miko",
+  "en": "Sakura Miko",
+  "ja": "さくらみこ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 0"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shiori_novella",
+  "en": "Shiori Novella",
+  "ja": "シオリ・ノヴェラ",
+  "branch": "Hololive English",
+  "groups": [
+   "Advent"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "shirakami_fubuki",
+  "en": "Shirakami Fubuki",
+  "ja": "白上フブキ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 1",
+   "Hololive GAMERS"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shiranui_flare",
+  "en": "Shiranui Flare",
+  "ja": "不知火フレア",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 3 (Hololive Fantasy)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shirogane_noel",
+  "en": "Shirogane Noel",
+  "ja": "白銀ノエル",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 3 (Hololive Fantasy)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "shishiro_botan",
+  "en": "Shishiro Botan",
+  "ja": "獅白ぼたん",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 5 (NePoLaBo)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "sorashina_sopia",
+  "en": "Sorashina Sopia",
+  "ja": "宙科そぴあ",
+  "branch": "Post-merger",
+  "groups": [
+   "ASOBI★MAWARI-TAI!"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "spade_echo",
+  "en": "Spade Echo",
+  "ja": "",
+  "branch": "Hololive China",
+  "groups": [
+   "Hololive China"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "sumishio_sayana",
+  "en": "Sumishio Sayana",
+  "ja": "墨汐さやな",
+  "branch": "mekPark",
+  "groups": [
+   "ACHRORA"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "suzuna_tsuzuri",
+  "en": "Suzuna Tsuzuri",
+  "ja": "鈴隝つづり",
+  "branch": "Post-merger",
+  "groups": [
+   "ASOBI★MAWARI-TAI!"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "takanashi_kiara",
+  "en": "Takanashi Kiara",
+  "ja": "小鳥遊キアラ",
+  "branch": "Hololive English",
+  "groups": [
+   "Myth"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "takane_lui",
+  "en": "Takane Lui",
+  "ja": "鷹嶺ルイ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 6 (Secret Society holoX)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "todoroki_hajime",
+  "en": "Todoroki Hajime",
+  "ja": "轟はじめ",
+  "branch": "Hololive DEV_IS",
+  "groups": [
+   "ReGloss"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "tokino_sora",
+  "en": "Tokino Sora",
+  "ja": "ときのそら",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 0"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "tokoyami_towa",
+  "en": "Tokoyami Towa",
+  "ja": "常闇トワ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 4 (holoForce)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "tsukishita_kaoru",
+  "en": "Tsukishita Kaoru",
+  "ja": "月下カオル",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "tsukumo_sana",
+  "en": "Tsukumo Sana",
+  "ja": "九十九佐命",
+  "branch": "Hololive English",
+  "groups": [
+   "Hololive English"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "tsunomaki_watame",
+  "en": "Tsunomaki Watame",
+  "ja": "角巻わため",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 4 (holoForce)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "uruha_rushia",
+  "en": "Uruha Rushia",
+  "ja": "潤羽るしあ",
+  "branch": "Hololive",
+  "groups": [
+   "Hololive"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "usada_pekora",
+  "en": "Usada Pekora",
+  "ja": "兎田ぺこら",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 3 (Hololive Fantasy)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "utsugi_uyu",
+  "en": "Utsugi Uyu",
+  "ja": "羽継烏有",
+  "branch": "Holostars (Japan)",
+  "groups": [
+   "UPROAR!!"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "vestia_zeta",
+  "en": "Vestia Zeta",
+  "ja": "ベスティア・ゼータ",
+  "branch": "Hololive Indonesia",
+  "groups": [
+   "holoh3ro"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yakushiji_suzaku",
+  "en": "Yakushiji Suzaku",
+  "ja": "薬師寺朱雀",
+  "branch": "Holostars",
+  "groups": [
+   "Holostars"
+  ],
+  "status": "former",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "yatogami_fuma",
+  "en": "Yatogami Fuma",
+  "ja": "夜十神封魔",
+  "branch": "Holostars (Japan)",
+  "groups": [
+   "UPROAR!!"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "yogiri",
+  "en": "Yogiri",
+  "ja": "",
+  "branch": "Hololive China",
+  "groups": [
+   "Hololive China"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "branch"
+ },
+ {
+  "id": "yozora_mel",
+  "en": "Yozora Mel",
+  "ja": "夜空メル",
+  "branch": "Hololive",
+  "groups": [
+   "Hololive"
+  ],
+  "status": "former",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yuikawa_hinami",
+  "en": "Yuikawa Hinami",
+  "ja": "由比河ひなみ",
+  "branch": "mekPark",
+  "groups": [
+   "ACHRORA"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yukihana_lamy",
+  "en": "Yukihana Lamy",
+  "ja": "雪花ラミィ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 5 (NePoLaBo)"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ },
+ {
+  "id": "yukoku_roberu",
+  "en": "Yukoku Roberu",
+  "ja": "夕刻ロベル",
+  "branch": "Holostars (Japan)",
+  "groups": [
+   "Generation 2 (SunTempo)"
+  ],
+  "status": "current",
+  "gender": "male",
+  "aliases": [],
+  "include": false,
+  "exclude_reason": "male"
+ },
+ {
+  "id": "yuzuki_choco",
+  "en": "Yuzuki Choco",
+  "ja": "癒月ちょこ",
+  "branch": "Hololive (Japan)",
+  "groups": [
+   "Generation 2"
+  ],
+  "status": "current",
+  "gender": "female",
+  "aliases": [],
+  "include": true,
+  "exclude_reason": null
+ }
+]

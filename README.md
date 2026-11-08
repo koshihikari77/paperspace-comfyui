@@ -300,7 +300,8 @@ Notebook の先頭セルで次を変更できます。
 - `DOWNLOAD_WAN_MODELS`: Wan本体と、下のWan LoRA設定をまとめて制御
 - `DOWNLOAD_MINIMAX_MODELS`: MiniMax H3の `MINIMAX_H3_GROUPS` を取得
 - `DOWNLOAD_TTS_MODELS`: 日本語TTSのノードを導入し、`TTS_GROUPS` を取得
-- `DOWNLOAD_IMAGE_LORAS`: private mirrorの画像LoRA一式（既定は `False`）
+- `DOWNLOAD_IMAGE_LORAS`: private mirrorの画像LoRA一式（既定は `False`）。キャラLoRAの `loras/nijisanji/` と `loras/hololive/` は含まない
+- `CHARA_LORAS`: キャラLoRA（Nijisanji / Hololive、Illustrious、1キャラ1本）を指定したキャラだけ取得。id・日本語名・`"nijisanji/*"` が使える。台帳と選定ルールは [chara_db/README.md](chara_db/README.md)
 - `DOWNLOAD_EYE_LORAS`: Eye LoRA一式を独立して選択
 - `DOWNLOAD_WAN22_NSFW_LORAS`: private mirrorの `loras/Nsfw/` 一式（既定は `True`）
 - `DOWNLOAD_NASHIKONE_I2V`: 公開HF `nashikone/iroiroLoRA` のWan2.2 I2V bundle を `loras/Nashikone-I2v/` に取得（既定は `True`。`WAN22_LORA_PRESETS` では指定できない別グループ）

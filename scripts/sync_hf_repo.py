@@ -28,6 +28,11 @@ SUPPORTED_DIRS = {
 }
 
 
+# Character LoRAs are fetched per character by scripts/chara_db.py fetch,
+# never as part of the bulk image LoRA sync.
+CHARA_LORA_DIRS = ("loras/nijisanji", "loras/hololive")
+
+
 def normalize_token(value: str | None) -> str | None:
     if value is None:
         return None
@@ -84,7 +89,8 @@ def list_repo_files(repo: str, revision: str, token: str | None, mode: str) -> l
 
         top_level_dir = parts[0]
         if should_include(top_level_dir, mode):
-            selected.append(path)
+            if not path.startswith(tuple(f"{d}/" for d in CHARA_LORA_DIRS)):
+                selected.append(path)
 
     return selected
 
@@ -108,6 +114,8 @@ def sync_repo_subset(repo: str, revision: str, token: str | None, model_root: Pa
         cmd.append("--force-download")
     for pattern in include_patterns(mode):
         cmd.extend(["--include", pattern])
+    for chara_dir in CHARA_LORA_DIRS:
+        cmd.extend(["--exclude", f"{chara_dir}/*", "--exclude", f"{chara_dir}/**"])
 
     subprocess.run(cmd, check=True)
 

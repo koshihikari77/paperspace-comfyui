@@ -1,0 +1,148 @@
+# chara_db の手動設定。編集したら:
+#   python scripts/chara_db.py roster && python scripts/chara_db.py build
+#
+# exclude_branches: 所属名(部分一致)で除外
+# male_branches:    この所属は男性として除外
+# male / female:    個別の性別指定(id は rosters/<franchise>.json の id)
+# exclude:          個別に除外
+# aliases:          Civitai 側の表記ゆれ
+# pin:              選定を固定 {id: civitai modelId}
+# keep_file:        選定を無視して既存ミラーファイルを主にする {id: ファイル名}(改名しない)
+# legacy_files:     キャラに紐づく既存ミラーファイル(主にならなければ alternates)
+
+nijisanji:
+  exclude_branches: [Nijisanji EN, Nijisanji KR, Nijisanji Shanghai, Nijisanji Taipei, Nijisanji IN]
+  default_gender: female
+  male:
+    - akagi_wen
+    - axia_krone
+    - belmond_banderas
+    - debidebi_debiru
+    - derem_kado
+    - etna_crimson
+    - ex_albio
+    - fura_kanato
+    - fushimi_gaku
+    - fuwa_minato
+    - genzuki_tojiro
+    - gilzaren_iii
+    - gwelu_os_gar
+    - hanabatake_chaika
+    - harusaki_air
+    - hayase_sou
+    - hibachi_mana
+    - hitotsubashi_ayato
+    - hoshirube_sho
+    - ibrahim
+    - inami_rai
+    - itsuki_sakyo
+    - joe_rikiichi
+    - kagami_hayato
+    - kaida_haru
+    - kaisei
+    - kaminaga_taiga
+    - kaminari_poaro
+    - kanae
+    - kanda_shoichi
+    - kenmochi_toya
+    - kitami_yusei
+    - koyanagi_rou
+    - kuri_eita
+    - kurohane_kuroto
+    - kuzuha
+    - lauren_iroas
+    - leos_vincent
+    - maimoto_keisuke
+    - mashiro_mome
+    - mayuzumi_kai
+    - milan_kestrel
+    - murakumo_kagetsu
+    - nagao_kei
+    - nakao_azuma
+    - naruse_naru
+    - oliver_evans
+    - onotora
+    - rai_galilei
+    - riksa_dhirendra
+    - saegusa_akina
+    - saiki_ittetsu
+    - sakayori_soma
+    - sasaki_ness
+    - seraph_dazzlegarden
+    - shibuya_hajime
+    - shikinagi_akira
+    - shindo_raito
+    - suzuki_masaru
+    - suzuya_aki
+    - taka_radjiman
+    - tsukahara_daichi
+    - umiyashano_kami
+    - usami_rito
+    - uzuki_kou
+    - watarai_hibari
+    - yamada_ryuichiro
+    - yashiro_kizuku
+    - yumeoi_kakeru
+  aliases:
+    kitakoji_hisui: [Kitakouji Hisui]
+    furen_e_lustario: [Furen E Rustario, Furen Lustario]
+    warabeda_meiji: [Warabeda Meijii]
+    suo_sango: [Suou Sango, 周防サンゴ]
+    yuhi_riri: [Riri Yuuhi, Yuuhi Riri]
+    amagase_muyu: [Nijisanji Muyu]
+  pin: {}
+  keep_file: {}
+  # ミラーにある既存ファイル(改名しない)。選定結果と違えば alternates として残る
+  legacy_files:
+    aiba_uiha: [aiba_uiha-il-06.safetensors]
+    akabane_youko: [niji-youko.safetensors]
+    amagase_muyu: [niji-muyu.safetensors]
+    amamiya_kokoro: [kp_AmamiyaKokoroNijisanji1stCostumeIllustrious_v1_0.safetensors]
+    ars_almal: [kp_ArsAlmalNijisanjiIllustrious_v1_1.safetensors, niji-ars.safetensors]
+    dola: [kp_DolaNijisanjiIllustrious_v1_0.safetensors]
+    furen_e_lustario: [niji-furen.safetensors]
+    hakase_fuyuki: [kp_HakaseFuyukiNijisanji9thCostumeIllustrious_v1_0.safetensors, niji-fuyuki.safetensors]
+    hayama_marin: [hayama_marin.safetensors]
+    honma_himawari: [niji-himawari.safetensors]
+    hoshikawa_sara: [kp_HoshikawaSaraNijisanji1stCostumeIllustrious_v1_0.safetensors, niji-sara.safetensors]
+    igarashi_rika: [igarashi_rika-07.safetensors, niji-rika.safetensors]
+    ishigami_nozomi: [ishigami_nozomi-08.safetensors, niji-nozomi.safetensors]
+    kaburaki_roco: [kaburaki_roco-10.safetensors, niji-roco.safetensors]
+    kitakoji_hisui: [kitakoji_hisui_ilxl_v1.safetensors, niji-hisui.safetensors]
+    koshimizu_toru: [KoshimizuToru_v1.safetensors, niji-toru.safetensors]
+    kuramochi_meruto: [kuramochi_meruto_ilxl_v1.safetensors, niji-meruto.safetensors]
+    kurusu_natsume: [niji-natsume.safetensors]
+    lize_helesta: [kp_LizeHelestaNijisanji4thCostumeIllustrious_v1_0.safetensors, niji-lize.safetensors]
+    luis_cammy: [niji-luis.safetensors]
+    makaino_ririmu: [niji-ririmu.safetensors]
+    matsukai_mao: [niji-mao.safetensors]
+    nanase_suzuna: [nanase_suzuna-il-09.safetensors]
+    naraka: [kp_NarakaNijisanjiIllustrious_v1_0.safetensors, niji-naraka.safetensors]
+    nishizono_chigusa: [niji-chigusa.safetensors, nishizono_chigusa_ilxl_v1.safetensors]
+    nun_bora: [nun_bora-10.safetensors]
+    onomachi_haruka: [niji-haruka.safetensors]
+    ponto_nei: [kp_PontoNeiNijisanjiIllustrious_v1_0.safetensors, niji-nei.safetensors]
+    ratna_petit: [niji-petit.safetensors]
+    sakura_ritsuki: [niji-ritsuki.safetensors]
+    sasaki_saku: [niji-saku.safetensors]
+    shiga_riko: [shiga_riko-il-12.safetensors]
+    shiina_yuika: [kp_ShiinaYuikaNijisanji1stCostumeIllustrious_v1_0.safetensors, niji-yuika.safetensors]
+    shirayuki_tomoe: [niji-tomoe.safetensors]
+    shishido_akari: [Shishido_Akari_IL_1.0.safetensors, niji-akari.safetensors]
+    sister_claire: [niji-claire.safetensors, sister_claire_ilxl_v1.safetensors]
+    sophia_valentine: [SophiaValentine_v1.safetensors, niji-sophia.safetensors]
+    sorahoshi_kirame: [kp_SorahoshiKirameNijisanji1stCostumeIllustrious_v1_0.safetensors]
+    sukoya_kana: [niji-kana1.1.safetensors, sukoya_kana_ilxl_v1.safetensors]
+    takamiya_rion: [TakamiyaRionIllustrious-08.safetensors]
+    umise_yotsuha: [niji-yotsuha.safetensors]
+    yamagami_karuta: [kp_YamagamiKarutaNijisanjiIllustrious_v1_1.safetensors]
+    yorumi_rena: [kp_YorumiRenaNijisanji2ndCostumeIllustrious_v1_0.safetensors]
+
+hololive:
+  exclude_branches: [Hololive English, Holostars English, Hololive China]
+  male_branches: [Holostars]
+  default_gender: female
+  male: []
+  aliases: {}
+  pin: {}
+  keep_file: {}
