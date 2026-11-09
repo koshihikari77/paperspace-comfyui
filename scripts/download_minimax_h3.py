@@ -34,6 +34,8 @@ FAST_REV = "ec1e3aa374a91c57b0b94a1623b7e657c0498cf2"
 X2_REV = "af8c92d267c6849fec5032c35a65d5766737b338"
 EROS_REV = "84c820586c62701c2a29a6eafb94416d490564ed"
 ANIME_LORA_DIR = "loras/civitai-h3/2861135_2D-Anime-Style-NSFW-LORA-H3"
+UNLOCKED_LORA_DIR = "loras/civitai-h3/2925727_MiniMax-H3-NSFW-Unlocked"
+SEAMLESS_REV = "4609f584edd71b7e706e5610bc29b10dfd561b9d"
 
 ASSETS = {
     "anime-sharp": Asset(
@@ -73,6 +75,14 @@ ASSETS = {
         "vae/minimax_h3_video_vae_int8_convrot.safetensors",
         2811065184, "52a2c8c73583c86e4f41cdcce3a6ad0ea562987bc0bf3d60a0cef5f5c8e60c0e",
     ),
+    # dully3865 Seamless Anime VAE v1 (Civitai 3025416): fine-tuned official video VAE, same keys;
+    # removes the 16px grid, slightly faster decode than the official INT8 (issue #18).
+    "seamless-vae": Asset(
+        "vae/minimax_h3_video_vae_dully_seamless_v1_int8convrot.safetensors",
+        "dully3865/Minimax_H3_seamless_anime_VAE", SEAMLESS_REV,
+        "minimax_h3_video_vae_dully_seamless_v1_int8convrot.safetensors",
+        2795769552, "1830b4fca53fb1b0ef8cee5cdf9c95795d6536880c24a006ab4d43e04ad77818",
+    ),
     "audio-vae": Asset(
         "vae/minimax_h3_audio_vae_fp32.safetensors",
         "Comfy-Org/MiniMax-H3", COMFY_REV,
@@ -104,6 +114,12 @@ ASSETS = {
         298957392, "2353de7443b9693a73d23124923b18eab3f0850a68fc32fd36876537c641a721",
         url="https://civitai.com/api/download/models/3386948?type=Model&format=SafeTensor",
     ),
+    # Civitai 2925727 MiniMax H3 NSFW Unlocked V3 (version 3446226); needs a Civitai token.
+    "unlocked-lora": Asset(
+        f"{UNLOCKED_LORA_DIR}/Minimax_H3_Unlocked_V3.safetensors", "", "", "",
+        155094079, "a423ceb3363ab5bf305d99236e6acc7fddab265896e7b4a3d85778396ebc4963",
+        url="https://civitai.com/api/download/models/3446226?type=Model&format=SafeTensor",
+    ),
     "fasth3": Asset(
         "diffusion_models/fastvideo_fasth3_8step_v2_pruned_int8_convrot.safetensors",
         "FastVideo/FastVideo-FastH3-Comfy", FAST_REV,
@@ -114,14 +130,15 @@ ASSETS = {
 
 GROUPS = {
     "postprocess": ("anime-sharp", "rife49"),
-    "fused-x2": ("fused", "qwen", "video-vae", "x2-vae"),
+    "fused-x2": ("fused", "qwen", "seamless-vae", "x2-vae"),
     "x2": ("x2-vae",),
-    "fused-core": ("fused", "qwen", "video-vae"),
-    "10eros-core": ("10eros-beta5", "qwen", "video-vae", "anime-lora"),
+    "fused-core": ("fused", "qwen", "seamless-vae"),
+    "10eros-core": ("10eros-beta5", "qwen", "seamless-vae", "anime-lora", "unlocked-lora"),
+    "video-vae": ("video-vae",),
     "audio": ("audio-vae",),
-    "official-fl2va": ("official-fl2va", "qwen", "video-vae"),
-    "official-ref2va": ("official-ref2va", "qwen", "video-vae"),
-    "fasth3": ("fasth3", "qwen", "video-vae"),
+    "official-fl2va": ("official-fl2va", "qwen", "seamless-vae"),
+    "official-ref2va": ("official-ref2va", "qwen", "seamless-vae"),
+    "fasth3": ("fasth3", "qwen", "seamless-vae"),
 }
 
 
